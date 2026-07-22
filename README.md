@@ -10,7 +10,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## The knowledge graph
 
-**[Open the interactive atlas](https://USERNAME.github.io/MindOverModel-TechNews/graph.html)** *(requires GitHub Pages — see below)*
+**[Open the interactive atlas](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html)** *(requires GitHub Pages — see below)*
 
 Filter by theme, filter by week on the rail along the bottom, search entries, and click any node for a summary and source link. Deep links like `graph.html#2026.07.12` pre-select a single week. The graph is regenerated from [`graph-data.json`](./graph-data.json) every week — that JSON is the archive's source of truth.
 
@@ -18,7 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
-| 2026.07.12 | [digest-2026.07.12.md](./digest-2026.07.12.md) | [view](https://USERNAME.github.io/MindOverModel-TechNews/graph.html#2026.07.12) |
+| 2026.07.12 | [digest-2026.07.12.md](./digest-2026.07.12.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.12) |
 
 ## How it's made
 
@@ -41,9 +41,9 @@ The digest markdown renders directly on github.com (including the Mermaid mindma
 
 1. Repo **Settings → Pages**
 2. Source: **Deploy from a branch** · Branch: **main** · Folder: **/ (root)** · Save
-3. After ~1 minute the site is live at `https://USERNAME.github.io/MindOverModel-TechNews/`
-4. Replace `USERNAME` throughout this README with your GitHub username
+3. After ~1 minute the site is live at `https://terrytompkins.github.io/MindOverModel-TechNews/`
+4. Replace `terrytompkins` throughout this README with your GitHub username
 
 ---
 
-*Curated by Terry. Digest and graph generated with Claude.*
+*Curated by Terry Tompkins. Digest and graph generated with Claude.*

@@ -12,35 +12,35 @@ A meta-observation worth keeping: several of the week's loudest claims were subs
 mindmap
   root((Week of 2026.07.12))
     Coding Agents and CLI Wars
-      "Kimi Code CLI"
-      "Warp goes agentic"
-      "free-claude-code router"
-      "loopkit orchestration"
-      "wigolo local web tools"
-      "X-intelligence skill"
-      "awesome-llm-apps"
+      Kimi Code CLI
+      Warp goes agentic
+      free-claude-code router
+      loopkit orchestration
+      wigolo local web tools
+      X-intelligence skill
+      awesome-llm-apps
     Local LLMs and Inference
-      "Bonsai 27B 1-bit"
-      "Colibri disk streaming"
-      "Ling-2.6-1T"
-      "MiniCPM5 distillation claim"
-      "N-gram speculation"
-      "MTP on free Colab"
-      "NVIDIA free API year"
-      "Karpathy microGPT"
+      Bonsai 27B 1-bit
+      Colibri disk streaming
+      Ling-2.6-1T
+      MiniCPM5 distillation claim
+      N-gram speculation
+      MTP on free Colab
+      NVIDIA free API year
+      Karpathy microGPT
     Open Source vs Paid SaaS
-      "LangExtract"
-      "voicebox"
-      "Penpot"
-      "screenshot-to-code"
-      "Pascal Editor"
-      "Crawl4AI"
-      "BrowserOS"
+      LangExtract
+      voicebox
+      Penpot
+      screenshot-to-code
+      Pascal Editor
+      Crawl4AI
+      BrowserOS
     Memory and Knowledge Systems
-      "Claude plus Obsidian brain"
-      "Always-on memory agent"
-      "Company brain concepts"
-      "pdf-brain"
+      Claude plus Obsidian brain
+      Always-on memory agent
+      Company brain concepts
+      pdf-brain
     Quick Hits
 ```
 

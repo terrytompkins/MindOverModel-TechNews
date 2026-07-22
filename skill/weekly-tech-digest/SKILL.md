@@ -46,13 +46,12 @@ Sort entries: substantial (has a resource link OR ≥ ~400 chars of real post te
 Structure, in order:
 - Title: `# Weekly Tech Digest — Week of YYYY.MM.DD`, then a one-line stats/date bar linking to `./graph.html#YYYY.MM.DD`.
 - **"This week's through-lines"**: an editorial intro naming the 2–4 currents connecting the week. This is the value-add — write it after reading everything, not before.
-- **Mermaid mindmap** in a ```` ```mermaid ```` fence (renders natively on GitHub): root = week, branches = themes, leaves = short entry labels. **Follow this cross-renderer-verified convention exactly** (older Mermaid versions in VS Code/Cursor previewers are the constraint, verified 2026-07-22 against mermaid.ai v11 AND VS Code's older bundled Mermaid):
-  - Root: `root((Week of YYYY.MM.DD))` on a single line — nothing else in it.
-  - Theme lines: plain unquoted text, letters and spaces only (write `and`, never `&`).
-  - Leaf lines: **always wrapped in double quotes** — `"Bonsai 27B 1-bit"`. Quoting is what stops older mindmap parsers misreading leading digits, hyphens, and dots (`1-bit`, `Ling-2.6-1T`, `N-gram`) as node-shape syntax.
-  - Inside the quotes, only letters, digits, spaces, hyphens, dots, and plus signs. Never embed quotes, ampersands, HTML tags, colons, parentheses, brackets, or hash marks.
+- **Mermaid mindmap** in a ```` ```mermaid ```` fence (renders natively on GitHub): root = week, branches = themes, leaves = short entry labels. **Follow this convention exactly — verified rendering on GitHub 2026-07-22:**
+  - Root: `root((Week of YYYY.MM.DD))` on a single line — nothing else in it, no HTML tags.
+  - Every other line (themes and leaves): plain **unquoted** text using only letters, digits, spaces, hyphens, dots, and plus signs. Write `and`, never `&`. No quotes, HTML tags, colons, parentheses, brackets, or hash marks.
+  - **Do NOT quote labels.** Mindmap grammar (unlike flowcharts) treats the whole line as the label, so quote marks render as literal visible characters on GitHub. This was tested both ways; quoting bought no compatibility (renderers lacking mindmap support fail on the diagram type itself, not the syntax) and disfigured the output.
   - Spaces for indentation, never tabs.
-  - Lint before delivering: theme lines match `^[A-Za-z ]+$`, leaf lines match `^"[A-Za-z0-9 .+-]+"$`.
+  - Lint before delivering: every non-root line must match `^[A-Za-z0-9 .+-]+$` after stripping indentation.
 - **Theme sections**, each entry as: `### Name — hook`, then a paragraph giving the genuine gist (a reader should get the story without clicking through), an italicized *Why it matters* sentence, and a `**Resources:**` line with real outbound links. Annotate honestly: "(second-hop shortener; final destination not verified)", "(no link captured in post)", "(URL inferred from capture)".
 - **Quick hits**: bulleted one-liners with links.
 - Footer noting capture count, tag, and the honesty policy.
