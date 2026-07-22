@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Tech Digest — Knowledge Atlas</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.9/standalone/umd/vis-network.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#101418; --panel:#1a2027; --panel-edge:#2a323c;
+    --ink:#e8e4d8; --ink-dim:#8a9099;
+    --brass:#e0b94c; --verdigris:#5fb3a1; --rust:#c4674a; --periwinkle:#8b96c9;
+  }
+  *{box-sizing:border-box;margin:0}
+  html,body{height:100%}
+  body{background:var(--ground);color:var(--ink);font-family:'IBM Plex Mono',monospace;overflow:hidden}
+  #net{position:absolute;inset:0}
+  header{position:absolute;top:20px;left:24px;z-index:5;pointer-events:none}
+  header h1{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(20px,2.6vw,30px);letter-spacing:.01em}
+  header p{font-size:11px;color:var(--ink-dim);margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
+  #controls{position:absolute;top:20px;right:24px;z-index:5;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+  #search{background:var(--panel);border:1px solid var(--panel-edge);color:var(--ink);
+    font:inherit;font-size:12px;padding:8px 12px;width:220px;border-radius:2px}
+  #search::placeholder{color:var(--ink-dim)}
+  #search:focus{outline:2px solid var(--brass);outline-offset:1px}
+  #legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:320px}
+  .chip{font-size:10.5px;padding:5px 10px;border-radius:2px;border:1px solid var(--panel-edge);
+    background:var(--panel);color:var(--ink);cursor:pointer;letter-spacing:.03em}
+  .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+  .chip[aria-pressed="false"]{opacity:.38}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:1px}
+  /* Signature: the week rail — one tick per captured week, growing over time */
+  #weekrail{position:absolute;left:0;right:0;bottom:0;z-index:5;background:linear-gradient(transparent, rgba(16,20,24,.92) 30%);
+    padding:26px 24px 14px;display:flex;gap:2px;align-items:flex-end;overflow-x:auto}
+  .wk{background:none;border:none;cursor:pointer;padding:0 5px;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink-dim)}
+  .wk .tick{width:3px;height:22px;background:var(--panel-edge);border-radius:1px;transition:height .15s}
+  .wk[aria-pressed="true"]{color:var(--ink)}
+  .wk[aria-pressed="true"] .tick{background:var(--brass);height:34px}
+  .wk:hover .tick{height:30px}
+  .wk span{font-size:9.5px;letter-spacing:.05em;writing-mode:horizontal-tb;white-space:nowrap}
+  .wk:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+  #railhint{position:absolute;right:24px;bottom:64px;z-index:5;font-size:10px;color:var(--ink-dim);letter-spacing:.05em}
+  #card{position:absolute;left:24px;bottom:76px;z-index:6;max-width:340px;background:var(--panel);
+    border:1px solid var(--panel-edge);border-left:3px solid var(--brass);padding:14px 16px;border-radius:2px;display:none}
+  #card h2{font-family:'Fraunces',serif;font-size:16px;font-weight:650;margin-bottom:6px}
+  #card .meta{font-size:10px;color:var(--ink-dim);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  #card p{font-size:12px;line-height:1.55}
+  #card a{color:var(--brass);word-break:break-all;font-size:11.5px;display:inline-block;margin-top:8px}
+  #card .close{position:absolute;top:6px;right:9px;background:none;border:none;color:var(--ink-dim);cursor:pointer;font:inherit;font-size:13px}
+  @media (prefers-reduced-motion: reduce){ .wk .tick{transition:none} }
+  @media (max-width:640px){ #search{width:150px} #legend{max-width:200px} header h1{max-width:55vw} }
+</style>
+</head>
+<body>
+<header>
+  <h1>Knowledge Atlas</h1>
+  <p id="subtitle">weekly tech digest &middot; cumulative</p>
+</header>
+<div id="controls">
+  <input id="search" type="search" placeholder="search entries…" aria-label="Search entries">
+  <div id="legend" role="group" aria-label="Filter by theme"></div>
+</div>
+<div id="net" role="application" aria-label="Knowledge graph"></div>
+<aside id="card" aria-live="polite">
+  <button class="close" aria-label="Close details">&times;</button>
+  <h2></h2><div class="meta"></div><p></p><a target="_blank" rel="noopener"></a>
+</aside>
+<div id="railhint">select weeks to filter</div>
+<nav id="weekrail" aria-label="Weeks captured"></nav>
+<script>
+const DATA = /*__GRAPH_DATA__*/;
+
+const THEME_COLORS = { 0:'#e0b94c', 1:'#5fb3a1', 2:'#c4674a', 3:'#8b96c9' };
+const themeColor = {}; DATA.themes.forEach((t,i)=> themeColor[t.id]=THEME_COLORS[i%4]);
+
+const activeThemes = new Set(DATA.themes.map(t=>t.id));
+const activeWeeks  = new Set(DATA.weeks);          // all weeks on by default
+let searchTerm = '';
+
+// Honor deep links: graph.html#2026.07.12 pre-selects that week only
+const hashWeek = decodeURIComponent(location.hash.slice(1));
+if (DATA.weeks.includes(hashWeek)) { activeWeeks.clear(); activeWeeks.add(hashWeek); }
+
+function visible(e){
+  return activeThemes.has(e.theme) && activeWeeks.has(e.week) &&
+    (!searchTerm || (e.label+' '+(e.summary||'')).toLowerCase().includes(searchTerm));
+}
+function buildSets(){
+  const nodes=[], edges=[];
+  const themeHasVisible = {};
+  DATA.entries.forEach(e=>{ if(visible(e)) themeHasVisible[e.theme]=true; });
+  DATA.themes.forEach(t=>{
+    if(!activeThemes.has(t.id) || !themeHasVisible[t.id]) return;
+    nodes.push({id:t.id,label:t.label,shape:'ellipse',
+      color:{background:'#1a2027',border:themeColor[t.id]},borderWidth:2,
+      font:{color:'#e8e4d8',face:'IBM Plex Mono',size:15},margin:10});
+  });
+  DATA.entries.forEach(e=>{
+    if(!visible(e)) return;
+    nodes.push({id:e.id,label:e.label,shape:'dot',
+      size:e.quick_hit?7:11,
+      color:{background:themeColor[e.theme],border:themeColor[e.theme]},
+      font:{color:'#c9cdd4',face:'IBM Plex Mono',size:11},
+      title:`${e.label} — week ${e.week}`});
+    edges.push({from:e.id,to:e.theme,color:{color:'#2a323c',highlight:themeColor[e.theme]},width:1});
+  });
+  return {nodes:new vis.DataSet(nodes),edges:new vis.DataSet(edges)};
+}
+
+let network;
+function render(){
+  const sets = buildSets();
+  if(network){ network.setData(sets); return; }
+  network = new vis.Network(document.getElementById('net'), sets, {
+    physics:{barnesHut:{gravitationalConstant:-2600,springLength:130,avoidOverlap:.3},stabilization:{iterations:180}},
+    interaction:{hover:true},
+    nodes:{shadow:false}, edges:{smooth:{type:'continuous'}}
+  });
+  network.once('stabilizationIterationsDone',()=> network.setOptions({physics:false}));
+  network.on('click', p=>{
+    const card=document.getElementById('card');
+    if(!p.nodes.length){ card.style.display='none'; return; }
+    const e = DATA.entries.find(x=>x.id===p.nodes[0]);
+    if(!e){ card.style.display='none'; return; }
+    card.querySelector('h2').textContent = e.label;
+    card.querySelector('.meta').textContent =
+      `week ${e.week} · ${DATA.themes.find(t=>t.id===e.theme).label}${e.quick_hit?' · quick hit':''}`;
+    card.querySelector('p').textContent = e.summary||'';
+    const a = card.querySelector('a');
+    if(e.url){a.href=e.url;a.textContent=e.url;a.style.display='inline-block';}
+    else {a.style.display='none';}
+    card.style.display='block';
+  });
+}
+document.querySelector('#card .close').addEventListener('click',()=>card.style.display='none');
+
+// legend chips
+const legend = document.getElementById('legend');
+DATA.themes.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.setAttribute('aria-pressed','true');
+  b.innerHTML=`<span class="dot" style="background:${themeColor[t.id]}"></span>${t.label}`;
+  b.onclick=()=>{ activeThemes.has(t.id)?activeThemes.delete(t.id):activeThemes.add(t.id);
+    b.setAttribute('aria-pressed',String(activeThemes.has(t.id))); render(); };
+  legend.appendChild(b);
+});
+
+// week rail (signature): one tick per week, grows as the archive grows
+const rail = document.getElementById('weekrail');
+DATA.weeks.forEach(w=>{
+  const b=document.createElement('button');
+  b.className='wk'; b.setAttribute('aria-pressed',String(activeWeeks.has(w)));
+  b.innerHTML=`<span class="tick"></span><span>${w}</span>`;
+  b.onclick=()=>{ activeWeeks.has(w)?activeWeeks.delete(w):activeWeeks.add(w);
+    if(!activeWeeks.size) DATA.weeks.forEach(x=>activeWeeks.add(x)); // never empty
+    document.querySelectorAll('.wk').forEach((el,i)=>el.setAttribute('aria-pressed',String(activeWeeks.has(DATA.weeks[i]))));
+    render(); };
+  rail.appendChild(b);
+});
+
+document.getElementById('search').addEventListener('input',ev=>{
+  searchTerm=ev.target.value.trim().toLowerCase(); render();
+});
+document.getElementById('subtitle').textContent =
+  `weekly tech digest · ${DATA.weeks.length} week${DATA.weeks.length>1?'s':''} · ${DATA.entries.length} entries`;
+render();
+</script>
+</body>
+</html>

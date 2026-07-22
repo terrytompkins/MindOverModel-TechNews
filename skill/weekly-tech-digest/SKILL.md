@@ -1,0 +1,82 @@
+---
+name: weekly-tech-digest
+description: Turn one week of Terry's Raindrop.io captures (tagged YYYY.MM.DD) into a polished tech-news digest markdown file plus a cumulative interactive knowledge graph. Use this skill whenever Terry asks to run the weekly digest, build the weekly tech news post, process a week's Raindrop bookmarks/captures, update the knowledge graph, or mentions a week tag like 2026.07.12 in the context of the digest pipeline — even if they just say "run this week" or "do the digest".
+---
+
+# Weekly Tech Digest
+
+Transforms one week's Raindrop.io captures into two artifacts:
+1. `digest-YYYY.MM.DD.md` — a curated, self-contained digest post (GitHub-flavored markdown, embedded Mermaid mindmap). New file each week.
+2. `graph.html` + `graph-data.json` — ONE cumulative interactive knowledge graph across all weeks. The JSON is the durable source of truth; the HTML is regenerated from it every run.
+
+## Inputs per run
+
+- **Raindrop API token**: Terry pastes it into chat at run start. Never store it in any file that persists.
+- **Week tag**: `YYYY.MM.DD`, the Sunday starting the week. One shared tag per week — filter on tag membership, no date-range logic.
+- **Prior state**: the current `graph-data.json` (and optionally last week's digest, for continuity). Ask Terry to upload it, or find it in the working folder. If absent, confirm with Terry before initializing a fresh graph — a missing file usually means it wasn't uploaded, not that it doesn't exist.
+
+## Workflow
+
+### 1. Fetch and extract
+
+```bash
+pip install beautifulsoup4 --break-system-packages
+python3 scripts/fetch_week.py --token TOKEN --tag YYYY.MM.DD --outdir run
+```
+
+This queries the week's bookmarks, downloads every `ready` permanent copy (gzip → text), harvests resource links, runs the content sanity check, and writes `run/corpus.json`. See `references/raindrop-facts.md` for every verified API behavior the script relies on — read it if anything fails or looks unfamiliar.
+
+### 2. Read and verify the corpus
+
+Read `run/corpus.json` in full. For each entry, confirm the pipeline's judgment rather than trusting it blindly:
+
+- Entries flagged not-sane get the fallback chain: Terry's `note` → `excerpt` + resolved t.co links → targeted web search → honest labeling. Never fabricate a summary from a title alone.
+- `inferred_links` are github.com URL guesses built from path-like text (`/user/repo`) in posts with no anchors. Treat as candidates; label "(URL inferred from capture)" in the digest.
+- **Detect duplicate stories**: different accounts often post the same tool/news in the same week. Merge them into one entry citing all raindrop ids; a same-week duplicate is itself signal worth one line ("hit the feed from multiple accounts").
+- **Mine the replies**: snapshots include reply threads, which frequently contain corrections, debunkings, caveats, and extra links. Reflect substantive corrections in the entry — hype-plus-correction is often the real story.
+
+### 3. Cluster into themes — READ EXISTING THEMES FIRST
+
+Open the current `graph-data.json` and read its `themes` list **before** clustering. Match this week's content to existing themes wherever a reasonable fit exists; mint a new theme only when nothing fits. This prevents near-duplicate themes ("Coding Agents" vs "Agentic Coding") from fragmenting the cumulative graph. The theme list is a curated taxonomy that should grow slowly.
+
+Sort entries: substantial (has a resource link OR ≥ ~400 chars of real post text) vs **Quick Hits** (thin, link-only, or announcement-only items — one or two lines each).
+
+### 4. Write the digest
+
+Structure, in order:
+- Title: `# Weekly Tech Digest — Week of YYYY.MM.DD`, then a one-line stats/date bar linking to `./graph.html#YYYY.MM.DD`.
+- **"This week's through-lines"**: an editorial intro naming the 2–4 currents connecting the week. This is the value-add — write it after reading everything, not before.
+- **Mermaid mindmap** in a ```` ```mermaid ```` fence (renders natively on GitHub): root = week, branches = themes, leaves = short entry labels. **Follow this cross-renderer-verified convention exactly** (older Mermaid versions in VS Code/Cursor previewers are the constraint, verified 2026-07-22 against mermaid.ai v11 AND VS Code's older bundled Mermaid):
+  - Root: `root((Week of YYYY.MM.DD))` on a single line — nothing else in it.
+  - Theme lines: plain unquoted text, letters and spaces only (write `and`, never `&`).
+  - Leaf lines: **always wrapped in double quotes** — `"Bonsai 27B 1-bit"`. Quoting is what stops older mindmap parsers misreading leading digits, hyphens, and dots (`1-bit`, `Ling-2.6-1T`, `N-gram`) as node-shape syntax.
+  - Inside the quotes, only letters, digits, spaces, hyphens, dots, and plus signs. Never embed quotes, ampersands, HTML tags, colons, parentheses, brackets, or hash marks.
+  - Spaces for indentation, never tabs.
+  - Lint before delivering: theme lines match `^[A-Za-z ]+$`, leaf lines match `^"[A-Za-z0-9 .+-]+"$`.
+- **Theme sections**, each entry as: `### Name — hook`, then a paragraph giving the genuine gist (a reader should get the story without clicking through), an italicized *Why it matters* sentence, and a `**Resources:**` line with real outbound links. Annotate honestly: "(second-hop shortener; final destination not verified)", "(no link captured in post)", "(URL inferred from capture)".
+- **Quick hits**: bulleted one-liners with links.
+- Footer noting capture count, tag, and the honesty policy.
+
+The digest must be self-contained and render well on GitHub, Obsidian, and common blog platforms. No fabricated content, ever — captured text and Terry's notes are the only sources for claims about a post.
+
+### 5. Update the cumulative graph
+
+Write `run/week-entries.json` (shape documented at the top of `scripts/build_graph.py`): the week's themes (reused ids + any new) and one record per digest entry — short label, theme id, best single URL (or null), raindrop ids, one-line summary, `quick_hit` flag. Then:
+
+```bash
+python3 scripts/build_graph.py --week-entries run/week-entries.json \
+    --data graph-data.json --template assets/graph_template.html --out graph.html
+```
+
+The merge is idempotent per week (safe to re-run) and appends the week to the viewer's week rail. Never edit `graph.html` directly; change the template or the data.
+
+### 6. Deliver
+
+Present three files to Terry: `digest-YYYY.MM.DD.md`, `graph-data.json`, `graph.html`. Remind Terry that `graph-data.json` must be preserved (repo/OneDrive) — it is the cumulative state the next run needs.
+
+## Standing rules
+
+- **Honesty over completeness**: label unreadable or partially-recovered entries plainly. An honest "(no link captured)" beats a plausible guess presented as fact.
+- **Second-hop shorteners** (`osp.fyi` is the known recurring one): cite as-is with an annotation, and tell Terry which new shortener domains appeared so they can be added to the network allowlist (changes require a new chat).
+- **Suspension losses are acceptable**: if a capture's snapshot is a suspension/unavailable page, say so in the digest entry and move on.
+- **Token hygiene**: the token lives only in the chat and in the ephemeral run command. Never write it into corpus.json, the digest, project knowledge, or this skill.

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Tech Digest — Knowledge Atlas</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.9/standalone/umd/vis-network.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#101418; --panel:#1a2027; --panel-edge:#2a323c;
+    --ink:#e8e4d8; --ink-dim:#8a9099;
+    --brass:#e0b94c; --verdigris:#5fb3a1; --rust:#c4674a; --periwinkle:#8b96c9;
+  }
+  *{box-sizing:border-box;margin:0}
+  html,body{height:100%}
+  body{background:var(--ground);color:var(--ink);font-family:'IBM Plex Mono',monospace;overflow:hidden}
+  #net{position:absolute;inset:0}
+  header{position:absolute;top:20px;left:24px;z-index:5;pointer-events:none}
+  header h1{font-family:'Fraunces',serif;font-weight:650;font-size:clamp(20px,2.6vw,30px);letter-spacing:.01em}
+  header p{font-size:11px;color:var(--ink-dim);margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
+  #controls{position:absolute;top:20px;right:24px;z-index:5;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+  #search{background:var(--panel);border:1px solid var(--panel-edge);color:var(--ink);
+    font:inherit;font-size:12px;padding:8px 12px;width:220px;border-radius:2px}
+  #search::placeholder{color:var(--ink-dim)}
+  #search:focus{outline:2px solid var(--brass);outline-offset:1px}
+  #legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;max-width:320px}
+  .chip{font-size:10.5px;padding:5px 10px;border-radius:2px;border:1px solid var(--panel-edge);
+    background:var(--panel);color:var(--ink);cursor:pointer;letter-spacing:.03em}
+  .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+  .chip[aria-pressed="false"]{opacity:.38}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:1px}
+  /* Signature: the week rail — one tick per captured week, growing over time */
+  #weekrail{position:absolute;left:0;right:0;bottom:0;z-index:5;background:linear-gradient(transparent, rgba(16,20,24,.92) 30%);
+    padding:26px 24px 14px;display:flex;gap:2px;align-items:flex-end;overflow-x:auto}
+  .wk{background:none;border:none;cursor:pointer;padding:0 5px;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink-dim)}
+  .wk .tick{width:3px;height:22px;background:var(--panel-edge);border-radius:1px;transition:height .15s}
+  .wk[aria-pressed="true"]{color:var(--ink)}
+  .wk[aria-pressed="true"] .tick{background:var(--brass);height:34px}
+  .wk:hover .tick{height:30px}
+  .wk span{font-size:9.5px;letter-spacing:.05em;writing-mode:horizontal-tb;white-space:nowrap}
+  .wk:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+  #railhint{position:absolute;right:24px;bottom:64px;z-index:5;font-size:10px;color:var(--ink-dim);letter-spacing:.05em}
+  #card{position:absolute;left:24px;bottom:76px;z-index:6;max-width:340px;background:var(--panel);
+    border:1px solid var(--panel-edge);border-left:3px solid var(--brass);padding:14px 16px;border-radius:2px;display:none}
+  #card h2{font-family:'Fraunces',serif;font-size:16px;font-weight:650;margin-bottom:6px}
+  #card .meta{font-size:10px;color:var(--ink-dim);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  #card p{font-size:12px;line-height:1.55}
+  #card a{color:var(--brass);word-break:break-all;font-size:11.5px;display:inline-block;margin-top:8px}
+  #card .close{position:absolute;top:6px;right:9px;background:none;border:none;color:var(--ink-dim);cursor:pointer;font:inherit;font-size:13px}
+  @media (prefers-reduced-motion: reduce){ .wk .tick{transition:none} }
+  @media (max-width:640px){ #search{width:150px} #legend{max-width:200px} header h1{max-width:55vw} }
+</style>
+</head>
+<body>
+<header>
+  <h1>Knowledge Atlas</h1>
+  <p id="subtitle">weekly tech digest &middot; cumulative</p>
+</header>
+<div id="controls">
+  <input id="search" type="search" placeholder="search entries…" aria-label="Search entries">
+  <div id="legend" role="group" aria-label="Filter by theme"></div>
+</div>
+<div id="net" role="application" aria-label="Knowledge graph"></div>
+<aside id="card" aria-live="polite">
+  <button class="close" aria-label="Close details">&times;</button>
+  <h2></h2><div class="meta"></div><p></p><a target="_blank" rel="noopener"></a>
+</aside>
+<div id="railhint">select weeks to filter</div>
+<nav id="weekrail" aria-label="Weeks captured"></nav>
+<script>
+const DATA = {"version": 1, "weeks": ["2026.07.12"], "themes": [{"id": "theme:coding-agents", "label": "Coding Agents & CLI Wars"}, {"id": "theme:local-llms", "label": "Local LLMs & Inference"}, {"id": "theme:oss-vs-saas", "label": "Open Source vs Paid SaaS"}, {"id": "theme:memory-knowledge", "label": "Memory & Knowledge Systems"}], "entries": [{"id": "entry:kimi-code", "label": "Kimi Code CLI", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://github.com/MoonshotAI/kimi-code", "raindrop_ids": ["1794850927", "1794812728"], "summary": "Moonshot's free, open-source Claude Code clone", "quick_hit": false}, {"id": "entry:warp-agentic", "label": "Warp goes agentic", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://osp.fyi/warp", "raindrop_ids": ["1794852540"], "summary": "Warp's OSS client becomes a full agentic dev environment", "quick_hit": false}, {"id": "entry:free-claude-code", "label": "free-claude-code router", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://github.com/Alishahryar1/free-claude-code", "raindrop_ids": ["1792863561"], "summary": "Reroutes Claude Code CLI to 10 free models", "quick_hit": false}, {"id": "entry:loopkit", "label": "loopkit orchestration", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://github.com/Archive228/loopkit", "raindrop_ids": ["1792872928"], "summary": "Plan/execute/judge model-routing loop patterns", "quick_hit": false}, {"id": "entry:wigolo", "label": "wigolo local web layer", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://github.com/KnockOutEZ/wigolo", "raindrop_ids": ["1794835501"], "summary": "Local-first search/fetch/crawl MCP for coding agents", "quick_hit": false}, {"id": "entry:x-agent-intel", "label": "x-agent-intelligence skill", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://github.com/dair-ai/dair-academy-plugins/tree/main/plugins/x-agent-intelligence", "raindrop_ids": ["1794850204"], "summary": "Agent-curated X news feed skill", "quick_hit": false}, {"id": "entry:awesome-llm-apps", "label": "awesome-llm-apps 123k\u2605", "week": "2026.07.12", "theme": "theme:coding-agents", "url": "https://github.com/Shubhamsaboo/awesome-llm-apps", "raindrop_ids": ["1794861130"], "summary": "100+ open-source AI agents and skills catalog", "quick_hit": false}, {"id": "entry:bonsai-27b", "label": "Bonsai 27B 1-bit", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://huggingface.co/collections/prism-ml/bonsai-27b", "raindrop_ids": ["1792103508"], "summary": "54GB\u21923.8GB via 1-bit quant; runs in-browser on WebGPU", "quick_hit": false}, {"id": "entry:colibri", "label": "Colibri disk streaming", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://github.com/JustVugg/colibri", "raindrop_ids": ["1789343996"], "summary": "744B model on 25GB RAM, no GPU (~1 tok/s PoC)", "quick_hit": false}, {"id": "entry:ling-1t", "label": "Ling-2.6-1T", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://huggingface.co/inclusionAI/Ling-2.6-1T", "raindrop_ids": ["1792102441"], "summary": "Open 1T-param model claiming frontier agentic coding", "quick_hit": false}, {"id": "entry:minicpm-distill", "label": "MiniCPM5 'distillation'", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://huggingface.co/GnLOLot/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-GGUF", "raindrop_ids": ["1792103708"], "summary": "'Distilled Fable 5' 1B \u2014 debunked as SFT in replies", "quick_hit": false}, {"id": "entry:ngram-spec", "label": "N-gram speculation", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://colab.research.google.com/drive/12HEcqK7PLG7bqFgUouq5FustdOyijJpn?usp=sharing", "raindrop_ids": ["1792872653"], "summary": "Free llama.cpp speedup for repetitive generation", "quick_hit": false}, {"id": "entry:mtp-colab", "label": "MTP on free Colab", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://colab.research.google.com/drive/1-Y5ZgN08-yMwRZc7PvhAuJxoPpzzoZcQ?usp=sharing", "raindrop_ids": ["1790291668"], "summary": "Gemma 4 26B at 64.9 t/s on free T4", "quick_hit": false}, {"id": "entry:nvidia-free", "label": "NVIDIA free API year", "week": "2026.07.12", "theme": "theme:local-llms", "url": "http://build.nvidia.com/models", "raindrop_ids": ["1791333540"], "summary": "140+ models free for a year, 40 req/min", "quick_hit": false}, {"id": "entry:microgpt", "label": "Karpathy microGPT", "week": "2026.07.12", "theme": "theme:local-llms", "url": "https://github.com/karpathy/karpathy.github.io/blob/master/_posts/2026-02-12-microgpt.markdown", "raindrop_ids": ["1792863765"], "summary": "Full GPT in 200 lines of pure Python", "quick_hit": false}, {"id": "entry:langextract", "label": "LangExtract", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/google/langextract", "raindrop_ids": ["1794832474"], "summary": "Google's OSS source-grounded document extraction", "quick_hit": false}, {"id": "entry:voicebox", "label": "voicebox", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/jamiepine/voicebox", "raindrop_ids": ["1794812922"], "summary": "Local MIT voice cloning via MCP, 23 languages", "quick_hit": false}, {"id": "entry:penpot", "label": "Penpot", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/penpot/penpot", "raindrop_ids": ["1790292837"], "summary": "OSS Figma alternative with agent-editable designs", "quick_hit": false}, {"id": "entry:screenshot-to-code", "label": "screenshot-to-code", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": null, "raindrop_ids": ["1791334558"], "summary": "Free v0 alternative at 73k stars (no link captured)", "quick_hit": false}, {"id": "entry:pascal-editor", "label": "Pascal Editor", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": null, "raindrop_ids": ["1792874582"], "summary": "Browser-native 3D BIM editor on WebGPU (no link captured)", "quick_hit": false}, {"id": "entry:crawl4ai", "label": "Crawl4AI", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/unclecode/crawl4AI", "raindrop_ids": ["1792866103"], "summary": "60k\u2605 web-to-Markdown crawler for AI", "quick_hit": false}, {"id": "entry:browseros", "label": "BrowserOS", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/browseros-ai/BrowserOS", "raindrop_ids": ["1790285930"], "summary": "Chromium fork with native agent loop + MCP server", "quick_hit": false}, {"id": "entry:obsidian-brain", "label": "Claude + Obsidian brain", "week": "2026.07.12", "theme": "theme:memory-knowledge", "url": null, "raindrop_ids": ["1794861049"], "summary": "Self-organizing second brain via continuous RAG (no link captured)", "quick_hit": false}, {"id": "entry:memory-agent", "label": "Always-on memory agent", "week": "2026.07.12", "theme": "theme:memory-knowledge", "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent", "raindrop_ids": ["1791333753"], "summary": "Google's 24/7 folder-watching memory agent", "quick_hit": false}, {"id": "entry:company-brain", "label": "Company brain concepts", "week": "2026.07.12", "theme": "theme:memory-knowledge", "url": "https://github.com/vn-envy/Smriti", "raindrop_ids": ["1791333902"], "summary": "KG / MCP / skills / hybrid-search vocabulary", "quick_hit": false}, {"id": "entry:pdf-brain", "label": "pdf-brain", "week": "2026.07.12", "theme": "theme:memory-knowledge", "url": "https://github.com/joelhooks/pdf-brain", "raindrop_ids": ["1792102918"], "summary": "Local semantic search over PDFs and Markdown", "quick_hit": false}, {"id": "entry:grok-build", "label": "Grok Build OSS", "week": "2026.07.12", "theme": "theme:coding-agents", "url": null, "raindrop_ids": ["1792865732"], "summary": "Quick hit: announcement only, no link captured", "quick_hit": true}, {"id": "entry:openvid", "label": "OpenVid", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/CristianOlivera1/openvid", "raindrop_ids": ["1794852105"], "summary": "Quick hit: browser-based product demo tool", "quick_hit": true}, {"id": "entry:likec4", "label": "LikeC4", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/likec4/likec4", "raindrop_ids": ["1794842576"], "summary": "Quick hit: live architecture diagrams from code", "quick_hit": true}, {"id": "entry:macusb", "label": "MacUSB", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://alternativeto.net/software/macusb/about/", "raindrop_ids": ["1794841398"], "summary": "Quick hit: OSS bootable-USB creator for Mac", "quick_hit": true}, {"id": "entry:prowler", "label": "Prowler", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://osp.fyi/prowler", "raindrop_ids": ["1794814985"], "summary": "Quick hit: cloud security/compliance automation", "quick_hit": true}, {"id": "entry:tunnelto", "label": "Tunnelto", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://github.com/agrinman/tunnelto", "raindrop_ids": ["1791334620"], "summary": "Quick hit: Rust ngrok alternative (dormant ~2y)", "quick_hit": true}, {"id": "entry:neutts", "label": "NeuTTS", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://osp.fyi/neutts", "raindrop_ids": ["1791333819"], "summary": "Quick hit: on-device TTS, 3-second voice cloning", "quick_hit": true}, {"id": "entry:md-notepad", "label": "Markdown Notepad", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": null, "raindrop_ids": ["1792864805"], "summary": "Quick hit: instant Markdown editor (no link captured)", "quick_hit": true}, {"id": "entry:awesome-cloudflare", "label": "awesome-cloudflare", "week": "2026.07.12", "theme": "theme:oss-vs-saas", "url": "https://osp.fyi/awesome-cloudflare", "raindrop_ids": ["1789344315"], "summary": "Quick hit: 80+ Cloudflare-stack OSS tools", "quick_hit": true}]};
+
+const THEME_COLORS = { 0:'#e0b94c', 1:'#5fb3a1', 2:'#c4674a', 3:'#8b96c9' };
+const themeColor = {}; DATA.themes.forEach((t,i)=> themeColor[t.id]=THEME_COLORS[i%4]);
+
+const activeThemes = new Set(DATA.themes.map(t=>t.id));
+const activeWeeks  = new Set(DATA.weeks);          // all weeks on by default
+let searchTerm = '';
+
+// Honor deep links: graph.html#2026.07.12 pre-selects that week only
+const hashWeek = decodeURIComponent(location.hash.slice(1));
+if (DATA.weeks.includes(hashWeek)) { activeWeeks.clear(); activeWeeks.add(hashWeek); }
+
+function visible(e){
+  return activeThemes.has(e.theme) && activeWeeks.has(e.week) &&
+    (!searchTerm || (e.label+' '+(e.summary||'')).toLowerCase().includes(searchTerm));
+}
+function buildSets(){
+  const nodes=[], edges=[];
+  const themeHasVisible = {};
+  DATA.entries.forEach(e=>{ if(visible(e)) themeHasVisible[e.theme]=true; });
+  DATA.themes.forEach(t=>{
+    if(!activeThemes.has(t.id) || !themeHasVisible[t.id]) return;
+    nodes.push({id:t.id,label:t.label,shape:'ellipse',
+      color:{background:'#1a2027',border:themeColor[t.id]},borderWidth:2,
+      font:{color:'#e8e4d8',face:'IBM Plex Mono',size:15},margin:10});
+  });
+  DATA.entries.forEach(e=>{
+    if(!visible(e)) return;
+    nodes.push({id:e.id,label:e.label,shape:'dot',
+      size:e.quick_hit?7:11,
+      color:{background:themeColor[e.theme],border:themeColor[e.theme]},
+      font:{color:'#c9cdd4',face:'IBM Plex Mono',size:11},
+      title:`${e.label} — week ${e.week}`});
+    edges.push({from:e.id,to:e.theme,color:{color:'#2a323c',highlight:themeColor[e.theme]},width:1});
+  });
+  return {nodes:new vis.DataSet(nodes),edges:new vis.DataSet(edges)};
+}
+
+let network;
+function render(){
+  const sets = buildSets();
+  if(network){ network.setData(sets); return; }
+  network = new vis.Network(document.getElementById('net'), sets, {
+    physics:{barnesHut:{gravitationalConstant:-2600,springLength:130,avoidOverlap:.3},stabilization:{iterations:180}},
+    interaction:{hover:true},
+    nodes:{shadow:false}, edges:{smooth:{type:'continuous'}}
+  });
+  network.once('stabilizationIterationsDone',()=> network.setOptions({physics:false}));
+  network.on('click', p=>{
+    const card=document.getElementById('card');
+    if(!p.nodes.length){ card.style.display='none'; return; }
+    const e = DATA.entries.find(x=>x.id===p.nodes[0]);
+    if(!e){ card.style.display='none'; return; }
+    card.querySelector('h2').textContent = e.label;
+    card.querySelector('.meta').textContent =
+      `week ${e.week} · ${DATA.themes.find(t=>t.id===e.theme).label}${e.quick_hit?' · quick hit':''}`;
+    card.querySelector('p').textContent = e.summary||'';
+    const a = card.querySelector('a');
+    if(e.url){a.href=e.url;a.textContent=e.url;a.style.display='inline-block';}
+    else {a.style.display='none';}
+    card.style.display='block';
+  });
+}
+document.querySelector('#card .close').addEventListener('click',()=>card.style.display='none');
+
+// legend chips
+const legend = document.getElementById('legend');
+DATA.themes.forEach(t=>{
+  const b=document.createElement('button');
+  b.className='chip'; b.setAttribute('aria-pressed','true');
+  b.innerHTML=`<span class="dot" style="background:${themeColor[t.id]}"></span>${t.label}`;
+  b.onclick=()=>{ activeThemes.has(t.id)?activeThemes.delete(t.id):activeThemes.add(t.id);
+    b.setAttribute('aria-pressed',String(activeThemes.has(t.id))); render(); };
+  legend.appendChild(b);
+});
+
+// week rail (signature): one tick per week, grows as the archive grows
+const rail = document.getElementById('weekrail');
+DATA.weeks.forEach(w=>{
+  const b=document.createElement('button');
+  b.className='wk'; b.setAttribute('aria-pressed',String(activeWeeks.has(w)));
+  b.innerHTML=`<span class="tick"></span><span>${w}</span>`;
+  b.onclick=()=>{ activeWeeks.has(w)?activeWeeks.delete(w):activeWeeks.add(w);
+    if(!activeWeeks.size) DATA.weeks.forEach(x=>activeWeeks.add(x)); // never empty
+    document.querySelectorAll('.wk').forEach((el,i)=>el.setAttribute('aria-pressed',String(activeWeeks.has(DATA.weeks[i]))));
+    render(); };
+  rail.appendChild(b);
+});
+
+document.getElementById('search').addEventListener('input',ev=>{
+  searchTerm=ev.target.value.trim().toLowerCase(); render();
+});
+document.getElementById('subtitle').textContent =
+  `weekly tech digest · ${DATA.weeks.length} week${DATA.weeks.length>1?'s':''} · ${DATA.entries.length} entries`;
+render();
+</script>
+</body>
+</html>

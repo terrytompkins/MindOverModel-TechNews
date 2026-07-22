@@ -1,0 +1,447 @@
+{
+ "version": 1,
+ "weeks": [
+  "2026.07.12"
+ ],
+ "themes": [
+  {
+   "id": "theme:coding-agents",
+   "label": "Coding Agents & CLI Wars"
+  },
+  {
+   "id": "theme:local-llms",
+   "label": "Local LLMs & Inference"
+  },
+  {
+   "id": "theme:oss-vs-saas",
+   "label": "Open Source vs Paid SaaS"
+  },
+  {
+   "id": "theme:memory-knowledge",
+   "label": "Memory & Knowledge Systems"
+  }
+ ],
+ "entries": [
+  {
+   "id": "entry:kimi-code",
+   "label": "Kimi Code CLI",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/MoonshotAI/kimi-code",
+   "raindrop_ids": [
+    "1794850927",
+    "1794812728"
+   ],
+   "summary": "Moonshot's free, open-source Claude Code clone",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:warp-agentic",
+   "label": "Warp goes agentic",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://osp.fyi/warp",
+   "raindrop_ids": [
+    "1794852540"
+   ],
+   "summary": "Warp's OSS client becomes a full agentic dev environment",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:free-claude-code",
+   "label": "free-claude-code router",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/Alishahryar1/free-claude-code",
+   "raindrop_ids": [
+    "1792863561"
+   ],
+   "summary": "Reroutes Claude Code CLI to 10 free models",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:loopkit",
+   "label": "loopkit orchestration",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/Archive228/loopkit",
+   "raindrop_ids": [
+    "1792872928"
+   ],
+   "summary": "Plan/execute/judge model-routing loop patterns",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:wigolo",
+   "label": "wigolo local web layer",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/KnockOutEZ/wigolo",
+   "raindrop_ids": [
+    "1794835501"
+   ],
+   "summary": "Local-first search/fetch/crawl MCP for coding agents",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:x-agent-intel",
+   "label": "x-agent-intelligence skill",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/dair-ai/dair-academy-plugins/tree/main/plugins/x-agent-intelligence",
+   "raindrop_ids": [
+    "1794850204"
+   ],
+   "summary": "Agent-curated X news feed skill",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:awesome-llm-apps",
+   "label": "awesome-llm-apps 123k\u2605",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+   "raindrop_ids": [
+    "1794861130"
+   ],
+   "summary": "100+ open-source AI agents and skills catalog",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:bonsai-27b",
+   "label": "Bonsai 27B 1-bit",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/collections/prism-ml/bonsai-27b",
+   "raindrop_ids": [
+    "1792103508"
+   ],
+   "summary": "54GB\u21923.8GB via 1-bit quant; runs in-browser on WebGPU",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:colibri",
+   "label": "Colibri disk streaming",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/JustVugg/colibri",
+   "raindrop_ids": [
+    "1789343996"
+   ],
+   "summary": "744B model on 25GB RAM, no GPU (~1 tok/s PoC)",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:ling-1t",
+   "label": "Ling-2.6-1T",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/inclusionAI/Ling-2.6-1T",
+   "raindrop_ids": [
+    "1792102441"
+   ],
+   "summary": "Open 1T-param model claiming frontier agentic coding",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:minicpm-distill",
+   "label": "MiniCPM5 'distillation'",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/GnLOLot/MiniCPM5-1B-Claude-Opus-Fable5-Thinking-GGUF",
+   "raindrop_ids": [
+    "1792103708"
+   ],
+   "summary": "'Distilled Fable 5' 1B \u2014 debunked as SFT in replies",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:ngram-spec",
+   "label": "N-gram speculation",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://colab.research.google.com/drive/12HEcqK7PLG7bqFgUouq5FustdOyijJpn?usp=sharing",
+   "raindrop_ids": [
+    "1792872653"
+   ],
+   "summary": "Free llama.cpp speedup for repetitive generation",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:mtp-colab",
+   "label": "MTP on free Colab",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://colab.research.google.com/drive/1-Y5ZgN08-yMwRZc7PvhAuJxoPpzzoZcQ?usp=sharing",
+   "raindrop_ids": [
+    "1790291668"
+   ],
+   "summary": "Gemma 4 26B at 64.9 t/s on free T4",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:nvidia-free",
+   "label": "NVIDIA free API year",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "http://build.nvidia.com/models",
+   "raindrop_ids": [
+    "1791333540"
+   ],
+   "summary": "140+ models free for a year, 40 req/min",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:microgpt",
+   "label": "Karpathy microGPT",
+   "week": "2026.07.12",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/karpathy/karpathy.github.io/blob/master/_posts/2026-02-12-microgpt.markdown",
+   "raindrop_ids": [
+    "1792863765"
+   ],
+   "summary": "Full GPT in 200 lines of pure Python",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:langextract",
+   "label": "LangExtract",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/google/langextract",
+   "raindrop_ids": [
+    "1794832474"
+   ],
+   "summary": "Google's OSS source-grounded document extraction",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:voicebox",
+   "label": "voicebox",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/jamiepine/voicebox",
+   "raindrop_ids": [
+    "1794812922"
+   ],
+   "summary": "Local MIT voice cloning via MCP, 23 languages",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:penpot",
+   "label": "Penpot",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/penpot/penpot",
+   "raindrop_ids": [
+    "1790292837"
+   ],
+   "summary": "OSS Figma alternative with agent-editable designs",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:screenshot-to-code",
+   "label": "screenshot-to-code",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1791334558"
+   ],
+   "summary": "Free v0 alternative at 73k stars (no link captured)",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:pascal-editor",
+   "label": "Pascal Editor",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1792874582"
+   ],
+   "summary": "Browser-native 3D BIM editor on WebGPU (no link captured)",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:crawl4ai",
+   "label": "Crawl4AI",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/unclecode/crawl4AI",
+   "raindrop_ids": [
+    "1792866103"
+   ],
+   "summary": "60k\u2605 web-to-Markdown crawler for AI",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:browseros",
+   "label": "BrowserOS",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/browseros-ai/BrowserOS",
+   "raindrop_ids": [
+    "1790285930"
+   ],
+   "summary": "Chromium fork with native agent loop + MCP server",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:obsidian-brain",
+   "label": "Claude + Obsidian brain",
+   "week": "2026.07.12",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1794861049"
+   ],
+   "summary": "Self-organizing second brain via continuous RAG (no link captured)",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:memory-agent",
+   "label": "Always-on memory agent",
+   "week": "2026.07.12",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gemini/agents/always-on-memory-agent",
+   "raindrop_ids": [
+    "1791333753"
+   ],
+   "summary": "Google's 24/7 folder-watching memory agent",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:company-brain",
+   "label": "Company brain concepts",
+   "week": "2026.07.12",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/vn-envy/Smriti",
+   "raindrop_ids": [
+    "1791333902"
+   ],
+   "summary": "KG / MCP / skills / hybrid-search vocabulary",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:pdf-brain",
+   "label": "pdf-brain",
+   "week": "2026.07.12",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/joelhooks/pdf-brain",
+   "raindrop_ids": [
+    "1792102918"
+   ],
+   "summary": "Local semantic search over PDFs and Markdown",
+   "quick_hit": false
+  },
+  {
+   "id": "entry:grok-build",
+   "label": "Grok Build OSS",
+   "week": "2026.07.12",
+   "theme": "theme:coding-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1792865732"
+   ],
+   "summary": "Quick hit: announcement only, no link captured",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:openvid",
+   "label": "OpenVid",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/CristianOlivera1/openvid",
+   "raindrop_ids": [
+    "1794852105"
+   ],
+   "summary": "Quick hit: browser-based product demo tool",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:likec4",
+   "label": "LikeC4",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/likec4/likec4",
+   "raindrop_ids": [
+    "1794842576"
+   ],
+   "summary": "Quick hit: live architecture diagrams from code",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:macusb",
+   "label": "MacUSB",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://alternativeto.net/software/macusb/about/",
+   "raindrop_ids": [
+    "1794841398"
+   ],
+   "summary": "Quick hit: OSS bootable-USB creator for Mac",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:prowler",
+   "label": "Prowler",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/prowler",
+   "raindrop_ids": [
+    "1794814985"
+   ],
+   "summary": "Quick hit: cloud security/compliance automation",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:tunnelto",
+   "label": "Tunnelto",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/agrinman/tunnelto",
+   "raindrop_ids": [
+    "1791334620"
+   ],
+   "summary": "Quick hit: Rust ngrok alternative (dormant ~2y)",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:neutts",
+   "label": "NeuTTS",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/neutts",
+   "raindrop_ids": [
+    "1791333819"
+   ],
+   "summary": "Quick hit: on-device TTS, 3-second voice cloning",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:md-notepad",
+   "label": "Markdown Notepad",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1792864805"
+   ],
+   "summary": "Quick hit: instant Markdown editor (no link captured)",
+   "quick_hit": true
+  },
+  {
+   "id": "entry:awesome-cloudflare",
+   "label": "awesome-cloudflare",
+   "week": "2026.07.12",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/awesome-cloudflare",
+   "raindrop_ids": [
+    "1789344315"
+   ],
+   "summary": "Quick hit: 80+ Cloudflare-stack OSS tools",
+   "quick_hit": true
+  }
+ ]
+}
