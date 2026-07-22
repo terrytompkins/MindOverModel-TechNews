@@ -44,6 +44,24 @@ The digest markdown renders directly on github.com (including the Mermaid mindma
 3. After ~1 minute the site is live at `https://terrytompkins.github.io/MindOverModel-TechNews/`
 4. Replace `terrytompkins` throughout this README with your GitHub username
 
+
+## Running the weekly digest
+
+The pipeline runs as a Claude skill. One-time setup: download [`weekly-tech-digest.skill`](./weekly-tech-digest.skill) (or re-zip [`skill/weekly-tech-digest/`](./skill/weekly-tech-digest/)) and upload it to Claude under **Settings → Capabilities → Skills** (or attach it to the project).
+
+Each week:
+
+1. In Raindrop, make sure the week's captures all carry the week tag — the **Sunday** date that starts the week, formatted `YYYY.MM.DD`.
+2. Start a **new** Claude conversation (Chat or Cowork) and prompt:
+
+   > Run the weekly-tech-digest skill for tag `YYYY.MM.DD`. Token: `<paste Raindrop API token>`
+
+   Parameters: the **week tag** and the **Raindrop token** (a personal "test token" from Raindrop's Settings → Integrations; it is never stored anywhere). Claude fetches the current `graph-data.json` from this repo automatically, so no other inputs are needed.
+3. Claude delivers three files: `digest-YYYY.MM.DD.md`, an updated `graph-data.json`, and a regenerated `graph.html`.
+4. Copy them into a clone of this repo, add a row to the digest table above, commit, and push. GitHub Pages redeploys the graph automatically.
+
+**Note on `graph-data.json`:** it is the cumulative archive — every past week's entries live in it. Never delete it; the weekly merge is additive (and idempotent, so re-running a week is safe).
+
 ---
 
 *Curated by Terry Tompkins. Digest and graph generated with Claude.*

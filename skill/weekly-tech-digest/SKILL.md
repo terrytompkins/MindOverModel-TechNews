@@ -13,7 +13,9 @@ Transforms one week's Raindrop.io captures into two artifacts:
 
 - **Raindrop API token**: Terry pastes it into chat at run start. Never store it in any file that persists.
 - **Week tag**: `YYYY.MM.DD`, the Sunday starting the week. One shared tag per week — filter on tag membership, no date-range logic.
-- **Prior state**: the current `graph-data.json` (and optionally last week's digest, for continuity). Ask Terry to upload it, or find it in the working folder. If absent, confirm with Terry before initializing a fresh graph — a missing file usually means it wasn't uploaded, not that it doesn't exist.
+- **Prior state**: the current `graph-data.json`. Fetch it directly from the repo (verified working from the container):
+  `curl -s https://raw.githubusercontent.com/terrytompkins/MindOverModel-TechNews/main/graph-data.json`
+  If Terry uploaded a copy in this conversation, prefer the uploaded one (it may be newer than the last push). If the repo fetch fails AND nothing was uploaded, ask Terry — do not initialize a fresh graph without explicit confirmation, since that would silently discard the cumulative archive.
 
 ## Workflow
 
@@ -71,7 +73,11 @@ The merge is idempotent per week (safe to re-run) and appends the week to the vi
 
 ### 6. Deliver
 
-Present three files to Terry: `digest-YYYY.MM.DD.md`, `graph-data.json`, `graph.html`. Remind Terry that `graph-data.json` must be preserved (repo/OneDrive) — it is the cumulative state the next run needs.
+**If running in Cowork with the MindOverModel-TechNews repo clone connected as the working folder:** write `digest-YYYY.MM.DD.md`, the updated `graph-data.json`, and the regenerated `graph.html` directly into the repo folder (root level, matching the existing layout), and add the new week's row to the README's "All digests" table (digest link + graph deep link, newest first). Do NOT run git commands; tell Terry the files are in place and ready for review, commit, and push — the manual push is the editorial review gate before publishing.
+
+**If running in Chat (no folder access):** present the three files as downloads and remind Terry to copy them into the clone, add the README table row, commit, and push.
+
+In both cases, remind Terry that `graph-data.json` is the cumulative archive and must reach the repo — it is the state the next run fetches.
 
 ## Standing rules
 
