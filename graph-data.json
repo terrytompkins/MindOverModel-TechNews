@@ -1,6 +1,7 @@
 {
  "version": 1,
  "weeks": [
+  "2026.07.05",
   "2026.07.12"
  ],
  "themes": [
@@ -19,6 +20,10 @@
   {
    "id": "theme:memory-knowledge",
    "label": "Memory & Knowledge Systems"
+  },
+  {
+   "id": "theme:harness-loops",
+   "label": "Agent Harness & Loop Engineering"
   }
  ],
  "entries": [
@@ -442,6 +447,407 @@
    ],
    "summary": "Quick hit: 80+ Cloudflare-stack OSS tools",
    "quick_hit": true
+  },
+  {
+   "id": "entry:floci-ministack",
+   "label": "Floci/MiniStack AWS emulator",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/floci-io/floci",
+   "raindrop_ids": [
+    "1787054346",
+    "1785983979"
+   ],
+   "summary": "Single-binary AWS emulator (45 services) claiming 13MiB RAM and sub-second boot; replies dispute the no-Docker and 13MiB claims",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:agency-agents",
+   "label": "Agency Agents (230+ Claude Code agents)",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/msitarzewski/agency-agents",
+   "raindrop_ids": [
+    "1787054746"
+   ],
+   "summary": "230+ prebuilt specialist agents to drop into Claude Code; skeptics note most are prompt files, not working code (URL inferred from capture text)",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:grok-4-5-free",
+   "label": "Grok 4.5 free in coding agents",
+   "theme": "theme:local-llms",
+   "url": "https://x.ai/cli/install.sh",
+   "raindrop_ids": [
+    "1787053418"
+   ],
+   "summary": "xAI's 500k-context coding model free for a limited time; replies give mixed reports on how free it actually is",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:sigdigger",
+   "label": "SigDigger SDR toolkit",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/BatchDrake/SigDigger",
+   "raindrop_ids": [
+    "1787055082"
+   ],
+   "summary": "One-person open-source signal intelligence suite turning a $20 SDR dongle into a pro-grade RF analyzer",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:deepseek-ocr",
+   "label": "DeepSeek Unlimited OCR",
+   "theme": "theme:local-llms",
+   "url": "http://github.com/baidu/Unlimited-OCR",
+   "raindrop_ids": [
+    "1786217528"
+   ],
+   "summary": "Claims flat-memory OCR across 40+ page documents; oddly hosted under Baidu's GitHub namespace despite the DeepSeek branding, as captured",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:21st-dev",
+   "label": "21st.dev prompt library",
+   "theme": "theme:coding-agents",
+   "url": "http://21st.dev/",
+   "raindrop_ids": [
+    "1786215241"
+   ],
+   "summary": "Library of ready-made prompts for animated UI components that paste straight into Claude Code",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:kv-caching",
+   "label": "Why KV caching makes decoding O(n)",
+   "theme": "theme:local-llms",
+   "url": null,
+   "raindrop_ids": [
+    "1786213130"
+   ],
+   "summary": "Viral breakdown of why KV caching turns O(n squared) autoregressive decoding into O(n) (no link captured for the referenced follow-up article)",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:obsidian-second-brain",
+   "label": "Obsidian + Claude Code second brain",
+   "theme": "theme:memory-knowledge",
+   "url": "http://syncpen.io/",
+   "raindrop_ids": [
+    "1786205805",
+    "1784546979"
+   ],
+   "summary": "Two posts pitch Obsidian+Claude Code as a permanent knowledge graph; one adds a Fable 5 Pro deadline for urgency, a reply pitches a shared multi-agent alternative instead",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:ai-job-search",
+   "label": "ai-job-search agent",
+   "theme": "theme:coding-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1786204448"
+   ],
+   "summary": "Claude Code agent that scrapes job boards, drafts tailored CVs/cover letters, and preps mock interviews; fastest-growing repo on GitHub that week (no link captured)",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:loop-engineering-hype",
+   "label": "The 'loop engineering' hype wave",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1786203112",
+    "1785984132",
+    "1783333167"
+   ],
+   "summary": "Three unrelated accounts ran the identical playbook this week - Karpathy's LOOPS.md, a 'Claude Code team' course, Jensen Huang's GTC quote - each hyping 'loop engineering' with no verifiable link, just a promised 'article below'",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:leaked-doc-hoax",
+   "label": "Debunked 'leaked Anthropic document'",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1782564496"
+   ],
+   "summary": "A viral 'fired $2.3M engineer leaked doc' post about agent loop failure modes; a reply identifies it as a templated hoax reused from a near-identical post days earlier, naming the same loop-engineering trend it's exploiting",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:harness-optimization",
+   "label": "Evolve the harness, not the model",
+   "theme": "theme:harness-loops",
+   "url": "https://huggingface.co/spaces/joelniklaus/harness-optimization",
+   "raindrop_ids": [
+    "1781650590"
+   ],
+   "summary": "Hugging Face writeup: an automated loop that only rewrites the code around a frozen model matched Sonnet 4.6 on a legal-agent benchmark at roughly 7x lower cost - the harness mattered more than the model",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:agent-skills-lib",
+   "label": "75 agent skills library",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/MengTo/Skills",
+   "raindrop_ids": [
+    "1784547242"
+   ],
+   "summary": "Free, forkable skill library for Claude Code, Codex, and Cursor covering video-to-prompt and page-extraction workflows",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:anthropic-ceo-coding",
+   "label": "'Coding is going away first' quote",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1784546828"
+   ],
+   "summary": "Anthropic's CEO says coding automates away first, then engineering broadly; replies (including a mock 'Claude' rebuttal) call it a bold claim from a company selling the automation",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:huly",
+   "label": "Huly",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/hcengineering/platform",
+   "raindrop_ids": [
+    "1783332609"
+   ],
+   "summary": "Self-hosted, Docker Compose suite replacing Notion, Linear, Slack, and Jira in one deploy; 26k+ stars",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:ditto",
+   "label": "Ditto website cloner",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://www.ditto.site/",
+   "raindrop_ids": [
+    "1783331963"
+   ],
+   "summary": "Deterministic (non-AI) tool that clones any website into clean React/Tailwind components in minutes; free and open source",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:9router",
+   "label": "9Router",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/decolua/9router",
+   "raindrop_ids": [
+    "1783225836"
+   ],
+   "summary": "Local router fronting 40+ AI providers for Claude Code, Cursor, Copilot and others with auto-fallback and token compression; 20k+ stars",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:meetily",
+   "label": "Meetily",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1783223451"
+   ],
+   "summary": "Fully local, open-source meeting transcription and summarization, positioned against Otter's and Fireflies' ~$200/yr plans (no link captured)",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:free-llm-apis",
+   "label": "Free-forever LLM API tracker",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/mnfst/awesome-free-llm-apis",
+   "raindrop_ids": [
+    "1783222485",
+    "1782563500"
+   ],
+   "summary": "Same 25k-star tracker of permanently-free LLM APIs posted twice this week by the same account; replies caution that 'free forever' quietly becomes 'free until it isn't'",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:rag-architectures",
+   "label": "Six RAG architectures, when to use each",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1782564679"
+   ],
+   "summary": "Rundown of Simple/Hybrid/Corrective/Self/Graph/Agentic RAG; a reply notes most production RAG failures are architecture mismatches, not retrieval bugs (no link captured)",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:zvec",
+   "label": "Zvec vector database",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/alibaba/zvec",
+   "raindrop_ids": [
+    "1782562548"
+   ],
+   "summary": "Alibaba's serverless, pip-installable hybrid vector search; one reply notes it isn't actually new despite the 'just dropped' framing",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:cubesandbox",
+   "label": "CubeSandbox / HyperMachine",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/TencentCloud/CubeSandbox",
+   "raindrop_ids": [
+    "1782561948"
+   ],
+   "summary": "Tencent's hardware-isolated agent sandbox claims 60ms cold starts at 5MB per instance as a drop-in E2B replacement; a reply points to nervosys/HyperMachine as an earlier, better alternative",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:karakeep",
+   "label": "Karakeep (formerly Hoarder)",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/karakeep-app/karakeep",
+   "raindrop_ids": [
+    "1782561310"
+   ],
+   "summary": "Self-hosted, AI-tagged bookmark manager built as a Pocket replacement after Mozilla shut Pocket down",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:openwiki",
+   "label": "OpenWiki",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/langchain-ai/openwiki",
+   "raindrop_ids": [
+    "1781337059"
+   ],
+   "summary": "LangChain's open-source agent that builds and maintains a live wiki of your codebase for coding-agent context, instead of stuffing everything into CLAUDE.md",
+   "quick_hit": false,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:awesome-microservices",
+   "label": "awesome-microservices index",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/awesome-microservices",
+   "raindrop_ids": [
+    "1786205421"
+   ],
+   "summary": "Curated index of microservice platforms/frameworks/toolkits across 15+ languages (second-hop shortener; final destination not verified)",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:awesome-ai-agents-list",
+   "label": "awesome-ai-software-development-agents",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/flatlogic/awesome-ai-software-development-agents",
+   "raindrop_ids": [
+    "1784546383"
+   ],
+   "summary": "Curated list of autonomous AI agents for software development",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:mhddos",
+   "label": "MHDDoS toolkit resurfaces",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/mhddos",
+   "raindrop_ids": [
+    "1784546174"
+   ],
+   "summary": "A previously public, multi-method DDoS toolkit recirculated in the feed this week - noting it appeared, not endorsing use (second-hop shortener; final destination not verified)",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:proxmox-iac",
+   "label": "Proxmox + Kubernetes homelab IaC",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/Mafyuh/iac",
+   "raindrop_ids": [
+    "1783222344"
+   ],
+   "summary": "Infrastructure-as-code for a Proxmox and Kubernetes homelab",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:stanford-cs229",
+   "label": "Stanford CS229 LLM lecture",
+   "theme": "theme:local-llms",
+   "url": null,
+   "raindrop_ids": [
+    "1784547130"
+   ],
+   "summary": "Free 104-minute Stanford lecture on building LLMs from scratch (no link captured)",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:gitreverse",
+   "label": "gitreverse.com",
+   "theme": "theme:coding-agents",
+   "url": "https://www.gitreverse.com/",
+   "raindrop_ids": [
+    "1781651815"
+   ],
+   "summary": "Swaps 'github' for 'gitreverse' in any repo URL to guess the prompt that could have generated it; accuracy of the reconstruction is unverified",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:system-design-tree",
+   "label": "System design master tree",
+   "theme": "theme:coding-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1781651199"
+   ],
+   "summary": "A ten-branch outline of system design fundamentals from client-server basics through self-healing systems (no link captured)",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:seven-repos-listicle",
+   "label": "yt-dlp and Whisper listicle",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/yt-dlp/yt-dlp",
+   "raindrop_ids": [
+    "1782563622"
+   ],
+   "summary": "A thin 'save thousands of dollars' listicle recovered only via resolved shortlinks: yt-dlp and OpenAI's Whisper (full post text unavailable, capture flagged not-sane)",
+   "quick_hit": true,
+   "week": "2026.07.05"
+  },
+  {
+   "id": "entry:compreface",
+   "label": "CompreFace",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/exadel-inc/CompreFace",
+   "raindrop_ids": [
+    "1781330927"
+   ],
+   "summary": "Open-source face recognition system with landmark, mask, and demographic detection",
+   "quick_hit": true,
+   "week": "2026.07.05"
   }
  ]
 }
