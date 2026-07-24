@@ -110,9 +110,30 @@ function buildSets(){
 }
 
 let network;
+
+// Fix: vis-network only auto-runs its force layout once, on the initial
+// stabilization, then physics gets switched off (see below) so the graph
+// stops moving and stays readable. Every later call to render() — from a
+// theme chip, a week-rail click, or a search — was calling setData() with
+// physics still off, so the new node set just dropped into whatever stale
+// positions/defaults were left over instead of re-spacing itself. That's
+// why filtered views looked cramped/overlapping while the "all weeks" view
+// (which only ever goes through the initial stabilization) looked fine.
+// The fix: re-enable physics and re-stabilize on every render, then turn
+// physics back off once that pass settles, same as the first load.
+function settle(){
+  network.once('stabilizationIterationsDone', ()=> network.setOptions({physics:false}));
+  network.setOptions({physics:true});
+  network.stabilize();
+}
+
 function render(){
   const sets = buildSets();
-  if(network){ network.setData(sets); return; }
+  if(network){
+    network.setData(sets);
+    settle();
+    return;
+  }
   network = new vis.Network(document.getElementById('net'), sets, {
     physics:{barnesHut:{gravitationalConstant:-2600,springLength:130,avoidOverlap:.3},stabilization:{iterations:180}},
     interaction:{hover:true},
