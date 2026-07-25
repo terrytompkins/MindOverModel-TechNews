@@ -1,6 +1,7 @@
 {
  "version": 1,
  "weeks": [
+  "2026.06.28",
   "2026.07.05",
   "2026.07.12"
  ],
@@ -848,6 +849,343 @@
    "summary": "Open-source face recognition system with landmark, mask, and demographic detection",
    "quick_hit": true,
    "week": "2026.07.05"
+  },
+  {
+   "id": "entry:caveman-ponytail",
+   "label": "Caveman and Ponytail agent duo",
+   "theme": "theme:coding-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1780737881"
+   ],
+   "summary": "Viral post nicknames two trending Claude Code/Codex plugins 'caveman' (terse-mode, cuts output tokens ~75%) and 'ponytail' (over-build reducer, cuts code up to 94%); neither's real repo name is given in the post, but replies surface concrete alternatives: anshaneja5/scalpel and professorpalmer/Puppetmaster (no link captured for the two named tools themselves)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:karpathy-second-brain",
+   "label": "Karpathy second brain origin post",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1780737502"
+   ],
+   "summary": "The viral post that kicked off the week's 'second brain' meme: point Claude or Kimi at an Obsidian vault, ingest sources, and build a self-linking wiki that compounds over time; this is the earliest capture of an idea that keeps resurfacing in later weeks (no link captured, full how-to was in a linked thread not resolved)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:harness-variance-paper",
+   "label": "Same model 22 point harness spread",
+   "theme": "theme:harness-loops",
+   "url": "https://arxiv.org/abs/2606.17799",
+   "raindrop_ids": [
+    "1780736964"
+   ],
+   "summary": "Six-page paper runs the identical Claude Opus 4.6 through 9 different harnesses on the same benchmark and finds a 22-point score spread, arguing the harness matters more than the model",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:outline-wiki",
+   "label": "Outline team wiki",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/outline",
+   "raindrop_ids": [
+    "1780736422"
+   ],
+   "summary": "Open-source, self-hostable team knowledge base (React/Node) with real-time collaborative editing, positioned as a Confluence/Notion-style wiki you run yourself (second-hop shortener; final destination not verified)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:contextlattice",
+   "label": "Contextlattice agent context map",
+   "theme": "theme:memory-knowledge",
+   "url": "http://github.com/sheawinkler/contextlattice",
+   "raindrop_ids": [
+    "1778994994"
+   ],
+   "summary": "Pitches a visual node map of a codebase/vault so coding agents stop 'flying blind'; the concrete actionable tip buried in the hype is simple: one index file per major folder cut the author's context-lookup time from 2 minutes to 10 seconds",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:harnessed-agent-explainer",
+   "label": "Harnessed agent architecture explainer",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1778994868"
+   ],
+   "summary": "Breaks a harnessed LLM agent into memory, skills, and protocols orbiting a deliberately thin model core, with sandboxing/observability/compression as mediators; frames harness design as deciding what to externalize and how to mediate it (referenced article not captured as a link)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:fingerprintjs",
+   "label": "FingerprintJS cookieless tracking",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/fingerprintjs/fingerprintjs",
+   "raindrop_ids": [
+    "1778994777"
+   ],
+   "summary": "Open-source library that identifies unique visitors reliably without cookies or local storage; a reply notes visitor counting is the easy part, attribution is the real challenge",
+   "quick_hit": true,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:bedrock-chat",
+   "label": "AWS Bedrock Chat OSS RAG platform",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/bedrock-chat",
+   "raindrop_ids": [
+    "1778994037"
+   ],
+   "summary": "Open-source platform for building RAG-powered chatbots on Amazon Bedrock, with a shareable bot store and multi-tenant knowledge bases that bypass the 100KB per-account limit (second-hop shortener; final destination not verified)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:fifty-github-repos",
+   "label": "Fifty useful evergreen github repos",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/EbookFoundation/free-programming-books",
+   "raindrop_ids": [
+    "1778993744"
+   ],
+   "summary": "A 50-item bookmark-bait listicle of well-known evergreen repos (public-apis, build-your-own-x, developer-roadmap, ollama, langchain, and similar) rather than anything new this week",
+   "quick_hit": true,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:fastest-growing-repos-0628",
+   "label": "Ten fastest growing repos posted twice",
+   "theme": "theme:coding-agents",
+   "url": "http://agentskills.io/",
+   "raindrop_ids": [
+    "1774612164",
+    "1778034682"
+   ],
+   "summary": "The exact same 'ten fastest growing GitHub repos' list (OpenMontage, mattpocock/skills, codebase-memory-mcp, Agent-Reach, daily_stock_analysis, Anthropic-Cybersecurity-Skills, design.md, ai-website-cloner-template, voicebox, penpot) posted near word-for-word by two different accounts three days apart, June 27 and June 30 -- same-week duplicate is itself the story: agent skill packs and context files as 'the new developer dotfiles' is being farmed for engagement",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:openobserve",
+   "label": "OpenObserve Datadog replacement",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/openobserve/openobserve",
+   "raindrop_ids": [
+    "1778034315"
+   ],
+   "summary": "Single Rust binary logs/metrics/traces platform storing Parquet on S3 instead of expensive disks, pitched as 140x cheaper than Datadog; a reply who actually ran it found real on-disk compression closer to 9x, not 140x, and flagged that a single node buffers in RAM so an ungraceful restart drops unflushed data",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:nvidia-free-chinese-models",
+   "label": "NVIDIA free access to five Chinese models",
+   "theme": "theme:local-llms",
+   "url": "http://build.nvidia.com/",
+   "raindrop_ids": [
+    "1778034132"
+   ],
+   "summary": "Free NVIDIA API key (no card, ~40 req/min) unlocks DeepSeek V4 Flash, MiniMax M3, Qwen3.5-397B, Kimi K2.6, and GLM 5.1; replies push back that free access is a data-collection trade and rate limits bite fast -- an earlier sighting of the same NVIDIA free-tier story that resurfaced again the following week",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:voicebox-first-sighting",
+   "label": "Voicebox local voice cloning debut",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/jamiepine/voicebox",
+   "raindrop_ids": [
+    "1778033671"
+   ],
+   "summary": "Free, local, open-source voice studio: clones a voice from seconds of audio and speaks any text back across 23 languages, positioned against ElevenLabs plus WisprFlow subscriptions; this week's earliest sighting of a tool that resurfaced again on the fastest-growing-repos list the same week and again the following week's digest",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:obscura-browser",
+   "label": "Obscura anti fingerprint scraping browser",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/h4ckf0r0day/obscura",
+   "raindrop_ids": [
+    "1778033544"
+   ],
+   "summary": "Rust-based headless browser built for scraping and AI agent automation: 30MB RAM, ~85ms page loads, randomizes GPU/canvas/audio/battery fingerprints every session to blend in as a real Chrome user, pitched as a drop-in Puppeteer/Playwright replacement with 16k+ stars",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:agent-reach",
+   "label": "Agent Reach zero keys claim debunked",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/Panniantong/Agent-Reach/blob/main/docs/README_en.md",
+   "raindrop_ids": [
+    "1778032985"
+   ],
+   "summary": "A single CLI agents can use to read Twitter, Reddit, YouTube, GitHub, Bilibili, and XiaoHongShu; pitched as 'zero API fees, zero accounts, zero keys,' but a reply points out it literally requires a Twitter Bearer token to function, and others warn scraping several of these platforms risks account bans",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:marker-pdf",
+   "label": "Marker PDF to markdown at speed",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/datalab-to/marker",
+   "raindrop_ids": [
+    "1778032797"
+   ],
+   "summary": "Open-source converter (36.6k stars) turning PDFs, DOCX, PPTX, XLSX, EPUB, and images into Markdown at a claimed 122 pages/second, preserving tables, equations, and inline math, running on GPU, CPU, or Mac",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:cia-red-cell-prompts",
+   "label": "CIA Red Cell prompts for Claude",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1778032588"
+   ],
+   "summary": "Turns the CIA's declassified Red Cell self-critique playbook into four paste-into-Claude prompts (surface hidden assumptions, imagine the plan failed in 18 months, war-game a well-funded competitor, write the angriest 1-star review); a reply corrects the framing -- Red Cell-style red-teaming traces to Navy SEAL Team 6/DEVGRU exercises, not a CIA-only program (no link captured, full playbook referenced but not resolved)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:meetily-earlier-link",
+   "label": "Meetily link surfaces from an earlier post",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/Zackriya-Solutions/meeting-minutes",
+   "raindrop_ids": [
+    "1778031484"
+   ],
+   "summary": "A one-line post surfaces the actual repo link for Meetily, the local meeting transcription/summarization tool that appeared without a captured link in the following week's digest",
+   "quick_hit": true,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:500-agent-projects",
+   "label": "Five hundred plus runnable agent projects",
+   "theme": "theme:coding-agents",
+   "url": "https://osp.fyi/500-ai-agents-projects",
+   "raindrop_ids": [
+    "1778030889"
+   ],
+   "summary": "Collection of 500+ self-contained agent projects across LangGraph, CrewAI, AutoGen, and Agno, organized by industry (healthcare, finance, education, cybersecurity), each with its own requirements.txt; replies push back that single-command demos say little about production readiness against real data feeds (second-hop shortener; final destination not verified)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:litho-deepwiki",
+   "label": "Litho generates architecture docs from code",
+   "theme": "theme:memory-knowledge",
+   "url": "https://osp.fyi/deepwiki-rs",
+   "raindrop_ids": [
+    "1776995565"
+   ],
+   "summary": "Rust tool that generates C4 architecture documentation (context, container, component, code diagrams) directly from source and keeps it synced as the codebase evolves, distributed as a crate; a reply notes it captures what the code does but never why (second-hop shortener; final destination not verified)",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:olmocr",
+   "label": "olmOCR document OCR for the LLM era",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/allenai/olmocr",
+   "raindrop_ids": [
+    "1776995489"
+   ],
+   "summary": "AllenAI's open-source OCR tool converts PDFs, scans, and images into clean Markdown, handling tables, equations, handwriting, and multi-column layouts -- pitched as fixing the 'boring first mile' that silently wrecks RAG pipelines built on messy PDFs",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:open-lovable",
+   "label": "Open Lovable clones sites with AI",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/mendableai/open-lovable",
+   "raindrop_ids": [
+    "1774869719"
+   ],
+   "summary": "Firecrawl team's open-source tool pastes in any site's link and regenerates a close React clone in seconds using OpenAI, Anthropic, Gemini, or Grok, scraping structure via Firecrawl and running/testing inside an E2B sandbox; 24k+ stars, MIT licensed",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:red-queen-godel-machine",
+   "label": "Red Queen Godel Machine self improving agents",
+   "theme": "theme:harness-loops",
+   "url": "https://arxiv.org/abs/2606.26294",
+   "raindrop_ids": [
+    "1774868706"
+   ],
+   "summary": "Cambridge, NVIDIA, Flower Labs, MBZUAI, and Inria paper proposes a co-evolutionary framework where agents and their evaluators improve together with no human in the loop; replies flag the obvious risk -- nothing in the 37 pages addresses reward hacking once an agent can rewrite its own constraints",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:drawdb",
+   "label": "Drawdb schema editor and SQL generator",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/drawdb-io/drawdb",
+   "raindrop_ids": [
+    "1774866219"
+   ],
+   "summary": "Browser-based database schema editor that generates SQL from visual diagrams",
+   "quick_hit": true,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:opentag",
+   "label": "OpenTag open source Claude Tag alternative",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/CopilotKit/OpenTag",
+   "raindrop_ids": [
+    "1774865964"
+   ],
+   "summary": "Open-source, bring-your-own-model alternative to Claude Tag with generative UI, streaming replies, and human-in-the-loop approvals, built Slack-first rather than as a chat demo; a reply cautions that trace visibility (model output, tool call, approver, policy version) is what makes human-in-the-loop approvals trustworthy after the fact",
+   "quick_hit": false,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:ai-engineering-bsc",
+   "label": "Personal BSc in AI engineering roundup",
+   "theme": "theme:memory-knowledge",
+   "url": "https://newsletter.systemdesign.one/p/agentic-engineering",
+   "raindrop_ids": [
+    "1774626979"
+   ],
+   "summary": "An 18-article newsletter roundup covering A2A, agentic engineering, AI infrastructure, the anatomy of a CLAUDE.md-style folder, agent memory, RAG, MCP, and evals as a self-paced curriculum",
+   "quick_hit": true,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:archify",
+   "label": "Archify diagrams from plain English",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/tt-a1i/archify",
+   "raindrop_ids": [
+    "1774626686"
+   ],
+   "summary": "Generates architecture diagrams directly from plain-English descriptions",
+   "quick_hit": true,
+   "week": "2026.06.28"
+  },
+  {
+   "id": "entry:chunkr",
+   "label": "Chunkr document intelligence for RAG",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/chunkr",
+   "raindrop_ids": [
+    "1774613088"
+   ],
+   "summary": "Open-source document intelligence service converting PDFs, PPTs, Word docs, and images into structured chunks for RAG, with layout analysis, OCR, bounding boxes, and vision-language model processing, self-hosted via Docker Compose (second-hop shortener; final destination not verified)",
+   "quick_hit": false,
+   "week": "2026.06.28"
   }
  ]
 }

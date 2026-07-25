@@ -20,6 +20,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 |---|---|---|
 | 2026.07.12 | [digest-2026.07.12.md](./digest-2026.07.12.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.12) |
 | 2026.07.05 | [digest-2026.07.05.md](./digest-2026.07.05.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.05) |
+| 2026.06.28 | [digest-2026.06.28.md](./digest-2026.06.28.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.06.28) |
 
 ## How it's made
 
