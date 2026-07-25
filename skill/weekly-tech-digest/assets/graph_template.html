@@ -42,6 +42,16 @@
   .wk span{font-size:9.5px;letter-spacing:.05em;writing-mode:horizontal-tb;white-space:nowrap}
   .wk:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
   #railhint{position:absolute;right:24px;bottom:64px;z-index:5;font-size:10px;color:var(--ink-dim);letter-spacing:.05em}
+  #modes{display:flex;gap:6px}
+  #trends{position:absolute;inset:0;z-index:4;background:var(--ground);overflow-y:auto;padding:96px 24px 40px;display:none}
+  #trends.on{display:block}
+  #trends h2{font-family:'Fraunces',serif;font-size:17px;font-weight:650;margin:20px 0 10px}
+  #trends .sub{font-size:10.5px;color:var(--ink-dim);letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;display:flex;gap:6px;align-items:center}
+  #trendbars{width:100%;max-width:900px;display:block}
+  #heatmap{display:grid;gap:2px;max-width:900px;font-size:10.5px;align-items:stretch}
+  #heatmap .hm-label{color:var(--ink);padding:3px 8px 3px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center}
+  #heatmap .hm-cell{min-height:20px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-weight:500}
+  #heatmap .hm-head{color:var(--ink-dim);writing-mode:vertical-rl;transform:rotate(180deg);padding:4px 0;justify-self:center}
   #card{position:absolute;left:24px;bottom:76px;z-index:6;max-width:340px;background:var(--panel);
     border:1px solid var(--panel-edge);border-left:3px solid var(--brass);padding:14px 16px;border-radius:2px;display:none}
   #card h2{font-family:'Fraunces',serif;font-size:16px;font-weight:650;margin-bottom:6px}
@@ -59,10 +69,25 @@
   <p id="subtitle">weekly tech digest &middot; cumulative</p>
 </header>
 <div id="controls">
+  <div id="modes" role="group" aria-label="View mode">
+    <button class="chip" id="mode-atlas" aria-pressed="true">atlas</button>
+    <button class="chip" id="mode-trends" aria-pressed="false">trends</button>
+  </div>
   <input id="search" type="search" placeholder="search entries…" aria-label="Search entries">
   <div id="legend" role="group" aria-label="Filter by theme"></div>
 </div>
 <div id="net" role="application" aria-label="Knowledge graph"></div>
+<div id="trends" role="region" aria-label="Trends over time">
+  <h2>Themes by week</h2>
+  <div class="sub">
+    <button class="chip" id="tr-raw" aria-pressed="true">counts</button>
+    <button class="chip" id="tr-share" aria-pressed="false">share</button>
+  </div>
+  <svg id="trendbars" viewBox="0 0 900 360" role="img" aria-label="Stacked bars of entries per theme per week"></svg>
+  <h2>Topic tags by week</h2>
+  <div id="heatmap"></div>
+  <p class="sub" id="trendsfoot"></p>
+</div>
 <aside id="card" aria-live="polite">
   <button class="close" aria-label="Close details">&times;</button>
   <h2></h2><div class="meta"></div><p></p><a target="_blank" rel="noopener"></a>
@@ -74,6 +99,8 @@ const DATA = /*__GRAPH_DATA__*/;
 
 const THEME_COLORS = { 0:'#e0b94c', 1:'#5fb3a1', 2:'#c4674a', 3:'#8b96c9' };
 const themeColor = {}; DATA.themes.forEach((t,i)=> themeColor[t.id]=THEME_COLORS[i%4]);
+const TAGS = DATA.tags || [];
+const tagLabel = {}; TAGS.forEach(t=> tagLabel[t.id]=t.label);
 
 const activeThemes = new Set(DATA.themes.map(t=>t.id));
 const activeWeeks  = new Set(DATA.weeks);          // all weeks on by default
@@ -85,7 +112,7 @@ if (DATA.weeks.includes(hashWeek)) { activeWeeks.clear(); activeWeeks.add(hashWe
 
 function visible(e){
   return activeThemes.has(e.theme) && activeWeeks.has(e.week) &&
-    (!searchTerm || (e.label+' '+(e.summary||'')).toLowerCase().includes(searchTerm));
+    (!searchTerm || (e.label+' '+(e.summary||'')+' '+(e.tags||[]).map(id=>tagLabel[id]||'').join(' ')).toLowerCase().includes(searchTerm));
 }
 function buildSets(){
   const nodes=[], edges=[];
@@ -146,8 +173,9 @@ function render(){
     const e = DATA.entries.find(x=>x.id===p.nodes[0]);
     if(!e){ card.style.display='none'; return; }
     card.querySelector('h2').textContent = e.label;
+    const tg=(e.tags||[]).map(id=>tagLabel[id]||id).join(' · ');
     card.querySelector('.meta').textContent =
-      `week ${e.week} · ${DATA.themes.find(t=>t.id===e.theme).label}${e.quick_hit?' · quick hit':''}`;
+      `week ${e.week} · ${DATA.themes.find(t=>t.id===e.theme).label}${e.quick_hit?' · quick hit':''}${tg?' · '+tg:''}`;
     card.querySelector('p').textContent = e.summary||'';
     const a = card.querySelector('a');
     if(e.url){a.href=e.url;a.textContent=e.url;a.style.display='inline-block';}
@@ -186,7 +214,79 @@ document.getElementById('search').addEventListener('input',ev=>{
 });
 document.getElementById('subtitle').textContent =
   `weekly tech digest · ${DATA.weeks.length} week${DATA.weeks.length>1?'s':''} · ${DATA.entries.length} entries`;
+
+// ---- Trends view (deep link: graph.html#trends) ----
+let shareMode=false;
+const trendsEl=document.getElementById('trends');
+function setMode(m){
+  trendsEl.classList.toggle('on', m==='trends');
+  ['search','legend','weekrail','railhint'].forEach(id=>
+    document.getElementById(id).style.visibility = m==='trends' ? 'hidden' : '');
+  if(m==='trends') document.getElementById('card').style.display='none';
+  document.getElementById('mode-atlas').setAttribute('aria-pressed',String(m==='atlas'));
+  document.getElementById('mode-trends').setAttribute('aria-pressed',String(m==='trends'));
+  if(m==='trends'){ history.replaceState(null,'','#trends'); renderTrends(); }
+  else history.replaceState(null,'',location.pathname+location.search);
+}
+document.getElementById('mode-atlas').onclick=()=>setMode('atlas');
+document.getElementById('mode-trends').onclick=()=>setMode('trends');
+document.getElementById('tr-raw').onclick=()=>{shareMode=false; shareBtns(); renderTrends();};
+document.getElementById('tr-share').onclick=()=>{shareMode=true; shareBtns(); renderTrends();};
+function shareBtns(){
+  document.getElementById('tr-raw').setAttribute('aria-pressed',String(!shareMode));
+  document.getElementById('tr-share').setAttribute('aria-pressed',String(shareMode));
+}
+function renderTrends(){
+  const W=DATA.weeks, TH=DATA.themes;
+  const wi={}; W.forEach((w,i)=>wi[w]=i);
+  const c={}; TH.forEach(t=>c[t.id]=W.map(()=>0));
+  DATA.entries.forEach(e=>{ if(c[e.theme]) c[e.theme][wi[e.week]]++; });
+  const totals=W.map((w,i)=>TH.reduce((s,t)=>s+c[t.id][i],0));
+  const svg=document.getElementById('trendbars');
+  const L=46,R=10,T=14,B=44,width=900,height=360,iw=width-L-R,ih=height-T-B;
+  const maxY = shareMode?100:Math.max.apply(null,totals.concat([1]));
+  const step=iw/W.length, bw=Math.min(56, step*0.62);
+  let s='';
+  for(let g=0; g<=4; g++){
+    const v=maxY*g/4, y=T+ih-ih*g/4;
+    s+=`<line x1="${L}" y1="${y}" x2="${width-R}" y2="${y}" stroke="#2a323c" stroke-width="1"/>`;
+    s+=`<text x="${L-6}" y="${y+3}" text-anchor="end" font-size="10" fill="#8a9099" font-family="IBM Plex Mono">${shareMode?Math.round(v)+'%':Math.round(v)}</text>`;
+  }
+  W.forEach((w,i)=>{
+    let y=T+ih; const tot=totals[i]||1;
+    TH.forEach(t=>{
+      const n=c[t.id][i]; if(!n) return;
+      const val=shareMode? n/tot*100 : n, h=ih*val/maxY;
+      y-=h;
+      s+=`<rect x="${(L+step*i+(step-bw)/2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(h-1,0.5).toFixed(1)}" fill="${themeColor[t.id]}"><title>${t.label} — ${w}: ${n}${shareMode?' ('+Math.round(n/tot*100)+'%)':''}</title></rect>`;
+    });
+    s+=`<text x="${(L+step*i+step/2).toFixed(1)}" y="${height-B+16}" text-anchor="middle" font-size="10" fill="#8a9099" font-family="IBM Plex Mono">${w}</text>`;
+    s+=`<text x="${(L+step*i+step/2).toFixed(1)}" y="${height-B+30}" text-anchor="middle" font-size="9" fill="#5c636c" font-family="IBM Plex Mono">${totals[i]} entries</text>`;
+  });
+  svg.innerHTML=s;
+  const hm=document.getElementById('heatmap');
+  const tc={}; TAGS.forEach(t=>tc[t.id]=W.map(()=>0));
+  DATA.entries.forEach(e=>(e.tags||[]).forEach(id=>{ if(tc[id]) tc[id][wi[e.week]]++; }));
+  const rows=TAGS.map(t=>({t,tot:tc[t.id].reduce((a,b)=>a+b,0)})).filter(r=>r.tot>0).sort((a,b)=>b.tot-a.tot || a.t.label.localeCompare(b.t.label));
+  const maxC=Math.max.apply(null,[1].concat(rows.map(r=>Math.max.apply(null,tc[r.t.id]))));
+  hm.style.gridTemplateColumns=`minmax(140px,220px) repeat(${W.length}, minmax(34px,1fr)) 48px`;
+  let h='<div></div>'+W.map(w=>`<div class="hm-head">${w}</div>`).join('')+'<div class="hm-head">total</div>';
+  rows.forEach(r=>{
+    h+=`<div class="hm-label" title="${r.t.label}">${r.t.label}</div>`;
+    tc[r.t.id].forEach((n,i)=>{
+      const a=n? 0.15+0.85*n/maxC : 0;
+      const col=a>0.55?'#101418':'#e8e4d8';
+      h+=`<div class="hm-cell" style="background:rgba(224,185,76,${a.toFixed(2)});color:${col}" title="${r.t.label} — ${W[i]}: ${n}">${n||''}</div>`;
+    });
+    h+=`<div class="hm-cell" style="color:var(--ink-dim)">${r.tot}</div>`;
+  });
+  hm.innerHTML=h;
+  document.getElementById('trendsfoot').textContent =
+    rows.length? `${rows.length} topic tags · cell shade = entries that week · counts and share read from the same data as the atlas`
+               : 'no topic tags in the data yet';
+}
 render();
+if(location.hash==='#trends') setMode('trends');
 </script>
 </body>
 </html>
