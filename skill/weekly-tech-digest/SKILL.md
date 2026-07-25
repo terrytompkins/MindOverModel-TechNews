@@ -37,11 +37,19 @@ Read `run/corpus.json` in full. For each entry, confirm the pipeline's judgment 
 - **Detect duplicate stories**: different accounts often post the same tool/news in the same week. Merge them into one entry citing all raindrop ids; a same-week duplicate is itself signal worth one line ("hit the feed from multiple accounts").
 - **Mine the replies**: snapshots include reply threads, which frequently contain corrections, debunkings, caveats, and extra links. Reflect substantive corrections in the entry — hype-plus-correction is often the real story.
 
-### 3. Cluster into themes — READ EXISTING THEMES FIRST
+### 3. Cluster into themes and assign topic tags — READ EXISTING THEMES AND TAGS FIRST
 
-Open the current `graph-data.json` and read its `themes` list **before** clustering. Match this week's content to existing themes wherever a reasonable fit exists; mint a new theme only when nothing fits. This prevents near-duplicate themes ("Coding Agents" vs "Agentic Coding") from fragmenting the cumulative graph. The theme list is a curated taxonomy that should grow slowly.
+Open the current `graph-data.json` and read its `themes` list AND its `tags` vocabulary **before** clustering. Match this week's content to existing themes wherever a reasonable fit exists; mint a new theme only when nothing fits. This prevents near-duplicate themes ("Coding Agents" vs "Agentic Coding") from fragmenting the cumulative graph. The theme list is a curated taxonomy that should grow slowly.
 
 Sort entries: substantial (has a resource link OR ≥ ~400 chars of real post text) vs **Quick Hits** (thin, link-only, or announcement-only items — one or two lines each).
+
+**Topic tags** (distinct from the Raindrop week tag): each entry also gets 0–4 granular topic tags from the controlled vocabulary in `graph-data.json` → `tags`. Themes are single and curated; topic tags are many-to-many and power trend tracking, so vocabulary consistency matters more than coverage.
+
+- Assign tags now, while full article text is in context — never from titles alone. Prefer 2–3 per entry; 0 is fine for thin quick hits. Never exceed 4.
+- Match against existing ids, labels, AND `aliases` first. Mint a new tag only when nothing fits, id form `tag:kebab-slug`.
+- Tag-worthy: named technologies/products/protocols (MCP, Obsidian, Claude Code, Ollama); models or model families when the model is the story (Qwen, Kimi, Llama); techniques and patterns (RAG, agent memory, quantization, evals); recurring debates and market dynamics (open-weights licensing, pricing wars, benchmark skepticism).
+- Not tag-worthy: adjectives, sentiment, one-off details, an author's employer, anything unlikely to recur. If a tag would probably only ever apply to this one entry, don't mint it.
+- Target vocabulary size is ~30–60. If it passes ~80, tell Terry it needs a consolidation review instead of silently continuing.
 
 ### 4. Write the digest
 
@@ -62,14 +70,14 @@ The digest must be self-contained and render well on GitHub, Obsidian, and commo
 
 ### 5. Update the cumulative graph
 
-Write `run/week-entries.json` (shape documented at the top of `scripts/build_graph.py`): the week's themes (reused ids + any new) and one record per digest entry — short label, theme id, best single URL (or null), raindrop ids, one-line summary, `quick_hit` flag. Then:
+Write `run/week-entries.json` (shape documented at the top of `scripts/build_graph.py`): the week's themes (reused ids + any new), any newly minted topic tags (id, label, aliases), and one record per digest entry — short label, theme id, best single URL (or null), raindrop ids, one-line summary, `quick_hit` flag, and its topic tag ids. Then:
 
 ```bash
 python3 scripts/build_graph.py --week-entries run/week-entries.json \
     --data graph-data.json --template assets/graph_template.html --out graph.html
 ```
 
-The merge is idempotent per week (safe to re-run) and appends the week to the viewer's week rail. Never edit `graph.html` directly; change the template or the data.
+The merge is idempotent per week (safe to re-run) and appends the week to the viewer's week rail. The script fails hard on unknown theme or tag ids — that's the drift guard, not an inconvenience; fix the typo or mint the tag properly, never work around it. Never edit `graph.html` directly; change the template or the data.
 
 ### 6. Deliver
 
@@ -79,8 +87,11 @@ The merge is idempotent per week (safe to re-run) and appends the week to the vi
 
 In both cases, remind Terry that `graph-data.json` is the cumulative archive and must reach the repo — it is the state the next run fetches.
 
+**New-tags report**: end every run by listing in chat any topic tags minted this week (id + label + which entries carry them), so Terry can veto or reword before pushing. If none were minted, say so — a zero-mint week is a healthy vocabulary.
+
 ## Standing rules
 
+- **Ids are immutable**: theme and topic-tag ids, once minted, are never renamed, split, or merged in place — the trend history keys on them. Labels may be reworded; an id change requires an explicit migration that rewrites every entry referencing it, done deliberately with Terry, never as a side effect of a weekly run.
 - **Honesty over completeness**: label unreadable or partially-recovered entries plainly. An honest "(no link captured)" beats a plausible guess presented as fact.
 - **Second-hop shorteners** (`osp.fyi` is the known recurring one): cite as-is with an annotation, and tell Terry which new shortener domains appeared so they can be added to the network allowlist (changes require a new chat).
 - **Suspension losses are acceptable**: if a capture's snapshot is a suspension/unavailable page, say so in the digest entry and move on.
