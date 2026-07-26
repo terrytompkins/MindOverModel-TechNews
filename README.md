@@ -6,7 +6,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## Latest digest
 
-**[Week of 2026.07.12](./digest-2026.07.12.md)** — the coding-agent CLI wars boil over, local inference eats the frontier's lunch from below, and open source claims another round of paid-SaaS casualties.
+**[Week of 2026.07.19](./digest-2026.07.19.md)** — "graph engineering" becomes the week's hype buzzword for multi-agent orchestration (while Google quietly ships the real thing), token-cost tooling gets its first skeptical audit, and Kimi K3 has a three-act week of demo, benchmark, and CLI release.
 
 ## The knowledge graph
 
@@ -18,6 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
+| 2026.07.19 | [digest-2026.07.19.md](./digest-2026.07.19.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.19) |
 | 2026.07.12 | [digest-2026.07.12.md](./digest-2026.07.12.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.12) |
 | 2026.07.05 | [digest-2026.07.05.md](./digest-2026.07.05.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.05) |
 | 2026.06.28 | [digest-2026.06.28.md](./digest-2026.06.28.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.06.28) |
