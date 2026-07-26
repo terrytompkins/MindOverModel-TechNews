@@ -39,7 +39,9 @@ Read `run/corpus.json` in full. For each entry, confirm the pipeline's judgment 
 
 ### 3. Cluster into themes and assign topic tags — READ EXISTING THEMES AND TAGS FIRST
 
-Open the current `graph-data.json` and read its `themes` list AND its `tags` vocabulary **before** clustering. Match this week's content to existing themes wherever a reasonable fit exists; mint a new theme only when nothing fits. This prevents near-duplicate themes ("Coding Agents" vs "Agentic Coding") from fragmenting the cumulative graph. The theme list is a curated taxonomy that should grow slowly.
+Open the current `graph-data.json` and read its `themes` list AND its `tags` vocabulary **before** clustering. Match this week's content to existing themes wherever a reasonable fit exists — but don't force a fit just to avoid minting. Mint a new theme when a recurring subject keeps landing in an existing theme only because of a surface-level resemblance (e.g. "it's open source" or "it's a listicle") rather than real topical kinship with that theme's other entries. Avoid near-duplicate themes ("Coding Agents" vs "Agentic Coding") — check the existing list for a genuine synonym before minting — but do not let that caution collapse into never minting at all. The theme list is a curated taxonomy, not a fixed one; it should grow deliberately, not slowly for its own sake.
+
+**Theme-balance check, every run:** after assigning this week's entries, glance at how entries are distributed across all themes in `graph-data.json` (a quick count per `theme` id). If one theme is holding a disproportionate share of all entries (as a rule of thumb, notably more than the others combined, or over ~35% of the cumulative total), that is itself a signal it's become a catch-all hiding distinct sub-clusters — call this out to Terry with the likely sub-clusters (e.g. by cross-tabbing that theme's entries against their topic tags) rather than silently continuing to feed it. Splitting an overloaded theme, minting a new one, or reclassifying past entries into a better-fitting existing theme is a deliberate migration — propose it and get Terry's go-ahead before rewriting historical entries' `theme` field, but do propose it; this is a standing, expected part of the taxonomy's upkeep, not a rare exception.
 
 Sort entries: substantial (has a resource link OR ≥ ~400 chars of real post text) vs **Quick Hits** (thin, link-only, or announcement-only items — one or two lines each).
 
@@ -87,11 +89,12 @@ The merge is idempotent per week (safe to re-run) and appends the week to the vi
 
 In both cases, remind Terry that `graph-data.json` is the cumulative archive and must reach the repo — it is the state the next run fetches.
 
-**New-tags report**: end every run by listing in chat any topic tags minted this week (id + label + which entries carry them), so Terry can veto or reword before pushing. If none were minted, say so — a zero-mint week is a healthy vocabulary.
+**New-tags-and-themes report**: end every run by listing in chat any topic tags minted this week (id + label + which entries carry them) AND any new themes minted (id + label + rough entry count + why an existing theme didn't fit), so Terry can veto or reword before pushing. If none were minted, say so — a zero-mint week is not itself a problem, but if it's been many consecutive weeks with no new theme while one theme keeps growing disproportionately, flag that explicitly rather than staying quiet about it.
 
 ## Standing rules
 
 - **Ids are immutable**: theme and topic-tag ids, once minted, are never renamed, split, or merged in place — the trend history keys on them. Labels may be reworded; an id change requires an explicit migration that rewrites every entry referencing it, done deliberately with Terry, never as a side effect of a weekly run.
+- **Reclassifying entries between existing themes, or splitting a theme into two, is welcome and expected as the corpus grows** — unlike an id rename, this only changes which theme id an entry points to, not the ids themselves. Still propose it and get Terry's go-ahead before rewriting historical entries in bulk, since it changes past weeks' data, not just this week's.
 - **Honesty over completeness**: label unreadable or partially-recovered entries plainly. An honest "(no link captured)" beats a plausible guess presented as fact.
 - **Second-hop shorteners** (`osp.fyi` is the known recurring one): cite as-is with an annotation, and tell Terry which new shortener domains appeared so they can be added to the network allowlist (changes require a new chat).
 - **Suspension losses are acceptable**: if a capture's snapshot is a suspension/unavailable page, say so in the digest entry and move on.
