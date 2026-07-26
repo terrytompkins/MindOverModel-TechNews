@@ -3209,7 +3209,7 @@
    "week": "2026.07.19"
   },
   {
-   "id": "entry:supertonic-tts",
+   "id": "entry:supertonic-3-tts-jul19",
    "label": "Supertonic: 99M-parameter TTS model, offline on a Raspberry Pi",
    "theme": "theme:local-llms",
    "url": "https://github.com/supertone-inc/supertonic",
@@ -3299,7 +3299,7 @@
    "week": "2026.07.19"
   },
   {
-   "id": "entry:awesome-llm-apps",
+   "id": "entry:awesome-llm-apps-124k",
    "label": "100+ finished, cloneable AI apps in one repo",
    "theme": "theme:ai-education",
    "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
