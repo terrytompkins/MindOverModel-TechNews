@@ -1,6 +1,8 @@
 {
  "version": 2,
  "weeks": [
+  "2026.06.14",
+  "2026.06.21",
   "2026.06.28",
   "2026.07.05",
   "2026.07.12"
@@ -25,6 +27,14 @@
   {
    "id": "theme:harness-loops",
    "label": "Agent Harness & Loop Engineering"
+  },
+  {
+   "id": "theme:ai-education",
+   "label": "AI Engineering Education & Resources"
+  },
+  {
+   "id": "theme:web-agents",
+   "label": "Web Agents: Browsing, Scraping & Design-to-Code"
   }
  ],
  "entries": [
@@ -142,7 +152,7 @@
   {
    "id": "entry:bedrock-chat",
    "label": "AWS Bedrock Chat OSS RAG platform",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:memory-knowledge",
    "url": "https://osp.fyi/bedrock-chat",
    "raindrop_ids": [
     "1778994037"
@@ -158,7 +168,7 @@
   {
    "id": "entry:fifty-github-repos",
    "label": "Fifty useful evergreen github repos",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:ai-education",
    "url": "https://github.com/EbookFoundation/free-programming-books",
    "raindrop_ids": [
     "1778993744"
@@ -223,7 +233,7 @@
   {
    "id": "entry:voicebox-first-sighting",
    "label": "Voicebox local voice cloning debut",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:local-llms",
    "url": "https://github.com/jamiepine/voicebox",
    "raindrop_ids": [
     "1778033671"
@@ -240,7 +250,7 @@
   {
    "id": "entry:obscura-browser",
    "label": "Obscura anti fingerprint scraping browser",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:web-agents",
    "url": "https://github.com/h4ckf0r0day/obscura",
    "raindrop_ids": [
     "1778033544"
@@ -257,7 +267,7 @@
   {
    "id": "entry:agent-reach",
    "label": "Agent Reach zero keys claim debunked",
-   "theme": "theme:coding-agents",
+   "theme": "theme:web-agents",
    "url": "https://github.com/Panniantong/Agent-Reach/blob/main/docs/README_en.md",
    "raindrop_ids": [
     "1778032985"
@@ -273,7 +283,7 @@
   {
    "id": "entry:marker-pdf",
    "label": "Marker PDF to markdown at speed",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:memory-knowledge",
    "url": "https://github.com/datalab-to/marker",
    "raindrop_ids": [
     "1778032797"
@@ -304,7 +314,7 @@
   {
    "id": "entry:meetily-earlier-link",
    "label": "Meetily link surfaces from an earlier post",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:local-llms",
    "url": "https://github.com/Zackriya-Solutions/meeting-minutes",
    "raindrop_ids": [
     "1778031484"
@@ -352,7 +362,7 @@
   {
    "id": "entry:olmocr",
    "label": "olmOCR document OCR for the LLM era",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:memory-knowledge",
    "url": "https://github.com/allenai/olmocr",
    "raindrop_ids": [
     "1776995489"
@@ -368,7 +378,7 @@
   {
    "id": "entry:open-lovable",
    "label": "Open Lovable clones sites with AI",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:web-agents",
    "url": "https://github.com/mendableai/open-lovable",
    "raindrop_ids": [
     "1774869719"
@@ -431,7 +441,7 @@
   {
    "id": "entry:ai-engineering-bsc",
    "label": "Personal BSc in AI engineering roundup",
-   "theme": "theme:memory-knowledge",
+   "theme": "theme:ai-education",
    "url": "https://newsletter.systemdesign.one/p/agentic-engineering",
    "raindrop_ids": [
     "1774626979"
@@ -462,7 +472,7 @@
   {
    "id": "entry:chunkr",
    "label": "Chunkr document intelligence for RAG",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:memory-knowledge",
    "url": "https://osp.fyi/chunkr",
    "raindrop_ids": [
     "1774613088"
@@ -573,7 +583,7 @@
   {
    "id": "entry:kv-caching",
    "label": "Why KV caching makes decoding O(n)",
-   "theme": "theme:local-llms",
+   "theme": "theme:ai-education",
    "url": null,
    "raindrop_ids": [
     "1786213130"
@@ -722,7 +732,7 @@
   {
    "id": "entry:ditto",
    "label": "Ditto website cloner",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:web-agents",
    "url": "https://www.ditto.site/",
    "raindrop_ids": [
     "1783331963"
@@ -754,7 +764,7 @@
   {
    "id": "entry:meetily",
    "label": "Meetily",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:local-llms",
    "url": null,
    "raindrop_ids": [
     "1783223451"
@@ -869,7 +879,7 @@
   {
    "id": "entry:awesome-microservices",
    "label": "awesome-microservices index",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:ai-education",
    "url": "https://osp.fyi/awesome-microservices",
    "raindrop_ids": [
     "1786205421"
@@ -884,7 +894,7 @@
   {
    "id": "entry:awesome-ai-agents-list",
    "label": "awesome-ai-software-development-agents",
-   "theme": "theme:coding-agents",
+   "theme": "theme:ai-education",
    "url": "https://github.com/flatlogic/awesome-ai-software-development-agents",
    "raindrop_ids": [
     "1784546383"
@@ -929,7 +939,7 @@
   {
    "id": "entry:stanford-cs229",
    "label": "Stanford CS229 LLM lecture",
-   "theme": "theme:local-llms",
+   "theme": "theme:ai-education",
    "url": null,
    "raindrop_ids": [
     "1784547130"
@@ -959,7 +969,7 @@
   {
    "id": "entry:system-design-tree",
    "label": "System design master tree",
-   "theme": "theme:coding-agents",
+   "theme": "theme:ai-education",
    "url": null,
    "raindrop_ids": [
     "1781651199"
@@ -974,7 +984,7 @@
   {
    "id": "entry:seven-repos-listicle",
    "label": "yt-dlp and Whisper listicle",
-   "theme": "theme:coding-agents",
+   "theme": "theme:ai-education",
    "url": "https://github.com/yt-dlp/yt-dlp",
    "raindrop_ids": [
     "1782563622"
@@ -1072,7 +1082,7 @@
   {
    "id": "entry:wigolo",
    "label": "wigolo local web layer",
-   "theme": "theme:coding-agents",
+   "theme": "theme:web-agents",
    "url": "https://github.com/KnockOutEZ/wigolo",
    "raindrop_ids": [
     "1794835501"
@@ -1236,7 +1246,7 @@
   {
    "id": "entry:microgpt",
    "label": "Karpathy microGPT",
-   "theme": "theme:local-llms",
+   "theme": "theme:ai-education",
    "url": "https://github.com/karpathy/karpathy.github.io/blob/master/_posts/2026-02-12-microgpt.markdown",
    "raindrop_ids": [
     "1792863765"
@@ -1252,7 +1262,7 @@
   {
    "id": "entry:langextract",
    "label": "LangExtract",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:memory-knowledge",
    "url": "https://github.com/google/langextract",
    "raindrop_ids": [
     "1794832474"
@@ -1267,7 +1277,7 @@
   {
    "id": "entry:voicebox",
    "label": "voicebox",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:local-llms",
    "url": "https://github.com/jamiepine/voicebox",
    "raindrop_ids": [
     "1794812922"
@@ -1284,7 +1294,7 @@
   {
    "id": "entry:penpot",
    "label": "Penpot",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:web-agents",
    "url": "https://github.com/penpot/penpot",
    "raindrop_ids": [
     "1790292837"
@@ -1301,7 +1311,7 @@
   {
    "id": "entry:screenshot-to-code",
    "label": "screenshot-to-code",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:web-agents",
    "url": null,
    "raindrop_ids": [
     "1791334558"
@@ -1330,7 +1340,7 @@
   {
    "id": "entry:crawl4ai",
    "label": "Crawl4AI",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:memory-knowledge",
    "url": "https://github.com/unclecode/crawl4AI",
    "raindrop_ids": [
     "1792866103"
@@ -1346,7 +1356,7 @@
   {
    "id": "entry:browseros",
    "label": "BrowserOS",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:web-agents",
    "url": "https://github.com/browseros-ai/BrowserOS",
    "raindrop_ids": [
     "1790285930"
@@ -1513,7 +1523,7 @@
   {
    "id": "entry:neutts",
    "label": "NeuTTS",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:local-llms",
    "url": "https://osp.fyi/neutts",
    "raindrop_ids": [
     "1791333819"
@@ -1542,7 +1552,7 @@
   {
    "id": "entry:awesome-cloudflare",
    "label": "awesome-cloudflare",
-   "theme": "theme:oss-vs-saas",
+   "theme": "theme:ai-education",
    "url": "https://osp.fyi/awesome-cloudflare",
    "raindrop_ids": [
     "1789344315"
@@ -1553,6 +1563,948 @@
     "tag:curated-lists"
    ],
    "week": "2026.07.12"
+  },
+  {
+   "id": "entry:design-patterns-for-humans",
+   "label": "Design patterns for humans",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/kamranahmedse/design-patterns-for-humans",
+   "raindrop_ids": [
+    "1773108991"
+   ],
+   "summary": "Ultra-simplified, plain-English explanations of common software design patterns",
+   "quick_hit": true,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:plane-pm-suite",
+   "label": "Plane replaces four SaaS tools",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/makeplane/plane",
+   "raindrop_ids": [
+    "1773108899"
+   ],
+   "summary": "Self-hosted, open-source project management suite (52.9k stars) replacing Jira, Linear, Monday, and ClickUp in one Docker deploy; a reply reframes the pitch as buying back permission to your own team's data",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:freellmapi",
+   "label": "freellmapi 800M free tokens",
+   "theme": "theme:local-llms",
+   "url": "http://github.com/tashfeenahmed/freellmapi",
+   "raindrop_ids": [
+    "1773108682"
+   ],
+   "summary": "Open-source drop-in API proxy claiming 800M free tokens/month across GPT-4, Claude, Gemini, Llama, and Mistral; a reply who tried a similar aggregator reports silent key rotation mid-batch corrupting output with no error thrown",
+   "quick_hit": false,
+   "tags": [
+    "tag:free-model-apis",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:charlie-hills-claude-stack",
+   "label": "Charlie Hills 24 part Claude stack",
+   "theme": "theme:coding-agents",
+   "url": "https://charliehills.substack.com/p/resource",
+   "raindrop_ids": [
+    "1773108433"
+   ],
+   "summary": "A detailed real-world inventory of 8 Claude plugins, 8 skills, and 8 MCP server connections running one person's business; a reply asks the sharper question about orchestration overhead at scale",
+   "quick_hit": false,
+   "tags": [
+    "tag:claude-code",
+    "tag:agent-skills",
+    "tag:mcp"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:agent-learns-over-time",
+   "label": "Agent learns over time framework",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1773108214"
+   ],
+   "summary": "Splits agent improvement into model, harness, and context, then argues the real overlooked lever is learning from every user correction; a reply operationalizes it into a concrete correction-capture loop (no link captured)",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:agent-memory"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:mercury-agent",
+   "label": "Mercury agent most secure claim questioned",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/cosmicstack-labs/mercury-agent",
+   "raindrop_ids": [
+    "1773108008"
+   ],
+   "summary": "Open-source MIT-licensed agent pitched as 'most secure AI agent out there'; a reply asks the obvious follow-up -- most secure compared to what threat model",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-sandboxing",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:mineru",
+   "label": "MinerU documents to markdown",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/opendatalab/mineru",
+   "raindrop_ids": [
+    "1773107691"
+   ],
+   "summary": "Open-source (68.5k stars) document converter turning PDFs, Office files, and scans into clean Markdown with OCR, LaTeX-quality equations, and multi-column reading order, pitched against paid Adobe/ABBYY/Mistral OCR pricing",
+   "quick_hit": false,
+   "tags": [
+    "tag:document-ingestion"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:hyper-extract",
+   "label": "Hyper Extract documents to knowledge graphs",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/yifanfeng97/Hyper-Extract",
+   "raindrop_ids": [
+    "1773107349"
+   ],
+   "summary": "Open-source tool converting unstructured text into knowledge graphs, hypergraphs, Obsidian vaults, or MCP-ready knowledge bases; a reply flags schema drift -- the same entity typed differently across documents -- as the real failure mode at scale",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:document-ingestion",
+    "tag:obsidian"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:agentic-design-patterns-424",
+   "label": "424 page agentic design patterns doc",
+   "theme": "theme:harness-loops",
+   "url": "https://drive.google.com/file/d/1-5ho2aSZ-z0FcW8W_jMUoFSQ5hTKvJ43/view?usp=drivesdk",
+   "raindrop_ids": [
+    "1771677322"
+   ],
+   "summary": "A 424-page agentic design patterns doc condensed into 15 practical patterns; a reply publicly calls out the 'I read the whole thing' claim as bot-summarized, not read, and others flag exception handling, guardrails, and evals as the most-skipped-but-most-important chapters",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:learning-resources",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:apple-container",
+   "label": "Apple container replaces Docker Desktop",
+   "theme": "theme:oss-vs-saas",
+   "url": "http://github.com/apple/container",
+   "raindrop_ids": [
+    "1771677113"
+   ],
+   "summary": "Apple's own open-source tool (26.5k stars) runs Linux containers natively on Apple Silicon, OCI-compatible, no Docker Desktop daemon or $21/month license; replies flag missing Compose support as the current blocker to full replacement",
+   "quick_hit": false,
+   "tags": [],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:casaos",
+   "label": "CasaOS turns old laptop into personal cloud",
+   "theme": "theme:oss-vs-saas",
+   "url": "http://cloudron.io/",
+   "raindrop_ids": [
+    "1771676940"
+   ],
+   "summary": "Open-source (34.1k stars) home-server platform turning an old laptop or Raspberry Pi into a personal cloud with one-click Jellyfin, Immich, Nextcloud, and Vaultwarden; a reply pushes back that Jellyfin doesn't really replace Netflix's catalog and a 24/7 laptop has real heat/reliability tradeoffs",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:self-improving-agent-prompt",
+   "label": "Self improving agent system prompt",
+   "theme": "theme:harness-loops",
+   "url": "http://github.com/fainir/most-capable-agent-system-prompt",
+   "raindrop_ids": [
+    "1768622711"
+   ],
+   "summary": "A from-scratch system prompt aimed at building agents that improve themselves over time",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-improving-agents"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:anthropic-three-agent-loop",
+   "label": "Anthropic 3 agent build loop demo",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/gaasher/Agent-Loop-Skills",
+   "raindrop_ids": [
+    "1768615590"
+   ],
+   "summary": "Anthropic's Claude Code team demos a plan/build/judge three-agent loop assembling a working app in 40 minutes, framed as 'the winners will have the best loop, not the smartest model'; a reply notes the compute overhead of three agents may cost more than it saves",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:agent-orchestration",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:pixelrag",
+   "label": "PixelRAG screenshots beat text for RAG",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/StarTrail-org/PixelRAG",
+   "raindrop_ids": [
+    "1768603814"
+   ],
+   "summary": "Berkeley SkyLab/BAIR retrieval system that screenshots pages instead of parsing HTML, indexing 30M+ Wikipedia screenshots and beating text-RAG by 18.1 percent on text-only QA; ships a Claude Code plugin giving Claude eyes on rendered pages; a reply flags paywalls, captchas, and late-loading content as the remaining hard cases",
+   "quick_hit": false,
+   "tags": [
+    "tag:rag",
+    "tag:vector-search",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.21"
+  },
+  {
+   "id": "entry:ecc-agent-os",
+   "label": "ECC: an OS for coding agents",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/affaan-m/ECC",
+   "raindrop_ids": [
+    "1761301654"
+   ],
+   "summary": "271 skills, 67 agents, 92 commands layered on top of Claude Code, Cursor, Codex, Gemini CLI and more.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:claude-code",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:claude-code-local",
+   "label": "Claude Code running 100% local for $0/month",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/nicedreamzapp/claude-code-local",
+   "raindrop_ids": [
+    "1761301211"
+   ],
+   "summary": "A 122B local model wired into the Claude Code harness, claimed 65 tok/s on a MacBook; replies immediately asked about real specs and VRAM.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:quantization",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:cocoindex-code",
+   "label": "CocoIndex Code: AST search for coding agents",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/cocoindex-io/cocoindex-code",
+   "raindrop_ids": [
+    "1761299254"
+   ],
+   "summary": "Rust-based AST indexing that lets an agent search by what code does instead of what it's named, claims 70% fewer search tokens.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:gortex-code-graph",
+   "label": "Gortex turns repos into a queryable code graph",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/zzet/gortex",
+   "raindrop_ids": [
+    "1760372950"
+   ],
+   "summary": "CLI/MCP/web-UI code graph with a precomputed depth-3 reach index, pitched at up to 50x fewer tokens per lookup.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:understand-anything",
+   "label": "Understand Anything: instant codebase knowledge maps",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/Egonex-AI/Understand-Anything",
+   "raindrop_ids": [
+    "1759428545"
+   ],
+   "summary": "59.2k-star, #1-trending tool that maps a repo into a queryable dependency graph in minutes; one tester logged a 249-node map in 25 minutes for 130k tokens.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:github-spec-kit",
+   "label": "GitHub's spec-kit: spec first, code second",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/github/spec-kit",
+   "raindrop_ids": [
+    "1761297431"
+   ],
+   "summary": "GitHub's own spec-driven workflow (constitution, specify, clarify, plan, tasks, implement) hit 95k stars in days; works across 25+ agents.",
+   "quick_hit": false,
+   "tags": [
+    "tag:spec-driven-dev",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:agent-council-review",
+   "label": "Agent councils: have a second model check the work",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/calvinnwq/agent-swarm",
+   "raindrop_ids": [
+    "1763655735"
+   ],
+   "summary": "Riffing on Karpathy's llm-council, builders are wiring a second lab's model in as reviewer of a loop's output, on the logic that different labs have different blind spots.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:karpathy"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:newsjack-agent-platforms",
+   "label": "Where recurring agent workflows actually live",
+   "theme": "theme:coding-agents",
+   "url": "http://newsjack.sh/",
+   "raindrop_ids": [
+    "1760374109"
+   ],
+   "summary": "A builder's 12-hour install-everywhere tour of Claude chat, Claude Cowork, local CLI agents, and ChatGPT found local CLI agents are still the only place scheduled, persistent workflows genuinely run.",
+   "quick_hit": false,
+   "tags": [
+    "tag:claude-code",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:agent-skills-mega-repo",
+   "label": "agent-skills: 60.8k stars, no snapshot captured",
+   "theme": "theme:coding-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1761284813"
+   ],
+   "summary": "A free collection of production-grade engineering skills for Claude Code, Codex, Cursor and Gemini CLI; the capture's snapshot failed, so this is based only on the post's excerpt, not the full text.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:pichai-agent-orchestration",
+   "label": "Pichai: learn to orchestrate agents or spend 2027 catching up",
+   "theme": "theme:coding-agents",
+   "url": "https://youtu.be/IB7IW6zX-H0",
+   "raindrop_ids": [
+    "1763655610"
+   ],
+   "summary": "A 30-minute interview clip on why Google's CEO says the shift is from writing code to orchestrating agents.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:claude-commands-business",
+   "label": "30 Claude slash commands for running a solo business",
+   "theme": "theme:coding-agents",
+   "url": "https://youtu.be/XD4tfm-12rg?si=lKsWWSQUwcgbPI3g",
+   "raindrop_ids": [
+    "1761301055"
+   ],
+   "summary": "A money/marketing/ops/sales/content/research command set (invoice-draft, follow-up, content-plan, etc.) built entirely as Claude Code-style slash commands.",
+   "quick_hit": true,
+   "tags": [
+    "tag:claude-code",
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:harnessx-self-compiling",
+   "label": "HarnessX: a harness that compiles itself",
+   "theme": "theme:harness-loops",
+   "url": "http://arxiv.org/abs/2606.14249",
+   "raindrop_ids": [
+    "1761296038"
+   ],
+   "summary": "Treats the agent harness as a typed, editable artifact that a loop can rewrite from its own execution traces, gated so a new version only ships if it beats the old one; weakest models improved the most.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:self-improving-agents"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:harness-roadmap-14-step",
+   "label": "A 14-step roadmap from one agent to a self-improving system",
+   "theme": "theme:harness-loops",
+   "url": "https://movez.substack.com/",
+   "raindrop_ids": [
+    "1761296184"
+   ],
+   "summary": "Draws the line between harness (the static environment), loop (harness on a timer), and self-improving system (loop plus compounding memory), building on Addy Osmani's loop-engineering framing.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:context-engineering"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:loop-engineering-tips",
+   "label": "8 tips for writing quality agent loops",
+   "theme": "theme:harness-loops",
+   "url": "https://craftbettersoftware.com/p/loop-engineering-101",
+   "raindrop_ids": [
+    "1760152653"
+   ],
+   "summary": "Closed loops over open ones, parallel git worktrees, a second agent to verify work, quality gates enforced by tests not LLM judgment, and a human-managed RULES.md.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:skill-self-improvement-loop",
+   "label": "A self-improvement loop for your Skills",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/warpdotdev-demos/issue-triage-loop",
+   "raindrop_ids": [
+    "1761301509"
+   ],
+   "summary": "An inner loop applies a Skill (e.g. GitHub issue triage); an outer cloud-agent loop reads human corrections and rewrites the Skill file itself, using Warp's Oz platform as the example.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:self-improving-agents",
+    "tag:agent-skills"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:claude-supermemory",
+   "label": "claude-supermemory: persistent memory, mixed verdict",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/supermemoryai/claude-supermemory",
+   "raindrop_ids": [
+    "1761295706"
+   ],
+   "summary": "Gives Claude Code persistent memory across sessions; the top reply calls it skippable unless you need team memory, pointing to a lighter local alternative (claude mem) instead.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-memory",
+    "tag:claude-code"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:hermes-second-brain",
+   "label": "Hermes + Obsidian + NotebookLM as a compounding second brain",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/EliaszDev/hermes-okf",
+   "raindrop_ids": [
+    "1760156482"
+   ],
+   "summary": "A markdown-first knowledge format (Hermes-OKF) pitched as a local, searchable memory layer for the Hermes agent, likened to a better Karpathy-style LLM wiki; 140k GitHub stars claimed in three months.",
+   "quick_hit": false,
+   "tags": [
+    "tag:second-brain",
+    "tag:obsidian",
+    "tag:agent-memory",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:hyper-extract-graphs",
+   "label": "Hyper-Extract turns documents into knowledge graphs and timelines",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/yifanfeng97/Hyper-Extract",
+   "raindrop_ids": [
+    "1759427864"
+   ],
+   "summary": "A tool for structuring messy documents into graphs and timelines; one reply pushed on whether it can say \"I don't know\" instead of confidently misreading a document.",
+   "quick_hit": true,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:document-ingestion"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:leann-vector-compression",
+   "label": "LEANN shrinks vector storage 97% -- and hit the feed from three accounts",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/StarTrail-org/LEANN",
+   "raindrop_ids": [
+    "1763655883",
+    "1761672573",
+    "1760153027"
+   ],
+   "summary": "Graph-based selective recomputation compresses 60M chunks from 201GB to 6GB with no accuracy loss and no GPU required; the same repo was independently posted by three different accounts this week.",
+   "quick_hit": false,
+   "tags": [
+    "tag:vector-search",
+    "tag:rag"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:storm-five-experts",
+   "label": "STORM: ask five experts instead of one",
+   "theme": "theme:memory-knowledge",
+   "url": "https://drive.google.com/file/d/1xYitfs5_JlC-2gBmInHjrjdToDN_ikmc/view?usp=drivesdk",
+   "raindrop_ids": [
+    "1762368508"
+   ],
+   "summary": "Stanford's STORM technique run as five persona prompts (practitioner, skeptic, economist, historian, academic) against one question; replies immediately corrected the post's own math -- it's five prompts, not four as claimed.",
+   "quick_hit": false,
+   "tags": [
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:rag-agents-mcp-a2a-layers",
+   "label": "RAG, Agents, MCP, and A2A: one mental model",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1760374677"
+   ],
+   "summary": "Frames RAG, agents, MCP, and A2A as layers of one system rather than competing approaches; the capture's snapshot failed, so this is based only on the post's excerpt.",
+   "quick_hit": false,
+   "tags": [
+    "tag:rag",
+    "tag:mcp",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:libretranslate-local",
+   "label": "LibreTranslate: offline translation, with caveats",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/LibreTranslate/LibreTranslate",
+   "raindrop_ids": [
+    "1761290980"
+   ],
+   "summary": "40-language, CPU-only, self-hosted translation with a REST API and no per-character billing; multiple replies pushed back that quality trails frontier LLMs and DeepL, especially on legal or medical text.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:self-hosting",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:supertonic-tts",
+   "label": "Supertonic: on-device TTS with disputed quality claims",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/supertone-inc/supertonic",
+   "raindrop_ids": [
+    "1758421162"
+   ],
+   "summary": "A 66M-parameter, MIT-licensed TTS model claimed to run 167x real-time on an M4 Pro and beat ElevenLabs/OpenAI on throughput; the top reply calls the voice quality far behind ElevenLabs.",
+   "quick_hit": false,
+   "tags": [
+    "tag:voice-ai",
+    "tag:local-inference",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:nemotron-asr",
+   "label": "NVIDIA's 0.6B speech recognition model, CPU-only",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/MediaTek-Research/Breeze-ASR-25",
+   "raindrop_ids": [
+    "1761288253"
+   ],
+   "summary": "Nemotron-3.5-ASR: 40+ languages, streaming output, 2.5x the official Nemo runtime's speed with no accuracy loss claimed; note the only link the capture recovered points to a different ASR model (Breeze-ASR-25) raised in the replies, not to Nemotron-3.5-ASR itself.",
+   "quick_hit": false,
+   "tags": [
+    "tag:voice-ai",
+    "tag:local-inference",
+    "tag:quantization"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:fable5-distill-gemma",
+   "label": "A Gemma fine-tune trained on Fable 5's reasoning traces",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/yuxinlu1/gemma-4-12B-coder-fable5-composer2.5-v1-GGUF",
+   "raindrop_ids": [
+    "1760374569"
+   ],
+   "summary": "Gemma4-12B fine-tuned on Composer 2.5 traces plus Fable 5's reasoning on the hard cases, running at 20+ tok/s on an 8GB consumer GPU. The Fable 5 ban this refers to was real: the US government issued export controls on Claude Fable 5 and Mythos 5 on June 12 after a jailbreak was found, forcing a global suspension days after launch; Anthropic restored access on July 1. Commenters were split on whether a 12-25B fine-tune trained on its outputs comes anywhere close to the original.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:quantization",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:flash-kmeans-200x",
+   "label": "Flash-KMeans: 200x faster clustering on GPU",
+   "theme": "theme:local-llms",
+   "url": "http://github.com/svg-project/flash-kmeans",
+   "raindrop_ids": [
+    "1761298155"
+   ],
+   "summary": "An IO-aware KMeans rewrite that fuses distance calculation with centroid assignment and turns scattered centroid writes into sequential reductions; claims 33x over cuML and 200x over FAISS, relevant to vector index building, quantization codebooks, and MoE routing.",
+   "quick_hit": false,
+   "tags": [
+    "tag:inference-optimization",
+    "tag:vector-search"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:jane-street-open-source",
+   "label": "Jane Street's $39.6B stack, open on GitHub",
+   "theme": "theme:ai-education",
+   "url": "http://github.com/janestreet",
+   "raindrop_ids": [
+    "1763654769"
+   ],
+   "summary": "core (OCaml stdlib replacement), magic-trace (CPU instruction-level tracing), async (concurrency engine), and hardcaml (chip design in OCaml) -- production infrastructure from one of the most profitable trading firms on earth, released for free.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:microsoft-presidio-pii",
+   "label": "Microsoft's Presidio PII SDK resurfaces -- it's not new",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/microsoft/presidio",
+   "raindrop_ids": [
+    "1763654089"
+   ],
+   "summary": "Detects and redacts PII (names, emails, SSNs, medical images via DICOM) before it reaches a model, across Python, PySpark, Docker and Kubernetes; multiple replies noted Presidio has existed for years and that default accuracy needs custom recognizers to be usable.",
+   "quick_hit": false,
+   "tags": [
+    "tag:security-privacy",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:deerflow-bytedance",
+   "label": "DeerFlow: ByteDance's open-source AI worker -- also not new",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1763648266"
+   ],
+   "summary": "A ByteDance-built multi-agent worker (plans, spins up sub-agents, writes and tests code, builds decks and dashboards) at 22.7k stars and #1 on GitHub Trending; several replies said it's been available for months, not \"just dropped.\" No legitimate repo link was captured -- the post's only link was an unrelated affiliate page, omitted here.",
+   "quick_hit": false,
+   "tags": [
+    "tag:chinese-models",
+    "tag:agent-orchestration",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:hermes-ecosystem-188k",
+   "label": "Hermes agent ecosystem crosses 188k stars, five satellite tools ship",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/garrytan/gbrain",
+   "raindrop_ids": [
+    "1760374952"
+   ],
+   "summary": "GBrain (memory layer, 22.8k stars), Hermes Workspace (web GUI, 5.7k), Mission Control (multi-agent fleet dashboard, 5.3k), SkillClaw (skill auto-evolution, 1.9k), and AgentTrace (local session auditing) all built on top of Hermes this week.",
+   "quick_hit": false,
+   "tags": [
+    "tag:oss-agent-platforms",
+    "tag:agent-memory",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:google-agent-skills-whitepaper",
+   "label": "Google's whitepaper on building and evaluating Agent Skills",
+   "theme": "theme:ai-education",
+   "url": "https://www.kaggle.com/whitepaper-agent-skills",
+   "raindrop_ids": [
+    "1762368182"
+   ],
+   "summary": "Free Kaggle whitepaper covering meta-skills and self-improving Agent Skills.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:google-agentic-sdlc-whitepaper",
+   "label": "A 50-page guide to the shift from vibe coding to agentic engineering",
+   "theme": "theme:ai-education",
+   "url": "https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding",
+   "raindrop_ids": [
+    "1760190776"
+   ],
+   "summary": "Covers the new software development life cycle with AI agents, including treating agent context and rules as versioned code.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources",
+    "tag:spec-driven-dev"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:likec4-live-diagrams",
+   "label": "LikeC4 turns code into live architecture diagrams",
+   "theme": "theme:oss-vs-saas",
+   "url": "http://github.com/likec4/likec4",
+   "raindrop_ids": [
+    "1761297132",
+    "1760153633"
+   ],
+   "summary": "Write the model, get the diagram; change the code and the diagram updates. 98k downloads a month; posted independently by two accounts this week.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:learn-ai-free-top-companies",
+   "label": "Free AI courses straight from the source",
+   "theme": "theme:ai-education",
+   "url": "https://anthropic.skilljar.com/",
+   "raindrop_ids": [
+    "1763655065"
+   ],
+   "summary": "A roundup of free training from Anthropic, Google, Meta, NVIDIA, Microsoft, OpenAI, IBM, AWS, DeepLearning.AI, and Hugging Face.",
+   "quick_hit": true,
+   "tags": [
+    "tag:learning-resources",
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:ten-free-websites",
+   "label": "10 free websites worth bookmarking",
+   "theme": "theme:ai-education",
+   "url": "http://nextcloud.com/",
+   "raindrop_ids": [
+    "1761302267"
+   ],
+   "summary": "Self-hosted Drive/Dropbox alternative (Nextcloud), the Internet Archive, a browser-based Photoshop clone (Photopea), a device-to-device sync tool (Syncthing), and a Windows bloatware-free installer (Ninite) alongside two paywall/journal-bypass tools worth knowing your local laws before using.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists",
+    "tag:self-hosting"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:github-repos-beat-courses",
+   "label": "10 GitHub repos vs. paid AI courses",
+   "theme": "theme:ai-education",
+   "url": null,
+   "raindrop_ids": [
+    "1760375078"
+   ],
+   "summary": "A list including microsoft/generative-ai-for-beginners, rasbt/LLMs-from-scratch, and facebookresearch/segment-anything; no links were captured in the post itself.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists",
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:clone-wars-100-apps",
+   "label": "100+ open-source clones of the internet's biggest apps",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/GorvGoyl/Clone-Wars",
+   "raindrop_ids": [
+    "1760190707"
+   ],
+   "summary": "Netflix, Spotify, Instagram, Airbnb, WhatsApp, TikTok and 90+ more, each with source, live demo and tech stack listed.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:20-repos-ai-career",
+   "label": "20 GitHub repos for an AI engineering career",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/arize-ai/phoenix",
+   "raindrop_ids": [
+    "1760190570"
+   ],
+   "summary": "A list spanning OpenClaw, TensorFlow, AutoGPT, n8n, Ollama, LangChain and more; a reply pointed out OpenClaw hasn't seen commits since 2023.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:best-llm-explainer-site",
+   "label": "A free site for learning how LLMs actually work",
+   "theme": "theme:ai-education",
+   "url": "https://0xkato.xyz/how-llms-actually-work",
+   "raindrop_ids": [
+    "1760158441"
+   ],
+   "summary": "A well-received, no-cost explainer walking through transformer internals, cited repeatedly in replies as clearer than existing videos.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:awesome-workflow-automation",
+   "label": "A curated list of workflow automation tools and AI agents",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/dariubs/awesome-workflow-automation",
+   "raindrop_ids": [
+    "1760373222"
+   ],
+   "summary": "An awesome-list style roundup; one reply noted these lists get unwieldy to maintain as they grow.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:stanford-llm-from-scratch",
+   "label": "Stanford's 2-hour lecture on building LLMs from scratch",
+   "theme": "theme:ai-education",
+   "url": null,
+   "raindrop_ids": [
+    "1759428263"
+   ],
+   "summary": "Covers tokenization, scaling laws, data collection, SFT, RLHF and DPO; the only link the capture recovered was an unrelated OpenAI error-codes page, so no direct lecture link is given here.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:ten-repos-ai-engineers",
+   "label": "10 GitHub repos worth a look for AI engineers",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/Sumanth077/Hands-On-AI-Engineering",
+   "raindrop_ids": [
+    "1759428002"
+   ],
+   "summary": "Includes Hands-On-Large-Language-Models, microsoft/ai-agents-for-beginners, karpathy/autoresearch (a 630-line overnight experiment loop), and walkinglabs/learn-harness-engineering.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources",
+    "tag:curated-lists",
+    "tag:harness-engineering"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:fullstack-ai-roadmap",
+   "label": "A full-stack AI engineering roadmap, 0 to 100",
+   "theme": "theme:ai-education",
+   "url": "https://mk0r.com/r/4yjqjfi6",
+   "raindrop_ids": [
+    "1759427763"
+   ],
+   "summary": "Fundamentals through LLM APIs, RAG, agents, infrastructure, evals, security, and advanced workflows; the link is a shortener, final destination not independently verified.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:yabai-window-manager",
+   "label": "yabai: tiling window management for macOS",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/yabai",
+   "raindrop_ids": [
+    "1761297809"
+   ],
+   "summary": "Binary space partitioning window layout via CLI, beyond macOS's default 16-space limit; link is the recurring osp.fyi shortener.",
+   "quick_hit": true,
+   "tags": [],
+   "week": "2026.06.14"
+  },
+  {
+   "id": "entry:ai-development-patterns",
+   "label": "A collection of patterns for building software with AI assistance",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/PaulDuvall/ai-development-patterns",
+   "raindrop_ids": [
+    "1761295448"
+   ],
+   "summary": "A pattern library for AI-assisted development, posted with no additional commentary.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.06.14"
   }
  ],
  "tags": [
@@ -1796,6 +2748,31 @@
    "label": "Security & privacy tooling",
    "aliases": [
     "fingerprinting"
+   ]
+  },
+  {
+   "id": "tag:code-search",
+   "label": "Semantic code search & indexing",
+   "aliases": [
+    "AST search",
+    "code graph",
+    "codebase search"
+   ]
+  },
+  {
+   "id": "tag:spec-driven-dev",
+   "label": "Spec-driven development",
+   "aliases": [
+    "spec-kit",
+    "specification-first"
+   ]
+  },
+  {
+   "id": "tag:oss-agent-platforms",
+   "label": "Open-source agent platforms",
+   "aliases": [
+    "Hermes",
+    "OpenClaw"
    ]
   }
  ]
