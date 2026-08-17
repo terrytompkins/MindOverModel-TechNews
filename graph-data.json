@@ -6,7 +6,8 @@
   "2026.06.28",
   "2026.07.05",
   "2026.07.12",
-  "2026.07.19"
+  "2026.07.19",
+  "2026.07.26"
  ],
  "themes": [
   {
@@ -36,6 +37,10 @@
   {
    "id": "theme:web-agents",
    "label": "Web Agents: Browsing, Scraping & Design-to-Code"
+  },
+  {
+   "id": "theme:model-economics",
+   "label": "Model Economics & Open vs Closed"
   }
  ],
  "entries": [
@@ -3357,6 +3362,726 @@
     "tag:knowledge-graphs"
    ],
    "week": "2026.07.19"
+  },
+  {
+   "id": "entry:open-weights-civil-war",
+   "label": "ZDNET declares an open-vs-closed AI civil war",
+   "theme": "theme:model-economics",
+   "url": "https://www.zdnet.com/article/open-weight-ai-civil-war/",
+   "raindrop_ids": [
+    "1807064103"
+   ],
+   "summary": "Vaughan-Nichols frames open vs closed LLMs as an outright industry war: Anthropic and OpenAI on the proprietary side, Microsoft/Amazon/Nvidia/Google plus ~200 startups lining up behind open weights after the Kimi K3 distillation kerfuffle, with pricing pressure making open weights the affordability argument.",
+   "quick_hit": false,
+   "tags": [
+    "tag:open-weights",
+    "tag:chinese-models"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:kimi-k3-another-planet",
+   "label": "Alberto Romero: Kimi K3 closes the US-China gap to zero",
+   "theme": "theme:model-economics",
+   "url": "https://albertoromgar.medium.com/moonshot-is-chinese-but-its-ai-models-are-from-another-planet-bdcf05fbd6cb",
+   "raindrop_ids": [
+    "1807057313"
+   ],
+   "summary": "Long analysis arguing Kimi K3 is the first Chinese open model at frontier level (par with Mythos/Fable and GPT-5.6 in places), turning DeepSeek's efficiency lesson into frontier intelligence and resetting the 'six to nine months behind' estimate to zero ahead of the July 27 weights release.",
+   "quick_hit": false,
+   "tags": [
+    "tag:chinese-models",
+    "tag:open-weights"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:token-maxing-tokenomics",
+   "label": "Token-maxing is out; tokenomics is a CFO discipline",
+   "theme": "theme:model-economics",
+   "url": "https://www.zdnet.com/article/token-maxing-ai-cost-sink-use-agents-without-busting-budget/",
+   "raindrop_ids": [
+    "1807066744"
+   ],
+   "summary": "ZDNET from Snowflake Summit 2026: token leaderboards are dead, a CEO reports 10x year-over-year Claude spend, and 'tokenomics' \u2014 measuring and managing token consumption \u2014 is now core business practice; leaders converge on guardrails-plus-enablement rather than restricting agent use.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:inference-cost-metering",
+   "label": "The metered-pricing shift: Copilot credits and consumption contracts",
+   "theme": "theme:model-economics",
+   "url": "https://medium.com/no-time/nvidia-just-changed-ai-forever-and-almost-nobody-noticed-7eb0fe89ec20",
+   "raindrop_ids": [
+    "1807057495"
+   ],
+   "summary": "Copilot's June 1 move to metered credits, Anthropic's reported shift to consumption enterprise pricing, and Uber burning its 2026 AI budget in four months; Gartner sees inference spend (~$20.6B) overtaking training for the first time \u2014 with local hardware like DGX Spark pitched as the fixed-cost escape.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization",
+    "tag:local-ai-hardware"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:kimi-k3-waste-laptop",
+   "label": "WASTE runs the full 2.78T Kimi K3 on a 64GB MacBook",
+   "theme": "theme:local-llms",
+   "url": "https://x.com/brianroemmele/status/2082909527515779164",
+   "raindrop_ids": [
+    "1806210876"
+   ],
+   "summary": "Marco Bambini's dependency-free C engine streams only activated MoE experts from NVMe (27GB trunk in RAM, 82k+ experts on disk), running the unmodified Kimi K3 at 0.32-0.34 tok/s with reference-matching logits \u2014 honest about being a research instrument, not a product. No repo link captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:chinese-models",
+    "tag:local-ai-hardware",
+    "tag:inference-optimization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:llm-coding-shootout-20",
+   "label": "20+ LLMs tested for coding; only 5 worked",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/@rosgluk/i-tested-20-llms-for-coding-tasks-only-5-actually-worked-3ca40f2a125d",
+   "raindrop_ids": [
+    "1807062509"
+   ],
+   "summary": "Two concrete tasks (Go CLI with IndexNow, strict migration map) across 20+ models on 16GB VRAM: Qwen 3.5 27B IQ3_XXS wins (34 tok/s, tests passing); Qwen 3.5 35B fails structurally (98.8% error on migration maps); GPT-OSS 20B only works with high thinking enabled.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:evals-benchmarks",
+    "tag:quantization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:omlx-kv-cache-ssd",
+   "label": "omlx pages the KV cache to SSD on Apple Silicon",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/jundot/omlx",
+   "raindrop_ids": [
+    "1807061586"
+   ],
+   "summary": "Open-source MLX-based LLM server whose one differentiating decision is persisting KV cache blocks to SSD (vLLM-style block layout, hot RAM tier), so a 70K-token agent context survives sleep, restarts, and memory pressure instead of being silently reprocessed from scratch.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:inference-optimization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:mac-kv-cache-wall",
+   "label": "Why your Mac LLM just died: the KV cache wall",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/@rajveer.rathod1301/why-your-mac-llm-just-died-and-the-missing-piece-nobody-talks-about-240039733d6a",
+   "raindrop_ids": [
+    "1807061447"
+   ],
+   "summary": "Deep explainer on the KV cache as local inference's real bottleneck on unified-memory Macs \u2014 16.8GB of cache for 32K context on Llama 3.1-8B, a 32B model leaving 0.2GB free and dying in 2 tokens \u2014 written as motivation for the author's VeloxQuant-MLX (no repo link captured).",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:inference-optimization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:amd-r9700-review",
+   "label": "AMD R9700 32GB bought and benchmarked vs RTX 3090",
+   "theme": "theme:local-llms",
+   "url": "https://xhinker.medium.com/i-bought-an-amd-ai-pro-r9700-32gb-to-test-i-d1db25c91a04",
+   "raindrop_ids": [
+    "1807057375"
+   ],
+   "summary": "Hands-on with the ~$1,349 32GB RDNA4 card: more VRAM, PCIe 5.0 and lower TDP than a 3090, but 46% less memory bandwidth and ROCm/Vulkan vs mature CUDA \u2014 pitched as the VRAM-per-dollar answer in the post-memory-spike era.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-ai-hardware",
+    "tag:local-inference"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:local-llm-honest-guide",
+   "label": "Running AI models locally: an honest field report",
+   "theme": "theme:local-llms",
+   "url": "https://bleadvertiserapp.medium.com/running-ai-models-locally-what-actually-happens-when-you-try-it-c7bf513d2b4e",
+   "raindrop_ids": [
+    "1807055325"
+   ],
+   "summary": "Hype-free beginner's map of local inference in 2026: what quantization actually trades away, GGUF as the safe default, and a clean audience split \u2014 Ollama for devs, LM Studio for GUI users, Jan/GPT4All for offline privacy, vLLM for serving at scale.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:learning-resources"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:picolm-45mb",
+   "label": "picolm: 1B-parameter LLM in 45MB of RAM",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/RightNow-AI/picolm",
+   "raindrop_ids": [
+    "1805958978"
+   ],
+   "summary": "Zero-dependency engine running a 1B model in 45MB RAM on low-cost hardware; replies report config errors and that the small model is 'very limited' in practice.",
+   "quick_hit": true,
+   "tags": [
+    "tag:local-inference"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:mem0-new-algorithm",
+   "label": "mem0's new memory algorithm with honest fine print",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/mem0ai/mem0",
+   "raindrop_ids": [
+    "1807063663"
+   ],
+   "summary": "62k-star memory layer ships a rewritten algorithm \u2014 ADD-only extraction, first-class agent facts, entity linking, fused multi-signal retrieval, temporal ranking \u2014 claiming 92.5 LoCoMo (+21), while plainly stating hosted-platform scores exceed what open-source users will see; eval framework open-sourced.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-memory",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:tencent-agent-memory",
+   "label": "Tencent's local agent memory, peer-reviewed by its replies",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+   "raindrop_ids": [
+    "1805316304"
+   ],
+   "summary": "Viral pitch (61% fewer tokens, persona accuracy 48%\u219276%, fully local) corrected in-thread: it's conversational memory rather than agentic state, 'no cloud' is oversold since L2/L3 formation needs an embedding model plus an LLM, and a three-month user reports heavy modification needed.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-memory",
+    "tag:chinese-models",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:codegraph-preindexed",
+   "label": "codegraph: pre-indexed code knowledge graph, auto-syncing",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/colbymchenry/codegraph",
+   "raindrop_ids": [
+    "1807063312"
+   ],
+   "summary": "64k-star Rust-kerneled local code graph for Claude Code/Codex/Cursor et al. \u2014 pre-indexed, syncs on change, framework-aware routes \u2014 sold as fewer tokens and fewer tool calls, with a hosted PR-impact platform coming (open-core split ahead).",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:knowledge-graphs",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:cog-second-brain-tutorial",
+   "label": "COG: second brain from Markdown, Git, and any agent",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/huytieu/COG-second-brain",
+   "raindrop_ids": [
+    "1807055620"
+   ],
+   "summary": "Step-by-step tutorial for the MIT-licensed Cognition+Obsidian+Git system: the whole brain is .md files in a git repo, intelligence lives in agent-executed markdown skills, works with Claude Code/Cursor/Gemini CLI/Codex \u2014 the linkable, real version of the 'second brain' meme.",
+   "quick_hit": false,
+   "tags": [
+    "tag:second-brain",
+    "tag:obsidian",
+    "tag:agent-skills"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:anthropic-second-brain-redux",
+   "label": "The 'Anthropic engineer's second brain' genre returns",
+   "theme": "theme:memory-knowledge",
+   "url": "https://x.com/rvaniaaaa/status/2083113895670038829",
+   "raindrop_ids": [
+    "1806283554"
+   ],
+   "summary": "Another unnamed-insider post: raw/ wiki/ output/ folders plus a persistent CLAUDE.md and five automations, zero links \u2014 the content-mill format tracked since last week; best reply adds a quarantine folder between raw and wiki so one bad extraction can't poison downstream context.",
+   "quick_hit": false,
+   "tags": [
+    "tag:second-brain",
+    "tag:context-engineering",
+    "tag:hype-debunked",
+    "tag:claude-code"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:okf-v02-agentic-trust",
+   "label": "Google OKF v0.2: provenance and attested computation",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf",
+   "raindrop_ids": [
+    "1803766804"
+   ],
+   "summary": "Open Knowledge Format v0.2 adds checkable trust signals to agent-written knowledge \u2014 sources, generated/verified split, stale_after dates, status \u2014 plus Attested Computation: agents fill parameters into approved queries and a post-run diff blocks any number produced by a drifted query.",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:context-engineering"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:siftly-bookmarks",
+   "label": "Siftly rescues your X bookmark pile locally",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/viperrcrypto/Siftly",
+   "raindrop_ids": [
+    "1805318617"
+   ],
+   "summary": "Local open-source tool that imports X bookmarks, reads full text and screenshots, and produces AI summaries, categories, natural-language search and a mind-map browser; 2.5k stars.",
+   "quick_hit": true,
+   "tags": [
+    "tag:second-brain"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:polydao-overnight-folder",
+   "label": "The folder that replaced me: overnight agent shifts",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/polydao/status/2083083740973039758",
+   "raindrop_ids": [
+    "1806286417"
+   ],
+   "summary": "A repo layout for unattended overnight agent work \u2014 CONTRACT.md shift rules, spend-capped loop harness with grading rubrics, receipts/trace/checkpoint state \u2014 with the week's sharpest reply: same-agent plan/do/grade is self-review, so 5,382 receipts are just 5,382 confidence reports unless the evaluator has separate rules, fewer permissions, and fails closed.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:context-engineering",
+    "tag:self-improving-agents"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:loop-graph-harness-layers",
+   "label": "Loop vs graph vs harness: the layers, with real repos",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/elune0x/status/2082493878238576748",
+   "raindrop_ids": [
+    "1805323988"
+   ],
+   "summary": "Clean taxonomy backed by six real tools: loops control repetition (Temporal), graphs control topology (LangGraph, networkx), harnesses control blast radius (E2B, openai/evals, OpenTelemetry) \u2014 the loop lives in the graph, the graph in the harness, and the model is not the system.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:deepagents-harness",
+   "label": "LangChain open-sources the deepagents harness",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1805200346"
+   ],
+   "summary": "deepagents (MIT, 26k+ stars claimed): sub-agent spawning, todo planning, virtual filesystem, durable LangGraph runs \u2014 the standard harness feature set as an off-the-shelf package; no repo link captured in the post (a reply mocks exactly that), URL inferred as github.com/langchain-ai/deepagents.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:eval-engineering-judges",
+   "label": "Eval engineering: LLM judges are uncalibrated instruments",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/argona0x/status/2082193490956476521",
+   "raindrop_ids": [
+    "1804599653"
+   ],
+   "summary": "$77.81 of model calls replaced $7,500 of human grading and exposed the judge: 13.6% self-disagreement, 72% first-position bias, kappa 0.51 cross-judge, rubric paraphrases flipping outcomes \u2014 with concrete fixes (both-ways averaging, majority votes, versioned rubrics, plain code for objective checks). Referenced article not linked in captured thread.",
+   "quick_hit": false,
+   "tags": [
+    "tag:evals-benchmarks",
+    "tag:harness-engineering"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:argona-fleet-audit",
+   "label": "16-agent repo audit with fresh-context verification",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/argona0x/status/2081374396900425875",
+   "raindrop_ids": [
+    "1802927713"
+   ],
+   "summary": "Parallel-agent auditing method: fan independent work out one agent per item, verify every finding on a fresh-context second fleet (models recognize their own writing 73.5% of the time and grade it kinder), shard across worktrees \u2014 with an honest Amdahl ceiling: 16 agents yield 9.14x, 256 only 18.6x. Referenced article not linked.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:harness-engineering",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:anthropic-engineer-hype-genre",
+   "label": "The 'Anthropic $X-million engineer' genre self-debunks",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/sprytixl/status/2081393802359505153",
+   "raindrop_ids": [
+    "1803767513",
+    "1802927524"
+   ],
+   "summary": "Two more zero-link posts crediting invented Anthropic engineers ($2.2M salary, $1.2M bonus) with graph-engineering systems, both demolished in replies \u2014 'I'm Anthropic's $3.3M engineer and this is bs', a self-identified Anthropic lead's flat denial, and a source-check finding real papers cited with fake baselines. Hit the feed from two accounts; the correction is the story.",
+   "quick_hit": false,
+   "tags": [
+    "tag:hype-debunked",
+    "tag:agent-orchestration",
+    "tag:knowledge-graphs"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:graphify-hands-on",
+   "label": "Graphify hands-on: what's local, what's free, what bills you",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/Graphify-Labs/graphify",
+   "raindrop_ids": [
+    "1807063242",
+    "1807055247"
+   ],
+   "summary": "Follow-up to last week's 70x audit by the same author, alongside the repo (now 100k stars) resurfacing: two-command install, under twenty minutes to first useful query, code parsing fully local tree-sitter (deterministic, free) \u2014 while doc/PDF/image ingestion quietly uses your assistant's model.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:token-cost-optimization",
+    "tag:knowledge-graphs"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:cloakbrowser-stealth",
+   "label": "CloakBrowser: fingerprint patches at the C++ source level",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/CloakHQ/CloakBrowser",
+   "raindrop_ids": [
+    "1807063361"
+   ],
+   "summary": "Stealth Chromium with 71 source-level fingerprint patches (canvas, WebGL, audio, WebRTC, CDP behavior), drop-in Playwright/Puppeteer replacement with a humanize flag and a paid Pro tier claiming 0.9 reCAPTCHA v3 scores \u2014 the bot-detection arms race now means maintaining forked browser source.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-browsers",
+    "tag:security-privacy",
+    "tag:web-scraping"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:agent-reach-double",
+   "label": "agent-reach: free social platform access, twice in one week",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/Panniantong/Agent-Reach/blob/main/docs/README_en.md",
+   "raindrop_ids": [
+    "1805955576",
+    "1805317080"
+   ],
+   "summary": "Same tool from two accounts in one week: pip-install access to X/Reddit/YouTube/GitHub for agents via direct parsing of your logged-in session, versus $100-215/mo official APIs \u2014 replies supply the ToS-violation caveat, parsing fragility, and a report of X rate-limiting and logout risk.",
+   "quick_hit": false,
+   "tags": [
+    "tag:web-scraping",
+    "tag:agent-browsers",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:lightpanda-zig",
+   "label": "Lightpanda: a headless browser with no rendering engine",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/lightpanda-io/browser",
+   "raindrop_ids": [
+    "1804599401"
+   ],
+   "summary": "Zig-built agent browser (no Blink/WebKit at all) claiming 100 pages in 5s vs Chrome's 46s; agent mode lets an LLM click through once then exports the session as deterministic replayable PandaScript \u2014 prototype with inference, ship token-free; replies note no rendering means no screenshots or visual checks.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-browsers",
+    "tag:web-scraping",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:design-md-registry",
+   "label": "DESIGN.md registry: design systems as agent-readable markdown",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/VoltAgent/official-design-md",
+   "raindrop_ids": [
+    "1803766970"
+   ],
+   "summary": "First robots.txt, then llms.txt, now DESIGN.md \u2014 companies publishing design systems as plain markdown so agents build on-brand UI; this repo tracks every official one.",
+   "quick_hit": true,
+   "tags": [
+    "tag:design-to-code",
+    "tag:context-engineering"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:browser-use-archive",
+   "label": "browser-use, from the archive",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/browser-use/browser-use",
+   "raindrop_ids": [
+    "1025043254"
+   ],
+   "summary": "An April 2025 capture re-tagged into this week: the original 'make websites accessible for AI agents' library \u2014 ancestor of this week's Lightpanda/CloakBrowser agent-browser wave.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-browsers"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:iruka-file-manager",
+   "label": "Iruka: the file manager where the terminal follows you",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://levelup.gitconnected.com/macos-never-got-the-file-manager-developers-deserved-so-i-built-it-e8ac81480578",
+   "raindrop_ids": [
+    "1807054833"
+   ],
+   "summary": "Native Swift macOS file explorer with a Dolphin-style follow-along terminal (auto-pausing during long commands), shell-like path bar, and real rendered previews \u2014 explicitly designed around having Claude Code running alongside the file browser.",
+   "quick_hit": false,
+   "tags": [
+    "tag:claude-code"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:dorsey-buzz-double",
+   "label": "Block's 'Buzz' agent platform, twice and breathlessly",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1804599269",
+    "1806211081"
+   ],
+   "summary": "Two accounts, identical breathless framing, zero links: Jack Dorsey/Block open-sourced a self-hosted platform (channels, search, git, automation, agents as scoped teammates). Replies identify it as Block's Buzz, and users who ran it report it 'buggy as all hell' \u2014 star-count hype outrunning maturity.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting",
+    "tag:oss-agent-platforms",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:free-llm-api-list",
+   "label": "Reading free-tier rate limits as a workload spec",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/cheahjs/free-llm-api-resources",
+   "raindrop_ids": [
+    "1806282782"
+   ],
+   "summary": "Smart lens on the 28.8k-star free-LLM-API list: free-tier shapes reveal intended workloads \u2014 Google AI Studio for few large calls (250K tok/min, 20 req/day), Groq for thousands of tiny ones, Cerebras for sustained runs, Mistral's billion tokens/month priced in training data.",
+   "quick_hit": false,
+   "tags": [
+    "tag:free-model-apis",
+    "tag:curated-lists"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:excel-killers-10",
+   "label": "10 open-source repos that make Excel look ancient",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/duckdb/duckdb",
+   "raindrop_ids": [
+    "1805954149"
+   ],
+   "summary": "Fully-linked roundup \u2014 Datasette, Baserow, Grist, Teable, DuckDB, Rowy, Metabase, Observable Framework, Evidence, Actual Budget \u2014 with the best reply reframing them as different execution engines to mix, not spreadsheet replacements to pick between.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists",
+    "tag:self-hosting"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:google-15-free-tools",
+   "label": "Google's 15 free AI tools \u2014 useful list, false framing",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://x.com/explorax_/status/2081474379691753950",
+   "raindrop_ids": [
+    "1802927920"
+   ],
+   "summary": "Viral map of Google's free-tier land grab (Pomelli, Stitch, Opal, Antigravity, Jules, NotebookLM, Gemini CLI, et al.) whose 'all open-source, MIT licensed' claim is checkably false \u2014 nearly all are free hosted products; Gemini CLI is the Apache-2.0 exception, and the post itself notes Firebase Studio is winding down.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists",
+    "tag:hype-debunked",
+    "tag:free-model-apis"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:pclink-remote",
+   "label": "PCLink: web-first remote PC management",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/BYTEDz/PCLink",
+   "raindrop_ids": [
+    "1806287205"
+   ],
+   "summary": "Web-first server for secure remote PC management and high-performance screen streaming.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:dify-archive",
+   "label": "Dify, from the archive",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/langgenius/dify",
+   "raindrop_ids": [
+    "631592278"
+   ],
+   "summary": "An August 2023 capture re-tagged into this week: the visual LLM-app platform at 7.8k stars in that snapshot \u2014 now a fixture of every roundup list, a measure of three years of ecosystem growth.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:kg-course-free",
+   "label": "A full graduate knowledge-graph course, free on GitHub",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/npubird/KnowledgeGraphCourse",
+   "raindrop_ids": [
+    "1803767417"
+   ],
+   "summary": "Complete university course (Chinese-language materials) covering the whole pipeline \u2014 representation, ontology, extraction, relations, events, quality gates, fusion, embeddings, traversable memory \u2014 the actual curriculum under the week's graph-engineering hype.",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:learning-resources"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:mcp-servers-8",
+   "label": "8 MCP servers that earned a permanent spot",
+   "theme": "theme:ai-education",
+   "url": "https://medium.com/@hackastak/8-mcp-servers-every-developer-should-try-in-2026-stop-copy-pasting-into-your-ai-8243129b4964",
+   "raindrop_ids": [
+    "1807055156"
+   ],
+   "summary": "Experience-filtered MCP roundup (a year of daily Claude Code use): official GitHub server, Context7 version-pinned docs, and six more \u2014 with a responsible security preface about scoping tokens and treating servers like a new teammate's credentials.",
+   "quick_hit": false,
+   "tags": [
+    "tag:mcp",
+    "tag:curated-lists",
+    "tag:claude-code"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:ecc-skill-pack",
+   "label": "Everything Claude Code: 183 skills, audited in the replies",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/affaan-m/ECC",
+   "raindrop_ids": [
+    "1802927177"
+   ],
+   "summary": "Anthropic hackathon winner open-sources his 10-month Claude Code setup (183 skills, 48 sub-agents, 79 commands); an independent audit in the replies concludes 'useful as a reference pack; do not install it wholesale' \u2014 3,372 files of instruction surface, overlap risk, and an installer that runs npm install without --ignore-scripts.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:claude-code",
+    "tag:security-privacy"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:top30-repos-jul26",
+   "label": "Top 30 AI repos roundup",
+   "theme": "theme:ai-education",
+   "url": "https://x.com/daievolutionhub/status/2082893151212343675",
+   "raindrop_ids": [
+    "1806282258"
+   ],
+   "summary": "Another fully-linked Kshitij Mishra 30-repo list (LangChain, vLLM, Ollama, AutoGen, Dify, vector DBs, Whisper...) \u2014 the recurring roundup format tracked across weeks.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:11-repos-vs-saas",
+   "label": "11 mega-list repos vs $50K/year of SaaS",
+   "theme": "theme:ai-education",
+   "url": "https://x.com/unicodef1wn/status/2082200846243143795",
+   "raindrop_ids": [
+    "1805319530"
+   ],
+   "summary": "Roundup of the mega-lists: free-for-dev, public-apis, awesome-selfhosted, awesome-claude-code, anthropics/skills, awesome-mcp-servers, leaked system prompts, and sindresorhus/awesome.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:graph-pipeline-repos",
+   "label": "Graph pipeline repos: Strwythura and llm2kg",
+   "theme": "theme:ai-education",
+   "url": "https://x.com/cyrilxbt/status/2081270794597110015",
+   "raindrop_ids": [
+    "1802928004"
+   ],
+   "summary": "'Full graph engineering pipeline in open source' post naming Strwythura (ontology pipeline with GraphRAG) and llm2kg (extraction to Neo4j plus a ReAct agent) \u2014 no repo links captured in the thread.",
+   "quick_hit": true,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:curated-lists"
+   ],
+   "week": "2026.07.26"
+  },
+  {
+   "id": "entry:jcode-rust-harness",
+   "label": "jcode: a Rust harness benchmarking itself against Claude Code",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/1jehuang/jcode",
+   "raindrop_ids": [
+    "1803767264"
+   ],
+   "summary": "MIT Rust coding agent leading with resource numbers (14ms boot, 27.8MB/session) plus real architecture: per-agent semantic memory graph with side-agent verification, 30+ providers with account fallback, multi-agent Swarm with file-conflict pings, and self-dev mode that rebuilds its own binary; replies counter that output quality, not boot time, is the bottleneck.",
+   "quick_hit": false,
+   "tags": [
+    "tag:oss-agent-platforms",
+    "tag:agent-memory",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.07.26"
   }
  ],
  "tags": [
@@ -3634,6 +4359,23 @@
     "cost cutting",
     "token savings",
     "LLM cost reduction"
+   ]
+  },
+  {
+   "id": "tag:open-weights",
+   "label": "Open weights & licensing",
+   "aliases": [
+    "open-weight models",
+    "open vs closed"
+   ]
+  },
+  {
+   "id": "tag:local-ai-hardware",
+   "label": "Local AI hardware",
+   "aliases": [
+    "GPU",
+    "VRAM",
+    "NVMe streaming"
    ]
   }
  ]
