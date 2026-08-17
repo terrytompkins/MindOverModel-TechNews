@@ -6,7 +6,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## Latest digest
 
-**[Week of 2026.07.26](./digest-2026.07.26.md)** — the open-weights fight becomes the headline story (ZDNET's "AI civil war," Kimi K3 closing the frontier gap, the full 2.78T model streaming off a laptop's NVMe), agent memory turns into a crowded battleground, and the graph-engineering hype cycle enters week two — with the debunkers now living in the replies.
+**[Week of 2026.08.02](./digest-2026.08.02.md)** — the "compile a knowledge base once" pattern (Karpathy, Graphify, Google's Open Knowledge Format) keeps multiplying, a wave of unnamed-product "AI memory system" posts shares a suspiciously overlapping cast of reply accounts, Kimi K3's full 2.8T parameters run on a 4GB GPU via per-expert streaming, and open source keeps beating paid SaaS across categories that have nothing to do with coding.
 
 ## The knowledge graph
 
@@ -18,6 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
+| 2026.08.02 | [digest-2026.08.02.md](./digest-2026.08.02.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.02) |
 | 2026.07.26 | [digest-2026.07.26.md](./digest-2026.07.26.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.26) |
 | 2026.07.19 | [digest-2026.07.19.md](./digest-2026.07.19.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.19) |
 | 2026.07.12 | [digest-2026.07.12.md](./digest-2026.07.12.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.12) |
