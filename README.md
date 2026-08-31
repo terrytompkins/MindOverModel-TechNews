@@ -6,7 +6,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## Latest digest
 
-**[Week of 2026.08.02](./digest-2026.08.02.md)** — the "compile a knowledge base once" pattern (Karpathy, Graphify, Google's Open Knowledge Format) keeps multiplying, a wave of unnamed-product "AI memory system" posts shares a suspiciously overlapping cast of reply accounts, Kimi K3's full 2.8T parameters run on a 4GB GPU via per-expert streaming, and open source keeps beating paid SaaS across categories that have nothing to do with coding.
+**[Week of 2026.08.09](./digest-2026.08.09.md)** — five separate tools ship the same bet that precomputing a map of the codebase beats letting the agent re-read files (Graft claims 42% fewer tokens over 162 runs), reply threads correct three of the week's loudest posts before the digest has to, three "10 repos that replace $X/year" listicles land from three accounts in one week, and Nvidia's Nemotron 3.5 Lightning makes the case for small open models built to *execute* rather than reason.
 
 ## The knowledge graph
 
@@ -18,6 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
+| 2026.08.09 | [digest-2026.08.09.md](./digest-2026.08.09.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.09) |
 | 2026.08.02 | [digest-2026.08.02.md](./digest-2026.08.02.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.02) |
 | 2026.07.26 | [digest-2026.07.26.md](./digest-2026.07.26.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.26) |
 | 2026.07.19 | [digest-2026.07.19.md](./digest-2026.07.19.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.19) |
