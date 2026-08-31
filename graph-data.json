@@ -8,7 +8,8 @@
   "2026.07.12",
   "2026.07.19",
   "2026.07.26",
-  "2026.08.02"
+  "2026.08.02",
+  "2026.08.09"
  ],
  "themes": [
   {
@@ -42,6 +43,10 @@
   {
    "id": "theme:model-economics",
    "label": "Model Economics & Open vs Closed"
+  },
+  {
+   "id": "theme:codebase-comprehension",
+   "label": "Codebase Comprehension & Code Knowledge Bases"
   }
  ],
  "entries": [
@@ -4820,6 +4825,587 @@
     "tag:hype-debunked"
    ],
    "week": "2026.08.02"
+  },
+  {
+   "id": "entry:graft-codebase-graph",
+   "label": "Graft \u2014 42% token cut from a living repo map",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://github.com/nanonets/graft",
+   "raindrop_ids": [
+    "1821643315"
+   ],
+   "summary": "Builds a persistent graph of a codebase (Markdown cards with summaries, dependencies, relationships) so agents grasp architecture before working instead of re-reading files; installs as a Claude Code skill, MCP server, hooks and status bar via `npx @nanonets/graft init`. Author claims 42% fewer tokens, 46% fewer tool calls, 60% less time and 32% lower cost across 162 controlled runs at equal correctness. Spanish-language post; figures unverified.",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:codebase-docs",
+    "tag:token-cost-optimization",
+    "tag:claude-code"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:okf-rs-knowledge-base",
+   "label": "okf-rs \u2014 codebase to plain-Markdown knowledge base",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://github.com/jyjeanne/okf-rs",
+   "raindrop_ids": [
+    "1820774807"
+   ],
+   "summary": "Rust CLI turning a repo into an Open Knowledge Format knowledge base: one `.md` file per module/struct/enum/function/method with YAML frontmatter, signatures and cross-linked call relationships (146 concepts in the sample run), plus a validate command and an MCP server so agents query instead of grepping. Built on tree-sitter and tantivy; deliberately no proprietary graph DB and no opaque context blob \u2014 git-diffable, greppable, renders on GitHub.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:codebase-docs",
+    "tag:mcp",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:graphify-architecture-prompt",
+   "label": "Graphify \u2014 interactive architecture HTML plus an agent-readable JSON",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://github.com/Graphify-Labs/graphify",
+   "raindrop_ids": [
+    "1821545230"
+   ],
+   "summary": "Gives away the exact Claude prompt that produces two deliverables from a repo: a self-contained interactive HTML architecture diagram (nodes, edges, flows panel, click-to-highlight paths, tooltips) and a `{nodes, edges, flows:[{steps}]}` JSON meant for other agents to consume, so the next agent doesn't redo the analysis. Packaged alternative is `uv tool install graphifyy` then `graphify install`, adding a /graphify command. Spanish-language post; second consecutive week Graphify has surfaced.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming",
+    "tag:codebase-docs",
+    "tag:knowledge-graphs"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:google-codewiki",
+   "label": "Google CodeWiki \u2014 and the reply dating it to 2025",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://codewiki.google/",
+   "raindrop_ids": [
+    "1821540618"
+   ],
+   "summary": "Hosted Google service turning any pasted repo into interactive documentation \u2014 auto-generated diagrams, per-component explanations, step-by-step tutorials, detected architecture and dependencies, plus a chatbot that has read the codebase. Replies correct the framing: 'you are 9 months late, this is from 2025' and 'copied from deepwiki'; two more raise the unanswered questions of source-code IP/security on a hosted service and behavior on genuinely large repos. Spanish-language post.",
+   "quick_hit": false,
+   "tags": [
+    "tag:codebase-docs",
+    "tag:diagramming",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:boltnew-repo-prefix-trick",
+   "label": "The bolt.new URL prefix trick",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://bolt.new/",
+   "raindrop_ids": [
+    "1821628094"
+   ],
+   "summary": "Prepend `bolt.new/` to any GitHub repo URL to import the whole repo into a browser session you can interrogate conversationally \u2014 no cloning or setup. Poster's example traced a recurring bug across three files in under thirty seconds, and their own framing is the honest one: 'this isn't a new tool, it's a five second habit.' Two replies confirm it works; nobody tests it on a large repo.",
+   "quick_hit": false,
+   "tags": [
+    "tag:codebase-docs",
+    "tag:code-search"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:book-to-skill",
+   "label": "book-to-skill \u2014 technical books as callable Claude skills",
+   "theme": "theme:memory-knowledge",
+   "url": "http://github.com/virgiliojr94/book-to-skill",
+   "raindrop_ids": [
+    "1821577548"
+   ],
+   "summary": "Converts any technical book PDF into a Claude Code skill so the book becomes context the agent can call rather than something read once and half-remembered. Best reply supplies the missing eval criterion for the whole genre: useful only if the skill keeps the book's constraints, not just its vocabulary \u2014 'the boring win is the agent stops confidently doing the thing the book warned against.' Another asks whether equations and diagrams survive, unanswered.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:document-ingestion",
+    "tag:claude-code",
+    "tag:second-brain"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:xberg-document-engine",
+   "label": "Xberg \u2014 one Rust engine for 100+ document formats",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/xberg-io/xberg",
+   "raindrop_ids": [
+    "1820780354"
+   ],
+   "summary": "MIT-licensed Rust document-intelligence engine replacing the usual stack of separate PDF/OCR/table/audio/code libraries: 100+ formats, OCR via Tesseract, PaddleOCR, Candle or VLM backends with fallback chains and confidence scores, layout/table reconstruction (PP-DocLayout-V3, RT-DETR, TATR, SLANet), Whisper ONNX transcription, and code intelligence across 371 languages pre-chunked for RAG. 15 language bindings; runs as library, CLI, REST API or MCP server so agents pull structured data without an ingestion pipeline. Successor to Kreuzberg.",
+   "quick_hit": false,
+   "tags": [
+    "tag:document-ingestion",
+    "tag:mcp",
+    "tag:rag"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:fastpath-temporal-embeddings",
+   "label": "FastPath \u2014 embeddings that remember when, not just what",
+   "theme": "theme:memory-knowledge",
+   "url": "https://medium.com/@jose.alvarado-guzman/when-timing-changes-the-meaning-of-a-graph-path-a-deep-dive-into-the-fastpath-algorithm-b34fc870efd8",
+   "raindrop_ids": [
+    "1820775934"
+   ],
+   "summary": "Neo4j Professional Services deep-dive on a lightweight, training-free algorithm that turns a time-ordered event history into one fixed-length embedding per entity, preserving timing relative to a decision point instead of flattening it into counts and averages. Motivating example: three failed logins across a month is routine, three in five seconds is an attack. Walks the pipeline (windowing, random-signature grid, time smoothing, recency decay), works an example by hand, and gives four configuration guardrails.",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:vector-search"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:nemotron-35-lightning",
+   "label": "Nvidia Nemotron 3.5 Lightning \u2014 a small open model built to execute",
+   "theme": "theme:local-llms",
+   "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+   "raindrop_ids": [
+    "1820776919"
+   ],
+   "summary": "30B mixture-of-experts with 3B active parameters under OpenMDW-1.1 with weights, training data and recipes open, deliberately targeting execution inside long-running agents \u2014 tool calls, result validation, subagent delegation \u2014 rather than reasoning. Speculative decoding with multi-token prediction baked into pretraining, NVFP4 quantized checkpoint alongside BF16; Nvidia claims the accuracy-speed Pareto frontier for small open models and 10,000 PinchBench tasks 30% faster than Qwen3.6 35B at similar accuracy. The ZDNET capture recovered site navigation only; details came from NVIDIA's own blog via targeted search.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:open-weights",
+    "tag:inference-optimization",
+    "tag:local-ai-hardware"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:local-ai-beyond-ollama",
+   "label": "Local AI is no longer synonymous with Ollama",
+   "theme": "theme:local-llms",
+   "url": "https://kvssetty.medium.com/local-ai-is-no-longer-synonymous-with-ollama-5faf1409b608",
+   "raindrop_ids": [
+    "1820771978"
+   ],
+   "summary": "A 19-minute argument that Ollama is the easiest way to start local LLMs and the worst way to keep running them, itemized as seven complaints (performance left on the table, the DeepSeek naming scandal, registry waits blocking day-one models, vendor lock-in, the fork away from llama.cpp, drift toward the cloud, the unnecessary Modelfile abstraction) followed by a nine-tool tour: llama.cpp, ik_llama.cpp, LM Studio, vLLM, koboldcpp, llamafile, llama-swap, Jan and Open WebUI, with a side-by-side comparison and a practical migration guide.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:inference-optimization",
+    "tag:self-hosting",
+    "tag:model-routing"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:best-open-coding-llms",
+   "label": "The 10 best open-source coding LLMs you can actually run",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/data-science-collective/the-10-best-open-source-coding-llms-right-now-and-which-ones-you-can-actually-run-6bb4ede44bad",
+   "raindrop_ids": [
+    "1820775738"
+   ],
+   "summary": "Argues the question isn't which open coding model is best overall but which is best among the ones your hardware can run \u2014 the top model needs a server rack, the best 24GB-card model is a different one entirely and closer to the top than expected. Headline figure: DeepSeek V4 Pro at a reported 80.6% on SWE-bench Verified, alongside a 'Frontier Open Six' tier spanning 400B to nearly 1T parameters. Member-only story; the per-model tier tables were cut off by the paywall.",
+   "quick_hit": false,
+   "tags": [
+    "tag:chinese-models",
+    "tag:evals-benchmarks",
+    "tag:local-inference",
+    "tag:open-weights"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:folder-that-replaced-me",
+   "label": "The folder that replaced me \u2014 an overnight agent shift, file by file",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1819125205"
+   ],
+   "summary": "The week's most concretely specified harness: CONTRACT.md committed to the repo with contract.local.md gitignored for personal overrides; .claude/loops/ holding settings.json for spend caps and timeouts, schedule.yml for the next shift, rubrics/ (code.md, writing.md, safety.md) as graders, and pr-hunter/ where plan.md wakes it and act.sh works; state in receipts/ (5,382 shifts kept), trace.log and checkpoint.json for resume; edges in kill.sh and .mcp.json. Replies both praise it ('you built the factory') and puncture it ('the folder doesn't fix midnight, it just moves it'). No repo link captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:context-engineering",
+    "tag:agent-sandboxing",
+    "tag:claude-code"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:alibaba-opensandbox",
+   "label": "Alibaba open-sources OpenSandbox",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/opensandbox-group/OpenSandbox",
+   "raindrop_ids": [
+    "1820780037"
+   ],
+   "summary": "Apache-2.0 isolated environments for agents to execute code, browse the web, control full desktops, and run Claude Code, Cursor, Codex or Gemini CLI inside; SDKs in five languages, Docker and Kubernetes deployment, gVisor/Kata/Firecracker isolation backends, a credential vault and an MCP server. Post claims 12.5k+ stars and #1 on GitHub Trending at capture. Best reply makes the infrastructure case: without a safe environment for real actions, smart agents stay limited. Spanish-language post.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-sandboxing",
+    "tag:self-hosting",
+    "tag:chinese-models",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:spec-kit-rip-vibe-coding",
+   "label": "spec-kit and the RIP vibe coding claim",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/github/spec-kit",
+   "raindrop_ids": [
+    "1820780949"
+   ],
+   "summary": "Declares vibe coding dead and credits GitHub's spec-kit: write the spec first, then let the agent execute it, via /speckit.constitution, /speckit.specify, /speckit.plan, /speckit.tasks and /speckit.implement across 30+ agents at a claimed 125,000 stars. Replies pile on the framing \u2014 spec-kit is not new (variously dated to three months, 2025, or two years) and AWS Kiro did spec-driven development first. Two replies are worth keeping: spec-first genuinely fixes building blind, and a constitution without a security section still ships RLS off, USING (true), and a service role in the client \u2014 the spec should fail the build when relrowsecurity is false. Spanish-language post.",
+   "quick_hit": false,
+   "tags": [
+    "tag:spec-driven-dev",
+    "tag:hype-debunked",
+    "tag:context-engineering",
+    "tag:security-privacy"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:dspy-programming-not-prompting",
+   "label": "DSPy \u2014 and the eval-signal problem underneath it",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/stanfordnlp/dspy",
+   "raindrop_ids": [
+    "1816066572"
+   ],
+   "summary": "Stanford NLP framework for building modular AI systems in compositional Python instead of brittle prompts, then automatically optimizing prompts and weights for classifiers, RAG pipelines and agent loops, compiling declarative LM calls into self-improving pipelines. Surfaced twice this week (standalone and in the viral-repos roundup). The unanswered reply is the entry's real content: automatic optimization assumes a reliable eval signal, and building that eval is often harder than the prompt it's meant to improve.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:evals-benchmarks",
+    "tag:self-improving-agents",
+    "tag:rag"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:multica-agents-as-colleagues",
+   "label": "multica \u2014 assign issues to agents like colleagues",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/multica-ai/multica",
+   "raindrop_ids": [
+    "1817042414"
+   ],
+   "summary": "Framework at a claimed 45,100 stars for running a business on AI agents: install the CLI, self-host with one flag, connect your laptop as a runtime, then assign issues to agents like teammates. The post is hype with no mechanism; two replies carry it \u2014 permissions will make or break assigning work to agents, and the hard part is when an agent writes to a live CRM or Postgres row, where what matters is what limits scope, detects changed state, and proves the external write landed.",
+   "quick_hit": false,
+   "tags": [
+    "tag:oss-agent-platforms",
+    "tag:agent-orchestration",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:every-claude-skill-map",
+   "label": "Every Claude Skill mentioned, in one map",
+   "theme": "theme:coding-agents",
+   "url": "https://generativeai.pub/every-claude-skill-mentioned-so-you-dont-have-to-read-50-articles-and-podcasts-166b32628788",
+   "raindrop_ids": [
+    "1820734741"
+   ],
+   "summary": "A 16-minute survey consolidating skills scattered across ~50 articles and podcasts: Caveman, Grill Me, Handoff, Superpowers, Understand-Anything, the Karpathy Guidelines, UI skills against generic AI slop, a Trail of Bits security layer, a document read/write/parse layer, an Agent Council, Context Mode as session manager, Skill Creator, Playwright webapp testing, Firecrawl and Remotion. Opens on the failure it addresses \u2014 three hours in, the agent cuts corners and the context window fills with noise \u2014 and dates Anthropic's Skills launch to October 2025 with thousands of installable packs now in the ecosystem.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:claude-code",
+    "tag:curated-lists",
+    "tag:karpathy"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:self-hosting-listicle-pair",
+   "label": "Two self-hosting listicles, one week, one format",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/appwrite/appwrite",
+   "raindrop_ids": [
+    "1821582082",
+    "1814882899"
+   ],
+   "summary": "Two structurally identical roundups from different accounts inside a week, merged because the duplication is the finding. Ridark's '350k+ stars replacing $40,000+/year' covers Gitea, Appwrite, Dokku, OpenFaaS, Copyparty, Tailscale, AdGuard Home, Matomo, Seafile and Dashy; unicode's '560k+ stars saving vibe coders $15,000+/year' leans at the AI-app stack with shadcn/ui, Supabase, open-design, awesome-ai-agents, awesome-generative-ai-apps, Medusa, Appwrite again, Chatwoot, NocoDB and Activepieces. Star counts are the posters' claims. Sharpest reply, in Chinese: the savings are real, don't forget to count the maintenance cost.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting",
+    "tag:curated-lists",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:x-open-sources-ranking-algorithm",
+   "label": "X open-sources its For You ranking algorithm",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/xai-org/x-algorithm",
+   "raindrop_ids": [
+    "1821561717"
+   ],
+   "summary": "Apache-2.0 release of the default-timeline ranking source. A feed score is a weighted prediction of behavior, not a like count: probabilities for favorites, replies, reposts, clicks, dwell time, follows, mutes, blocks and reports combined with explicit positive and negative weights. Followed accounts get an advantage, new or less-seen accounts can get an explicit boost, repeat posts from one author are pushed down, safety enforcement runs separately, and similar posts are deliberately spread apart at a cost in predicted engagement. The post is careful about the gaps: enforcement rules and Grok prompts withheld, deployment infrastructure absent, production config changeable outside the static code.",
+   "quick_hit": false,
+   "tags": [],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:fullstack-ai-engineering-roadmap",
+   "label": "Full-stack AI engineering roadmap, plus the two layers replies added",
+   "theme": "theme:ai-education",
+   "url": null,
+   "raindrop_ids": [
+    "1821574976"
+   ],
+   "summary": "Sequenced path from coding fundamentals through LLM APIs, augmentation (fine-tuning, RAG, prompt and context engineering), retrieval, RAG pipelines, agents, production infrastructure, observability and evals, security, and advanced workflows. Two replies add what it omits: data and product thinking (what to measure, which failure modes matter, when not to use an LLM at all), and the run-level ops layer after deploy \u2014 per-run cost and step budgets, idempotency keys on write tools, concurrency caps per tool rather than per app, and replay from the last durable step. No link captured in the post.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources",
+    "tag:harness-engineering",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:gpu-architecture-memory-wall",
+   "label": "GPU architecture and the memory wall that governs token rate",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/patchy631/time-to-first-token",
+   "raindrop_ids": [
+    "1821583985"
+   ],
+   "summary": "Explainer built on one ratio: the H100 does 989 trillion ops/sec at 16-bit against 3.35 trillion bytes/sec of memory bandwidth, so it must perform ~295 operations per fetched byte to keep its arithmetic units busy \u2014 while token generation is about 1 op/byte, three hundred times short. Arithmetic units aren't the limit; they wait for numbers to arrive. Then walks the execution nesting (thread, warp of 32, thread block up to 1024, SM with up to 132 per H100) and the matching memory hierarchy (256KB registers per SM, shared memory and L1, ~50MB L2, ~80GB HBM off-chip and slowest).",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-ai-hardware",
+    "tag:inference-optimization",
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:build-your-own-x-529k",
+   "label": "build-your-own-x at 529K stars",
+   "theme": "theme:ai-education",
+   "url": "https://blog.stackademic.com/this-529k-star-hardcore-open-source-project-lets-you-truly-master-technical-principles-6123a92acd10",
+   "raindrop_ids": [
+    "1820771403"
+   ],
+   "summary": "Curated from-scratch tutorials across C, C++, Go, Rust, Python, JavaScript and Java, quoting Feynman: what I cannot create, I do not understand. The write-up's diagnosis is the reason it lands now \u2014 we write code faster while understanding it gets harder, and when memory spikes or indexes fail all anyone can say is 'why does it do that?' Created by Daniel Stefanovic, maintained by CodeCrafters; wins on being free, open and broad at the cost of no unified course order or automated validation. Member-only story; the highlights section was paywalled off.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources",
+    "tag:curated-lists",
+    "tag:future-of-engineering"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:stanford-free-ai-curriculum",
+   "label": "Stanford's AI curriculum free online",
+   "theme": "theme:ai-education",
+   "url": "https://online.stanford.edu/artificial-intelligence/free-content",
+   "raindrop_ids": [
+    "1820776964"
+   ],
+   "summary": "ZDNET headline 'Taught by AI pioneers, Stanford's free online course takes you far beyond ChatGPT'. The capture recovered only ZDNET's site navigation, not the article body, so the specific course, instructor and enrollment details are not asserted here. Corroborated by contemporaneous coverage found via search: Stanford's AI and ML lecture series are openly available \u2014 recurringly CS221, CS229, CS230, CS234, CS224N and CS224U \u2014 alongside Stanford Online's free-content hub for its AI catalogue.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:10-repos-build-an-agent",
+   "label": "10 repos for building an AI agent from scratch",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/e2b-dev/awesome-ai-agents",
+   "raindrop_ids": [
+    "1821547434"
+   ],
+   "summary": "Claimed 1.2M+ combined stars, and the most differentiated of the week's three listicles: n8n (visual builder, 400+ integrations), Hermes Agent (claimed 231k stars, self-improving skill loop, persistent cross-session memory), Dify, LangChain, MetaGPT (simulating a whole software company), AutoGen, OpenCode (terminal agent across 75+ models), LlamaIndex, CrewAI (role-based crews, no graph to learn) and LangGraph (graph orchestration for precise production state). Star counts are the poster's claims. Best reply: the hard part starts after you clone the repo.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists",
+    "tag:oss-agent-platforms",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:10-viral-repos-of-the-week",
+   "label": "10 repos that went viral last week",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/markdoc/markdoc",
+   "raindrop_ids": [
+    "1821546346"
+   ],
+   "summary": "The one roundup with no dollar figure: ESP32-BlueJammer (2.4GHz wireless security research, flagged for lawful controlled testing only), DSPy, Auto-Editor (removes silent sections from recordings), OpenPanel (Mixpanel alternative), Markdoc (the framework behind Stripe's docs), Awesome Quant, Apache Cloudberry (MPP analytics database in incubation), code-server, Open SaaS and Pic Smaller. Sharpest reply generalizes past the list: distribution is part of product design, and strong code disappears if the README hides the first five minutes of value.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:10-underrated-ai-tools",
+   "label": "10 AI tools better than their reputation suggests",
+   "theme": "theme:ai-education",
+   "url": "https://medium.com/@nk271452/10-ai-tools-that-are-way-better-than-their-reputation-suggests-4a9f25116af4",
+   "raindrop_ids": [
+    "1820775238"
+   ],
+   "summary": "Framing is the value: a whole category of tools never makes the viral lists, not because they're bad but because they aren't ChatGPT, Claude or Gemini, so they get lumped together as 'the alternatives' and ignored. Each entry is a dismissal versus a reality \u2014 Perplexity (citations let you verify in seconds, not 'just a fancy search engine'), Gamma (fifteen minutes for what takes two hours in PowerPoint, shareable as a link), then Notion AI, Hemingway, Otter.ai, Remove.bg, Quillbot, ElevenLabs, Loom and Consensus. Only the first two write-ups were fully recovered in the capture.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:deepseek-harness-swap",
+   "label": "Dropping a $200/month plan for deepseek-harness",
+   "theme": "theme:model-economics",
+   "url": "https://github.com/deepseek-ai/deepseek-harness",
+   "raindrop_ids": [
+    "1821568598"
+   ],
+   "summary": "Claims cancelling a $200/month Claude plan for DeepSeek Harness \u2014 'plugins all the way down' \u2014 in a three-minute setup, with no links and no numbers. The thread is the substance: 'you did not drop Claude', two replies asking what a full day actually cost and how latency compares to running Claude natively, one framing the shift generously ('$2.4k a year to avoid writing a config file was wild anyway'), and one naming price-to-performance as the primary decision factor. Nobody reports a real cost figure. The repo is real but its URL was recovered by search, not captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization",
+    "tag:chinese-models",
+    "tag:oss-agent-platforms",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:tuios-terminal-multiplexer",
+   "label": "TUIOS terminal multiplexer",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/tuios",
+   "raindrop_ids": [
+    "1821576570"
+   ],
+   "summary": "Go-based terminal multiplexer with vim-inspired modal controls, BSP tiling and event-driven rendering; Bubble Tea v2 and Lipgloss v2 with near-zero idle CPU, 9 workspaces, pane zoom, fuzzy-searchable command palette, Kitty graphics passthrough, and daemon mode with attach/detach and a JSON control protocol. Second-hop shortener; final destination not verified.",
+   "quick_hit": true,
+   "tags": [],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:magic-ui-library",
+   "label": "Magic UI component library",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/magicui",
+   "raindrop_ids": [
+    "1820781442"
+   ],
+   "summary": "MIT-licensed UI library for design engineers built so contributing a component takes about five minutes, with contributor and star history tracked publicly. Second-hop shortener; final destination not verified.",
+   "quick_hit": true,
+   "tags": [
+    "tag:design-to-code"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:tooljet-internal-tools",
+   "label": "ToolJet internal-tools platform",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/tooljet",
+   "raindrop_ids": [
+    "1819124732"
+   ],
+   "summary": "Open-source internal-tools platform: visual drag-and-drop builder, 80+ data source integrations, 60+ responsive components, built-in no-code database, self-hosting on Docker, Kubernetes, AWS, GCP or Azure. A reply supplies the test that matters \u2014 if the critical path still needs their cloud, the builder UI was never the layer worth owning. Second-hop shortener; final destination not verified.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:conduit-selfhosted-backend",
+   "label": "Conduit self-hosted backend",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/ConduitPlatform/Conduit",
+   "raindrop_ids": [
+    "1818848498"
+   ],
+   "summary": "Self-hosted backend offering ready-made modules for auth, databases and the rest of the boilerplate so developers write only application-specific logic.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:rio-python-web-framework",
+   "label": "Rio \u2014 React-style components in pure Python",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/rio-labs/rio",
+   "raindrop_ids": [
+    "1816070414"
+   ],
+   "summary": "Python framework for websites and apps using React-style components with no HTML, CSS or JavaScript; runs locally and on the web with tutorials and examples included. Multiple replies at capture time reported the project's own website offline, and one calls the homepage obviously AI-generated. GitHub URL came from a reply; the post itself linked only the osp.fyi shortener.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:orcarouter-lite",
+   "label": "OrcaRouter-Lite \u2014 self-hosted OpenRouter alternative",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/Continuum-AI-Corp/OrcaRouter-Lite",
+   "raindrop_ids": [
+    "1820781792"
+   ],
+   "summary": "Self-hosted OpenRouter alternative with managed fallbacks; the appeal per replies is owning the routing layer rather than paying a middleman for it.",
+   "quick_hit": true,
+   "tags": [
+    "tag:model-routing",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:awesome-llm-apps-132k",
+   "label": "awesome-llm-apps at a claimed 132K stars",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+   "raindrop_ids": [
+    "1821572235"
+   ],
+   "summary": "Repo promoted at a claimed 132,000+ stars; the accompanying post pitches an open-source agent skill for running agentic workloads across Claude Fable 5, GPT-5.6 and Gemini 3.7 Flash, but names neither the skill nor a separate repo for it.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.09"
+  },
+  {
+   "id": "entry:500-ai-agents-projects",
+   "label": "500 AI Agents Projects index",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/ashishpatel26/500-AI-Agents-Projects",
+   "raindrop_ids": [
+    "1820781704"
+   ],
+   "summary": "500 agent projects indexed across healthcare, finance, education and retail, each linking to an open-source implementation. The reply worth keeping flags what a project index can't supply: most of these still miss the hardest part in real organisations, secure access to internal systems and data.",
+   "quick_hit": true,
+   "tags": [
+    "tag:curated-lists",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.08.09"
   }
  ],
  "tags": [
