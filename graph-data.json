@@ -7,7 +7,8 @@
   "2026.07.05",
   "2026.07.12",
   "2026.07.19",
-  "2026.07.26"
+  "2026.07.26",
+  "2026.08.02"
  ],
  "themes": [
   {
@@ -4082,6 +4083,743 @@
     "tag:agent-orchestration"
    ],
    "week": "2026.07.26"
+  },
+  {
+   "id": "entry:local-coding-models-2026",
+   "label": "Local coding models catch up to frontier",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/@nithin_94885/actual-local-llm-for-coding-in-2026-what-actually-works-on-your-hardware-36ed70445c3a",
+   "raindrop_ids": [
+    "1815392454"
+   ],
+   "summary": "Three-week hands-on test of local coding models (MiniMax M2.5, GLM-5, Qwen3-Coder-Next) on consumer GPUs and Apple Silicon, framed around SWE-bench Verified as the meaningful benchmark.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:chinese-models",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:mac-mini-vs-rtx5090",
+   "label": "Mac Mini M4 vs RTX 5090 for local AI",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/data-science-collective/mac-mini-m4-vs-rtx-5090-vs-cloud-gpus-for-local-ai-in-2026-2eaf90402bbc",
+   "raindrop_ids": [
+    "1815388461"
+   ],
+   "summary": "A shared memory-chip shortage cut the 5090's effective advantage and Apple's Mac Mini RAM ceiling at once, making the $1,799 Mac Mini the better buy for most local AI work in 2026.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-ai-hardware",
+    "tag:local-inference"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:google-okf-vs-rag",
+   "label": "Google's Open Knowledge Format vs RAG",
+   "theme": "theme:memory-knowledge",
+   "url": "https://medium.com/the-code-frontier/beyond-rag-how-googles-open-knowledge-format-okf-is-replacing-the-vector-database-2ffb5bc2f8eb",
+   "raindrop_ids": [
+    "1815378685"
+   ],
+   "summary": "Google Cloud open-sourced OKF v0.1, a vendor-neutral spec formalizing the 'LLM Wiki' pattern as a deterministic alternative to chunk-and-embed RAG pipelines.",
+   "quick_hit": false,
+   "tags": [
+    "tag:rag",
+    "tag:vector-search",
+    "tag:knowledge-graphs"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:ai-design-industry-future",
+   "label": "AI's prediction for design careers in 2032",
+   "theme": "theme:ai-education",
+   "url": "https://medium.com/design-bootcamp/i-asked-ai-how-the-design-industry-will-look-in-7-years-here-is-what-it-said-56587fb08045",
+   "raindrop_ids": [
+    "1815378230"
+   ],
+   "summary": "A designer asks an AI to forecast its own field: the UI/UX title splits into 'product engineers' and 'design strategists,' AI handles 80% of execution, and generalist mid-tier design work disappears.",
+   "quick_hit": false,
+   "tags": [
+    "tag:future-of-engineering"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:karpathy-graphify-origin",
+   "label": "Graphify: Karpathy's wiki idea, shipped in 48 hours",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/safishamsi/graphify",
+   "raindrop_ids": [
+    "1815377903"
+   ],
+   "summary": "Origin story of Graphify, an open-source tool that operationalizes Karpathy's April 'LLM Knowledge Base' tweet for codebases: parses 19 languages, PDFs, and images into a queryable graph with no vector DB.",
+   "quick_hit": false,
+   "tags": [
+    "tag:karpathy",
+    "tag:knowledge-graphs",
+    "tag:codebase-docs"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:opencode-vs-pi",
+   "label": "OpenCode vs Pi: maximalist vs minimalist terminal agents",
+   "theme": "theme:coding-agents",
+   "url": "https://codexpedite.com/opencode-vs-pi-which-terminal-ai-coding-agent-actually-fits-your-workflow/",
+   "raindrop_ids": [
+    "1815377827"
+   ],
+   "summary": "Deep architectural comparison of OpenCode (75+ providers, MCP, subagents) against Pi (four built-in tools, 'anti-features' by design), which still lands second on TerminalBench.",
+   "quick_hit": false,
+   "tags": [
+    "tag:evals-benchmarks",
+    "tag:model-routing"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:obsidian-second-brain-not-memory",
+   "label": "Your Obsidian vault isn't memory \u2014 here's what is",
+   "theme": "theme:memory-knowledge",
+   "url": "https://medium.com/@roanmonteiro/obsidian-your-ai-second-brain-isnt-memory-and-here-s-the-architecture-that-actually-is-bf944929e144",
+   "raindrop_ids": [
+    "1815377731"
+   ],
+   "summary": "Argues Obsidian's Agent Skills (33k+ stars) are format specs, not memory; memory requires selective retrieval and durable state, and the piece builds a minimal 13-file architecture that actually earns the word.",
+   "quick_hit": false,
+   "tags": [
+    "tag:obsidian",
+    "tag:second-brain",
+    "tag:agent-memory"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:sdd-kent-beck-fowler",
+   "label": "Kent Beck and Fowler vs spec-driven development",
+   "theme": "theme:harness-loops",
+   "url": "https://levelup.gitconnected.com/sdd-kent-beck-and-martin-fowler-why-spec-anchored-development-wins-a4c838d5be11",
+   "raindrop_ids": [
+    "1815372373"
+   ],
+   "summary": "Beck and Fowler's critique targets freezing a spec before implementation, not specs themselves; the piece argues 'spec-anchored' (spec kept alive next to code, updated first) survives the critique intact.",
+   "quick_hit": false,
+   "tags": [
+    "tag:spec-driven-dev"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:kimi-k3-vs-claude-week",
+   "label": "A week running Kimi K3 against Claude",
+   "theme": "theme:model-economics",
+   "url": "https://medium.com/@inprogrammer/i-ran-kimi-k3-against-claude-for-a-week-here-is-what-actually-happened-20c1a17c9206",
+   "raindrop_ids": [
+    "1815370916"
+   ],
+   "summary": "Real backend/Python tasks run through Kimi K3 and Claude side by side after K3 topped the Frontend Code Arena leaderboard; author flags that most published numbers mix Moonshot's own reporting with third-party benchmarks.",
+   "quick_hit": false,
+   "tags": [
+    "tag:chinese-models",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:kimi-k3-4gb-gpu",
+   "label": "The full 2.8T-parameter Kimi K3 on a 4GB GPU",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/lyogavin/airllm",
+   "raindrop_ids": [
+    "1814281503"
+   ],
+   "summary": "AirLLM's old layer-wise streaming trick breaks on Kimi K3's 896-experts-per-layer MoE design (56GB per expanded layer); the fix is per-expert streaming, running the full unquantized checkpoint in 3.72GB VRAM.",
+   "quick_hit": false,
+   "tags": [
+    "tag:chinese-models",
+    "tag:local-inference",
+    "tag:inference-optimization"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:cut-claude-code-tokens-90",
+   "label": "A 5-layer stack to cut Claude Code tokens 90%+",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1814280951"
+   ],
+   "summary": "Stacks a codebase-memory MCP, output-sandboxing, CLI-output compression, an API-compressing proxy, and terser Claude output, enforced by hooks that block raw grep/cat/find until the memory layer is consulted; no links captured for the five named tools themselves.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization",
+    "tag:context-engineering"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:karpathy-fix-llm-memory-code",
+   "label": "Karpathy's memory fix, applied to codebases",
+   "theme": "theme:memory-knowledge",
+   "url": "https://medium.com/ai-all-in/andrej-karpathys-fix-for-llm-memory-works-on-code-too-9a9e38b18b4e",
+   "raindrop_ids": [
+    "1814279594"
+   ],
+   "summary": "Follow-up to the author's own April piece on RAG vs LLM-wiki vs 'Gbrain' memory: coding agents re-crawl a repo from scratch every session, and two open-source tools now compile that crawl into a persistent code graph instead.",
+   "quick_hit": false,
+   "tags": [
+    "tag:karpathy",
+    "tag:knowledge-graphs",
+    "tag:codebase-docs"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:ornith-laptop-coding-model",
+   "label": "Ornith: a 9B agentic coder that runs on a MacBook Air",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/ornith-ai/Ornith-1.0-9B",
+   "raindrop_ids": [
+    "1814276286"
+   ],
+   "summary": "MIT-licensed ~9B model (built on Qwen 3.5, post-trained for agentic coding) that fits in 24GB RAM as a ~5GB download with room for 128K context, run fully offline on a fanless M5 MacBook Air.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:chinese-models"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:opencode-sandbox-safety",
+   "label": "Running OpenCode's shell access inside a disposable sandbox",
+   "theme": "theme:coding-agents",
+   "url": "https://docs.tensorlake.ai/sandboxes/opencode",
+   "raindrop_ids": [
+    "1814275921"
+   ],
+   "summary": "Before giving OpenCode's autonomous shell access to a real laptop, the author routes it through a disposable Tensorlake cloud sandbox instead \u2014 the failure mode they were guarding against was an agent hitting an unexpected symlink with rm -rf.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-sandboxing"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:comfyui-vs-adobe",
+   "label": "ComfyUI's anonymous maintainer vs Adobe's price hikes",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/comfy-org/comfyui",
+   "raindrop_ids": [
+    "1813090784"
+   ],
+   "summary": "Viral thread contrasts Adobe's $150M DOJ settlement and subsequent price increases with comfyanonymous's free, weekly-shipped, GPL-3.0 ComfyUI (123K stars); a reply notes ComfyUI isn't actually a Photoshop replacement, just adjacent leverage.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:oxford-memory-system-hype",
+   "label": "'Oxford student's' memory system (no name, no repo)",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1813090109"
+   ],
+   "summary": "Viral claim that an unnamed student trained a memory system to weight notes by revision count rather than recency; no product name, repo, or link is given anywhere in the post \u2014 part of this week's cluster of vague AI-memory hype posts, see through-lines.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-memory",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:openworker-andrew-ng",
+   "label": "Andrew Ng open-sources OpenWorker",
+   "theme": "theme:oss-vs-saas",
+   "url": "http://github.com/andrewyng/openworker",
+   "raindrop_ids": [
+    "1813089552"
+   ],
+   "summary": "MIT-licensed agent framework from Andrew Ng (13k+ stars in 17 days per the post): runs locally against your own files and 25+ integrations across any model provider, with only OAuth brokering touching the cloud.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:obsidian-skills-ceo",
+   "label": "Obsidian's own CEO ships obsidian-skills",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/kepano/obsidian-skills",
+   "raindrop_ids": [
+    "1812308403"
+   ],
+   "summary": "Official skill package letting Claude Code, Codex, or OpenCode read, create, search, and organize an Obsidian vault directly, including Markdown, Bases, and Canvas files.",
+   "quick_hit": false,
+   "tags": [
+    "tag:obsidian",
+    "tag:agent-skills",
+    "tag:second-brain"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:microsoft-plugmem",
+   "label": "Microsoft's PlugMem: knowledge, not logs, as agent memory",
+   "theme": "theme:memory-knowledge",
+   "url": "https://www.microsoft.com/en-us/research/blog/from-raw-interaction-to-reusable-knowledge-rethinking-memory-for-ai-agents/",
+   "raindrop_ids": [
+    "1812307409"
+   ],
+   "summary": "Real Microsoft Research work (ICML 2026): compiles agent experience into a knowledge graph instead of storing raw transcripts, cutting context by up to two orders of magnitude with no retraining; a reply corrects the viral framing \u2014 it doesn't literally discard history, it separates it from decision-ready knowledge, and building the graph itself costs upfront LLM calls.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-memory",
+    "tag:knowledge-graphs",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:diagram-design-skill",
+   "label": "A Claude Code skill for 27 diagram types matching your site's theme",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/cathrynlavery/diagram-design",
+   "raindrop_ids": [
+    "1812306435"
+   ],
+   "summary": "Generates flowcharts and architecture diagrams that auto-match a project's fonts and colors as a Claude Code skill.",
+   "quick_hit": true,
+   "tags": [
+    "tag:diagramming",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:russian-mathematician-context-trust",
+   "label": "'Russian mathematician's' source-trust pipeline (no name, no repo)",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1812305827"
+   ],
+   "summary": "Viral claim of a context pipeline that scores sources on a decaying trust curve instead of treating them equally; no name, tool, or link is given \u2014 another entry in this week's unverifiable AI-memory hype cluster.",
+   "quick_hit": true,
+   "tags": [
+    "tag:context-engineering",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:mem0-alternative-bill-drop",
+   "label": "'$250 to $18 a month' memory-library swap (unnamed repo)",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1811401077"
+   ],
+   "summary": "Claims a one-library swap for mem0 cut a Claude+GPT bill by 93%, crediting an unnamed '4-month-old repo' allegedly gaining stars 8x faster than mem0; no repo name or link is ever given.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-memory",
+    "tag:token-cost-optimization",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:grok-build-reactions",
+   "label": "'Grok Build' (two words, no other content)",
+   "theme": "theme:coding-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1811397446"
+   ],
+   "summary": "Elon Musk's post is literally the phrase 'Grok Build' with no elaboration; capture is almost entirely reply commentary comparing Grok's coding tool to Claude and Cursor.",
+   "quick_hit": true,
+   "tags": [],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:anydoc-fast-doc-parsing",
+   "label": "anydoc: sub-5ms document parsing, powering Firecrawl",
+   "theme": "theme:web-agents",
+   "url": "http://github.com/firecrawl/anydoc",
+   "raindrop_ids": [
+    "1811397173"
+   ],
+   "summary": "Rust-based parser claiming 500 docx files in 1.7s across 13 formats, now powering Firecrawl's /parse; replies are mixed \u2014 one user reports it misses basic tables entirely, another flags it still needs a text layer (no OCR) for scanned PDFs.",
+   "quick_hit": false,
+   "tags": [
+    "tag:document-ingestion",
+    "tag:web-scraping"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:anthropic-400k-sessions-5-levels",
+   "label": "Anthropic's 5 levels of Claude Code operator skill",
+   "theme": "theme:ai-education",
+   "url": null,
+   "raindrop_ids": [
+    "1811385319"
+   ],
+   "summary": "Analysis of 400,000 Claude Code sessions distills why results vary so much between users into five levels of feedback specificity, ending in: 'Claude rarely corrects the user. The user regularly corrects Claude'; no link captured to the underlying writeup.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources",
+    "tag:context-engineering"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:understand-anything-knowledge-graph",
+   "label": "Understand Anything, now at 77.5K+ stars",
+   "theme": "theme:coding-agents",
+   "url": "https://github.com/Egonex-AI/Understand-Anything",
+   "raindrop_ids": [
+    "1811383569"
+   ],
+   "summary": "Recurring tool (first covered here in June) resurfaces with new detail: a Tree-sitter + LLM hybrid multi-agent pipeline builds a searchable, persona-adaptive dashboard from any codebase, with slash commands for chat, diff-impact, onboarding, and domain mapping.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:knowledge-graphs",
+    "tag:codebase-docs"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:memory-engineering-overlooked",
+   "label": "'Memory engineering is the most overlooked part of agentic AI'",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1811382846"
+   ],
+   "summary": "Framework post (no specific tool) arguing memory needs a write policy, correct storage backends, hierarchical retrieval, and active maintenance (TTL, decay, dedup) \u2014 otherwise signal-to-noise collapses.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-memory",
+    "tag:context-engineering"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:second-brain-is-dead",
+   "label": "'Your second brain is dead' (unnamed system, no link)",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1811366658"
+   ],
+   "summary": "Claims an unnamed 1,615-file vault has become a self-linking 'living neural network' via Claude-suggested links; no tool name or repo is given anywhere in the post or replies.",
+   "quick_hit": true,
+   "tags": [
+    "tag:second-brain",
+    "tag:knowledge-graphs",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:hermesoffice-local-agent-suite",
+   "label": "HermesOffice: a fully local, agent-native office suite",
+   "theme": "theme:oss-vs-saas",
+   "url": "http://github.com/criptogus/HermesOffice",
+   "raindrop_ids": [
+    "1811364157"
+   ],
+   "summary": "Open-source Word/Sheets/Slides/PDF suite (forked from GenOffice, Apache-2.0) where the editing agent runs 100% locally with no cloud account; a reply pushes back that 'runs on your machine' still needs an answer for who else has access to that machine, citing Windows Recall's plaintext screenshot database as the cautionary example.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:khoj-ai-open-source-second-brain",
+   "label": "khoj-ai crosses 36,000 stars",
+   "theme": "theme:memory-knowledge",
+   "url": "http://github.com/khoj-ai/khoj",
+   "raindrop_ids": [
+    "1811192605"
+   ],
+   "summary": "Self-hostable second-brain agent connecting docs, PDFs, Obsidian, and Notion to Claude, GPT, or a local model, with deep research mode and custom agents; a reply notes local-model use is what actually keeps data from leaving the machine \u2014 routing through Claude or GPT still sends chunks out.",
+   "quick_hit": false,
+   "tags": [
+    "tag:second-brain",
+    "tag:self-hosting",
+    "tag:rag"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:copilotkit-channels-sdk-vs-claude-slack",
+   "label": "An open Channels SDK vs Anthropic's Claude-in-Slack",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/CopilotKit/channels-sdk",
+   "raindrop_ids": [
+    "1811192523"
+   ],
+   "summary": "CopilotKit's Channels SDK lets any AG-UI-compatible agent (LangGraph, CrewAI, Mastra, plain HTTP) run across Slack, Teams, Discord, and WhatsApp via per-platform adapters, framed as breaking Anthropic's single-platform, single-model Slack integration; a reply calls the framing 'misleading' \u2014 only the SDK/plumbing is open source, the actual Slack/Teams connection is still a hosted service.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:posta-self-hosted-email",
+   "label": "Posta: a self-hosted SendGrid/Mailgun alternative",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/goposta/posta",
+   "raindrop_ids": [
+    "1811192241"
+   ],
+   "summary": "Self-hosted transactional email platform handling both outbound and inbound mail through a single HTTP API.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:anthropic-engineer-memory-investment-hype",
+   "label": "'Anthropic engineer' lands 'huge investment' (no name, no product)",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1811192084"
+   ],
+   "summary": "Claims an unnamed Anthropic engineer built a memory-scoring system and 'landed a huge investment'; no company, product, dollar figure, or link appears anywhere \u2014 the thinnest entry in this week's memory-hype cluster.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-memory",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:dynamic-agent-orgs",
+   "label": "'Dynamic agent orgs' \u2014 a graph that rewrites itself mid-task",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1811191831"
+   ],
+   "summary": "Concept-level post describing self-evolving agent org charts where the coordination graph mutates while work is in progress; no tool is named, and replies immediately raise the obvious concerns \u2014 auditability of rewrites and runaway self-optimization loops.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:self-improving-agents"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:pullmd-web-to-markdown",
+   "label": "pullmd: URLs, PDFs, and media to clean Markdown",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/AeternaLabsHQ/pullmd",
+   "raindrop_ids": [
+    "1810365812"
+   ],
+   "summary": "Strips ads and navigation while converting web pages, PDFs, and media into Markdown; a reply flags the more useful detail buried in the repo \u2014 X-Source/X-Quality tags that mark whether text came from OCR or weak extraction, so agents don't treat degraded text as clean.",
+   "quick_hit": true,
+   "tags": [
+    "tag:web-scraping",
+    "tag:document-ingestion"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:google-agent-skills-repo",
+   "label": "How Google builds, tests, and scales Agent Skills",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/google/skills",
+   "raindrop_ids": [
+    "1810365730"
+   ],
+   "summary": "Google's own repo for building and evaluating Agent Skills, including a 2x2 eval gate; replies clarify these skills are scoped to Google's own agents/products, not a universal skill format for any agent, and that the eval harness doesn't catch state leaking between tool calls.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:rvc-voice-conversion-90ms",
+   "label": "RVC voice conversion hits 90ms real-time latency",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI",
+   "raindrop_ids": [
+    "1810365458"
+   ],
+   "summary": "Open-source voice conversion framework now does real-time conversion down to 90ms end-to-end latency over ASIO I/O, trains on as little as 10 minutes of clean speech, and supports model fusion via ckpt-merge; original snapshot failed to capture (empty page), text and link recovered via web search on the post's own wording.",
+   "quick_hit": true,
+   "tags": [
+    "tag:voice-ai"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:anthropic-role-splitting-5x-cost-cut",
+   "label": "'Anthropic leaked' a role-split Claude fleet for 5x cheaper bills",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1808949832"
+   ],
+   "summary": "Describes routing tasks by tier \u2014 Opus plans only, Sonnet executes, Haiku sorts cheap classification work, a separate model judges \u2014 despite the 'Anthropic leaked' framing, this is a user's own routing strategy, not anything from Anthropic; no repo or implementation link given.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization",
+    "tag:model-routing",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:10-github-repos-roundup",
+   "label": "10 GitHub repos 'so good they probably shouldn't be free'",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/diegosouzapw/OmniRoute",
+   "raindrop_ids": [
+    "1808949221"
+   ],
+   "summary": "Curated list spanning a 231-provider model router (OmniRoute), a CLI Office suite, leaked system prompts, an open CapCut alternative, an AI job-application agent, and Firecrawl among ten repos.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:code-review-graph-claude-tokens",
+   "label": "Mapping a repo's dependency graph to cut re-read costs",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/tirth8205/code-review-graph",
+   "raindrop_ids": [
+    "1808948582"
+   ],
+   "summary": "code-review-graph maps every file/function/connection in a repo so an edit only triggers reads of affected callers, dependents, and tests instead of the whole codebase, claiming a $1 task drops to about a penny; a reply cautions the dependency map itself can drift and start feeding the agent stale edges.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization",
+    "tag:code-search"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:affine-local-first-workspace",
+   "label": "AFFiNE: docs, whiteboards, and databases in one local-first app",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/affine",
+   "raindrop_ids": [
+    "1808948019"
+   ],
+   "summary": "Local-first, self-hostable workspace merging an edgeless canvas, multimodal AI writing/presentation partner, and real-time sync; a reply asks the open question the post doesn't answer \u2014 what happens to the AI features when offline.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:microsoft-skill-recorder",
+   "label": "microsoft/skill-recorder (snapshot captured only GitHub's nav chrome)",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/microsoft/skill-recorder",
+   "raindrop_ids": [
+    "1807642952"
+   ],
+   "summary": "A Microsoft repo named skill-recorder (527 stars, 56 forks at capture time); the saved snapshot only contains GitHub's site navigation, not the README, so what the tool actually does isn't captured here.",
+   "quick_hit": true,
+   "tags": [
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:deepseek-ocr-web-app",
+   "label": "A DeepSeek OCR web app for whole PDFs with LaTeX/tables intact",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/rdumasia303/deepseek_ocr_app",
+   "raindrop_ids": [
+    "1807641218"
+   ],
+   "summary": "Processes entire PDF documents and images while preserving LaTeX formulas and table structure, exporting to Markdown or Word.",
+   "quick_hit": true,
+   "tags": [
+    "tag:document-ingestion"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:teamlore-git-native-memory",
+   "label": "teamlore: team memory as a folder in git, not a server",
+   "theme": "theme:memory-knowledge",
+   "url": "https://www.npmjs.com/package/teamlore",
+   "raindrop_ids": [
+    "1807628727"
+   ],
+   "summary": "When a Claude Code agent gets corrected, teamlore writes a lore file to .lore/ that ships with the PR, gets code-reviewed, and is auto-recalled by teammates' agents touching that part of the repo; a reply notes the honest limitation \u2014 no server means conflicting lore between agents resolves by whoever's PR merges last, not by consensus.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-memory",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:code-graph-rag",
+   "label": "Code-Graph-RAG: Tree-sitter parsing into a Memgraph graph",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/vitali87/code-graph-rag",
+   "raindrop_ids": [
+    "1807625427"
+   ],
+   "summary": "MIT-licensed graph-based RAG system spanning 13 languages, answering plain-English questions about codebase structure, retrieving source snippets, and flagging dead code via configurable CI-failing detection.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:knowledge-graphs",
+    "tag:rag"
+   ],
+   "week": "2026.08.02"
+  },
+  {
+   "id": "entry:hermes-web-ui-desktop",
+   "label": "Hermes Web UI Desktop \u2014 except Hermes already has one",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1807624435"
+   ],
+   "summary": "Free, open-source visual workspace wrapping the Hermes CLI agent (chat, sessions, credentials, skills, scheduled tasks, 8-platform connectors) in one panel; multiple replies point out Hermes already ships its own official desktop app (`hermes desktop`) with regular updates, making this a late, redundant entry \u2014 no repo link was captured in the post.",
+   "quick_hit": true,
+   "tags": [
+    "tag:oss-agent-platforms",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.02"
   }
  ],
  "tags": [
