@@ -6,7 +6,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## Latest digest
 
-**[Week of 2026.08.09](./digest-2026.08.09.md)** — five separate tools ship the same bet that precomputing a map of the codebase beats letting the agent re-read files (Graft claims 42% fewer tokens over 162 runs), reply threads correct three of the week's loudest posts before the digest has to, three "10 repos that replace $X/year" listicles land from three accounts in one week, and Nvidia's Nemotron 3.5 Lightning makes the case for small open models built to *execute* rather than reason.
+**[Week of 2026.08.16](./digest-2026.08.16.md)** — the harness stops being plumbing and becomes the product (TrueForge ties Claude Managed Agents on a third of the tokens; Microsoft open-sources its whole agent runtime), MCP takes its first serious public beating after Perplexity drops it over a 72% context tax, Meta returns to open weights with an Apache-2.0 30B while a chat-template edit reportedly buys Opus-class results on unchanged Qwen weights, and governance arrives in the feed — EU AI Act watermarks, a 13-platform privacy ranking, and China moving government desktops to domestic Linux.
 
 ## The knowledge graph
 
@@ -18,6 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
+| 2026.08.16 | [digest-2026.08.16.md](./digest-2026.08.16.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.16) |
 | 2026.08.09 | [digest-2026.08.09.md](./digest-2026.08.09.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.09) |
 | 2026.08.02 | [digest-2026.08.02.md](./digest-2026.08.02.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.02) |
 | 2026.07.26 | [digest-2026.07.26.md](./digest-2026.07.26.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.07.26) |

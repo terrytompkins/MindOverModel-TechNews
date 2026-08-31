@@ -13,6 +13,7 @@ Transforms one week's Raindrop.io captures into two artifacts:
 
 - **Raindrop API token**: Terry pastes it into chat at run start. Never store it in any file that persists.
 - **Week tag**: `YYYY.MM.DD`, the Sunday starting the week. One shared tag per week — filter on tag membership, no date-range logic.
+- **Browser**: needed at step 2b to recover paywalled articles. The built-in browser (`Claude_Browser__*`) is preferred — it has a persistent profile, so a Medium login done once survives every later run on that computer. Claude in Chrome works too. Neither is required for the run to complete; without one, paywalled entries are simply labeled.
 - **Prior state**: the current `graph-data.json`. Fetch it directly from the repo (verified working from the container):
   `curl -s https://raw.githubusercontent.com/terrytompkins/MindOverModel-TechNews/main/graph-data.json`
   If Terry uploaded a copy in this conversation, prefer the uploaded one (it may be newer than the last push). If the repo fetch fails AND nothing was uploaded, ask Terry — do not initialize a fresh graph without explicit confirmation, since that would silently discard the cumulative archive.
@@ -22,11 +23,20 @@ Transforms one week's Raindrop.io captures into two artifacts:
 ### 1. Fetch and extract
 
 ```bash
-pip install beautifulsoup4 --break-system-packages
+pip install beautifulsoup4 readability-lxml lxml_html_clean --break-system-packages
 python3 scripts/fetch_week.py --token TOKEN --tag YYYY.MM.DD --outdir run
 ```
 
 This queries the week's bookmarks, downloads every `ready` permanent copy (gzip → text), harvests resource links, runs the content sanity check, and writes `run/corpus.json`. See `references/raindrop-facts.md` for every verified API behavior the script relies on — read it if anything fails or looks unfamiliar.
+
+Each entry carries two bodies, and you need both:
+
+- **`article_text`** (readability-extracted, ≤12k chars) — use this for articles. Raw page text on a news site is ~90% nav boilerplate, and the old 3k cap landed before the article even started; that is what produced "the capture recovered only site navigation" entries in past weeks. `readability-lxml` is therefore a hard dependency, not an optional one — if the script warns it is missing, install it and re-run before reading anything.
+- **`text`** (raw page text, ≤8k chars) — use this for X captures, where the reply threads are the value and readability sometimes trims them.
+
+Read whichever is richer per entry; for X posts that is usually `text`, for articles almost always `article_text`.
+
+The script also sets **`paywalled`** (the snapshot is real but truncated at a free preview) and **`friend_links`** (author-published `?sk=` bypass links found in the snapshot). `paywalled` is independent of `sane`: a paywalled capture is genuine, just cut short. Both drive step 2b.
 
 ### 2. Read and verify the corpus
 
@@ -36,6 +46,22 @@ Read `run/corpus.json` in full. For each entry, confirm the pipeline's judgment 
 - `inferred_links` are github.com URL guesses built from path-like text (`/user/repo`) in posts with no anchors. Treat as candidates; label "(URL inferred from capture)" in the digest.
 - **Detect duplicate stories**: different accounts often post the same tool/news in the same week. Merge them into one entry citing all raindrop ids; a same-week duplicate is itself signal worth one line ("hit the feed from multiple accounts").
 - **Mine the replies**: snapshots include reply threads, which frequently contain corrections, debunkings, caveats, and extra links. Reflect substantive corrections in the entry — hype-plus-correction is often the real story.
+
+### 2b. Recover paywalled articles before writing about them
+
+`fetch_week.py` prints a `PAYWALLED` list splitting into two groups. Work it before drafting — a paywalled entry summarized from its preview is the single most common source of a thin, hedge-heavy digest entry.
+
+**Group 1 — has a `friend_links` entry.** The author deliberately published a share link ("read this for free here") and it is the sanctioned way in. **Always redeem these.** A friend link only works in a real browser session — a server-side fetch (`WebFetch`, `curl`) still hits the paywall, so this step needs a browser:
+
+1. `Claude_Browser__preview_start` with the friend-link URL (call `Claude_Browser__request_access` for the host first if asked — Medium articles are served from many hosts: `medium.com`, `*.medium.com`, and custom publication domains like `pub.towardsai.net`, so expect several approvals the first time).
+2. `Claude_Browser__get_page_text` to read the body. Confirm it worked: the page opens with "You're reading via <author>'s Friend Link". Set `max_chars` generously (~20000) — a 10-minute article overruns the default and you will silently lose the conclusion, which is usually the part worth quoting.
+3. Write the entry from that text, and cite the **canonical** article URL, not the `?sk=` link — friend links are personal share tokens and do not belong in a published digest.
+
+**Group 2 — no friend link.** Try the browser anyway: if Terry is signed into Medium in the built-in browser's persistent profile, member-only stories open normally. If that fails, keep the preview-based summary and label it honestly — say what was recovered and where it stopped, per the entry's paywall note convention.
+
+**Do not** route around a paywall with archive mirrors, cache viewers, or paywall-stripping services. Friend links and a real login are the two sanctioned paths; if neither is available, an honest label is the answer.
+
+**Then re-check your own labels.** Trust `paywalled` over your impression: if the flag is False, do not write "member-only story" — a short body there means your extraction truncated it, so re-read the full `article_text` before concluding anything was cut off. If the flag is True, the entry must carry a paywall note. Getting this backwards mislabels the source in a published post.
 
 ### 3. Cluster into themes and assign topic tags — READ EXISTING THEMES AND TAGS FIRST
 
@@ -97,5 +123,6 @@ In both cases, remind Terry that `graph-data.json` is the cumulative archive and
 - **Reclassifying entries between existing themes, or splitting a theme into two, is welcome and expected as the corpus grows** — unlike an id rename, this only changes which theme id an entry points to, not the ids themselves. Still propose it and get Terry's go-ahead before rewriting historical entries in bulk, since it changes past weeks' data, not just this week's.
 - **Honesty over completeness**: label unreadable or partially-recovered entries plainly. An honest "(no link captured)" beats a plausible guess presented as fact.
 - **Second-hop shorteners** (`osp.fyi` is the known recurring one): cite as-is with an annotation, and tell Terry which new shortener domains appeared so they can be added to the network allowlist (changes require a new chat).
+- **A paywall is a recoverable problem, not a labeling problem.** Redeem every `friend_links` entry via the browser before writing (step 2b). Label only what genuinely could not be recovered, and never cite the `?sk=` link itself.
 - **Suspension losses are acceptable**: if a capture's snapshot is a suspension/unavailable page, say so in the digest entry and move on.
 - **Token hygiene**: the token lives only in the chat and in the ephemeral run command. Never write it into corpus.json, the digest, project knowledge, or this skill.
