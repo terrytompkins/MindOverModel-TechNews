@@ -10,7 +10,8 @@
   "2026.07.26",
   "2026.08.02",
   "2026.08.09",
-  "2026.08.16"
+  "2026.08.16",
+  "2026.08.23"
  ],
  "themes": [
   {
@@ -52,6 +53,10 @@
   {
    "id": "theme:ai-governance",
    "label": "AI Governance, Privacy & Sovereignty"
+  },
+  {
+   "id": "theme:visual-artifacts",
+   "label": "Diagrams & Visual Artifacts"
   }
  ],
  "entries": [
@@ -6126,6 +6131,602 @@
     "tag:hype-debunked"
    ],
    "week": "2026.08.16"
+  },
+  {
+   "id": "entry:qwen38-27b-three-measurements",
+   "label": "Qwen3.8-27B \u2014 one release, three measurements, three honest stopping points",
+   "theme": "theme:local-llms",
+   "url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+   "raindrop_ids": [
+    "1837766314",
+    "1837763691",
+    "1837765631"
+   ],
+   "summary": "Alibaba's Apache-2.0 27B dense multimodal model hit the feed three times in one week from three measurement stances: a deployment-footprint argument from the GGUF ladder (Q4 15.7-17.9GB) that explicitly refuses to call weight sizes a runtime test; a release-day benchmark on two mid-range GPUs at 23.63 tok/s generation, reproducible to the decimal because generation is bandwidth-bound arithmetic (16.68 GiB re-read per token at 423 GB/s), with prompt processing honestly reported as 'around 900 t/s' rather than rounded; and a 3-bit compression to 11.55GB running fully in memory on a 16GB Mac mini at 3.7 tok/s, whose author recommends Apple's MLX 4-bit build over his own format if you have the RAM, and reports the mini failing a planted-bug coding-agent task 4/4 while a 64GB M4 Max passed 4/4. Only 16 of 64 layers keep a KV cache (the rest use Gated DeltaNet linear attention), which is why prompt throughput stays flat instead of collapsing past 2,000 tokens. Vendor benchmarks (73.0 Terminal-Bench 2.1, 61.7 SWE-bench Pro) are flagged as vendor benchmarks in all three.",
+   "quick_hit": false,
+   "tags": [
+    "tag:chinese-models",
+    "tag:local-inference",
+    "tag:local-ai-hardware",
+    "tag:quantization"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:freetoken-moe-offload",
+   "label": "FreeToken \u2014 MoE offload profiled per machine, and a reply thread that audits it",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/FlashML-org/FreeToken",
+   "raindrop_ids": [
+    "1832676313"
+   ],
+   "summary": "UC Berkeley's inference engine claims 2-4x faster local serving than Ollama on Mixture-of-Experts models by fixing what happens on an expert cache miss: existing engines freeze one recovery path (PCIe copy or CPU compute) at load time, but both read the same system memory and compete for one bandwidth pool, so FreeToken profiles both once per machine and splits misses proportionally. Two machines with the same GPU can want opposite strategies. The second design half targets coding agents \u2014 checkpoints saved at the exact boundaries agent frameworks cut on, keeping worst-case first-token latency under 44s against llama.cpp's 232s and KTransformers' 946s. Replies do real auditing: the benchmark rig had 192GB DDR5 host RAM ('kind of misleading'), one reader reports 45-55 t/s from locally compiled llama.cpp, another doubts 39.3 t/s survives a router miss \u2014 and the sharpest reply argues everyone will fixate on the memory routing while the exact-boundary checkpointing is the sleeper feature, because local coding agents have been suffocating on context recalculation.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:inference-optimization",
+    "tag:mixture-of-experts",
+    "tag:open-weights"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:m5-prefill-decode-split",
+   "label": "The M5's 4x AI claim is only the prefill half",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/@nuthalapativarun/the-m5s-4-faster-ai-claim-is-only-half-the-benchmark-f330a0d66f70",
+   "raindrop_ids": [
+    "1837764360"
+   ],
+   "summary": "Apple's own MLX table shows both numbers in the same row for every model: time-to-first-token improves 3.3-4.1x while token generation improves 1.19-1.27x. Prefill is compute-bound and is what the M5's per-core Neural Accelerators (1,024 FMAs/cycle, Apple's first matrix-multiply hardware inside the GPU) attack; decode is bandwidth-bound and tracks the 153 vs 120 GB/s memory improvement instead. Practical rule: long front-loaded prompts buy the 4x, short prompts with long answers buy the ~20%. Includes a runnable mlx-lm script printing prompt_tps and generation_tps side by side so you can see the split on any Apple Silicon without an M4-vs-M5 comparison. The same prefill/decode distinction turns up in the Qwen3.8 measurements and in FreeToken's checkpointing design the same week.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:local-ai-hardware",
+    "tag:evals-benchmarks",
+    "tag:inference-optimization"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:qwen-on-a-pendrive",
+   "label": "Qwen 3 on a pendrive \u2014 local AI as luggage rather than installation",
+   "theme": "theme:local-llms",
+   "url": "https://blog.stackademic.com/i-put-qwen-3-on-a-usb-drive-now-my-ai-works-with-zero-internet-416f24ca5048",
+   "raindrop_ids": [
+    "1837765272"
+   ],
+   "summary": "A field report from a client site that treats WiFi as a security incident: llama.cpp as a portable binary plus a Qwen3.5 GGUF on a USB 3.2 SSD, with a launcher script and nothing installed on the host. Qwen3.5 4B is the recommendation for a drive carried between unknown machines (8GB laptop, no GPU, 10-25 tok/s), stepping to Qwen3 8B only when the host has RAM to spare. What lifts it above the genre is the named failure modes: Gatekeeper and SmartScreen both block on first run, Windows builds commonly need the MSVC redistributable, chmod +x is required on Mac and Linux, and the llama-server web UI writes no chat history to disk. It also flags the two things most air-gapped-AI posts miss \u2014 some secure sites disable USB ports entirely, and a drive carrying client material should be encrypted (VeraCrypt, BitLocker To Go) rather than relying on the model being offline. Scope stated honestly: an insurance policy for when the cloud isn't an option, not a daily-driver replacement.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:chinese-models",
+    "tag:security-privacy",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:nvidia-nooa-harness",
+   "label": "NVIDIA NOOA \u2014 same model, half the tokens, higher score",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/NVIDIA-NeMo/labs-OO-Agents",
+   "raindrop_ids": [
+    "1837763301"
+   ],
+   "summary": "The circulating number is 82.2% on SWE-bench Verified with GPT-5.5; the number that matters is 1.1M tokens and ~29 calls per task, against a comparison harness running the identical model at 66 calls and 2.2M tokens for a lower 78.2%. The core mechanism is passing tool results by reference rather than value: large objects stay alive in the Python execution environment and the model gets a typed bounded preview plus an address, never the payload. NVIDIA reports NOOA needed no context compaction at all on frontier models, with median sessions peaking at 22-72K prompt tokens against 200-400K windows; because the transcript stays append-only rather than being rewritten, prefix caching compounds the saving. Five more capabilities round it out: typed I/O contracts, code-as-action, a programmable orchestration loop the model itself can modify, explicit typed object state, and model-callable context APIs. Two honest caveats: NVIDIA showed harness design moves the accuracy-cost frontier, not that NOOA halves your workload; and its AST validation and deny-lists are explicitly defense-in-depth, not a containment boundary \u2014 the isolation layer is the security boundary and building it is on you. Research preview, not production.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:token-cost-optimization",
+    "tag:agent-sandboxing",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:billion-agents-zero-model-calls",
+   "label": "A billion agents on four GPUs, with zero model calls at runtime",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/FareedKhan-dev/earth-scale-society",
+   "raindrop_ids": [
+    "1837765089"
+   ],
+   "summary": "Simulating a billion LLM-grounded social agents the obvious way costs 1.5 trillion tokens, about 2.5 years of continuous four-GPU time for one topic. The one idea: the state deciding an interaction is small and finite \u2014 10,000 personas by 3 stances squared is 900 million distinct questions, a number that does not grow with population \u2014 so answer them all once offline and run the world out of an array. Pipeline: 96,125 World Values Survey records rendered into personas and sampled to 10,000; a billion-node scale-free graph; a 235B open Qwen teacher paid once for 270,000 labels; a 4.5M-parameter surrogate trained on the teacher's answers and its hesitation; enumerated into an 858MB byte table. Total build 4h09m, of which the billion-agent run itself is 104 seconds (0.7%). Two results give it credibility: the crossover is stated plainly at ~180,000 agents, below which the pipeline is a net loss and you should just call the model; and a topology-drives-opinion-spread chart turns out under a fan-out cap to be mostly an exposure effect \u2014 'the first reading of that chart would have been mostly wrong.' Closes with six explicit reasons it proves nothing about people.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:token-cost-optimization",
+    "tag:chinese-models",
+    "tag:harness-engineering"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:microsoft-skill-recorder",
+   "label": "Microsoft skill-recorder \u2014 record once, and the caveats live in the replies",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/microsoft/skill-recorder",
+   "raindrop_ids": [
+    "1835967242"
+   ],
+   "summary": "Records a real work session (screen, clicks, windows, pages, narration), has Copilot reconstruct it as one intent plus an ordered step list, and turns that into a Skill run on demand or an Automation on a schedule. The post is breathless; the replies supply the engineering. The key correction from a reader who read the README: it does not replay clicks like a macro, it translates them into the agent's native tools (gh, web_fetch), which is why layout changes don't break it. Omitted constraints: needs a GitHub account with Copilot access for the analyze step, macOS primary with Windows 11 support, v0.5.0 source release. Two further replies mark the real boundary \u2014 the reconstruction requires human approval before becoming a reusable skill, which stops one bad recording becoming repeated automation \u2014 and leave one question unanswered: how it holds up against sites that randomize selectors.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:harness-engineering",
+    "tag:agent-browsers"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:munder-difflin-office-harness",
+   "label": "munder-difflin \u2014 four coding agents in one repo, themed as The Office",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/chaitanyagiri/munder-difflin",
+   "raindrop_ids": [
+    "1834007068"
+   ],
+   "summary": "An open-source harness putting Claude Code, Codex, Antigravity and Cursor to work together on existing subscription limits. The theme is the hook; two replies relocate the actual problem. The first: the artifact that matters isn't four tools sharing one subscription, it's the merge protocol \u2014 different context windows and failure modes need shared task state, explicit handoffs and a test that decides when the team is done, or it's four tabs with branding. The second proposes the benchmark that would settle it: same repo and task graph across all four, measuring duplicate edits, merge conflicts, wall time and subscription usage, because multi-agent only wins when coordination overhead stays below the parallelism gain. Neither is answered in the thread.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-orchestration",
+    "tag:harness-engineering",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:ragas-eval",
+   "label": "Ragas \u2014 objective metrics for AI app quality",
+   "theme": "theme:harness-loops",
+   "url": "https://osp.fyi/ragas",
+   "raindrop_ids": [
+    "1835967396"
+   ],
+   "summary": "Generates test scenarios automatically, scores responses on objective metrics, tracks real-world data. Link goes through the osp.fyi second-hop shortener; final destination not verified.",
+   "quick_hit": true,
+   "tags": [
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:eight-mcp-servers-tool-budget",
+   "label": "Eight MCP servers worth their slot, and the tool budget nobody budgets",
+   "theme": "theme:coding-agents",
+   "url": "https://medium.com/data-science-collective/the-8-mcp-servers-every-claude-code-setup-needs-in-2026-fac76ac7d013",
+   "raindrop_ids": [
+    "1837763247"
+   ],
+   "summary": "Every MCP server dumps its tool list into the system prompt, so slots are a strict allowance. The author hit it concretely: 14 servers exposing 73 tools, ~18,000 tokens per turn loading unused schemas, and Claude Code reaching for a Jira server to satisfy a request to grep a local directory. Observed breaking point is around 50 visible tools. The eight kept: Context7 (version-pinned library docs), the official GitHub server, Postgres MCP Pro with --access-mode=restricted described as non-negotiable on staging or production, Playwright MCP (verify via accessibility tree rather than screenshot), Sentry (unminified production traces), Brave Search, plus scoped Filesystem and sequential-thinking as flex slots. Ships a committable .mcp.json using ${VAR} interpolation and --scope project so a team shares one toolset. The cut list is equally useful: archived reference servers, third-party wrappers where an official vendor server exists, and anything duplicating a native client ability \u2014 illustrated by an agent trying a third-party execute_script for npm install, failing on a path error, then writing a Python script rather than using the native shell.",
+   "quick_hit": false,
+   "tags": [
+    "tag:mcp",
+    "tag:claude-code",
+    "tag:context-engineering",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:1600-skills-eight-survivors",
+   "label": "1,600 community skills, eight survivors, tracked over seven weeks",
+   "theme": "theme:coding-agents",
+   "url": "https://dkspeaks.medium.com/the-claude-community-built-1-600-skills-these-8-are-the-only-ones-i-actually-use-5d96acfe9e3d",
+   "raindrop_ids": [
+    "1837776828"
+   ],
+   "summary": "A genuine follow-up rather than another list: of 50 community Claude skills reviewed previously, the author logged which ones they actually opened over seven weeks, counting 'installed but not opened in four weeks' as inactive. Eight survived. avoid-ai-writing runs on every draft before publishing (found eleven problems in a 1,400-word piece already considered finished); brand-guidelines removes a recurring ten minutes of voice re-briefing per session; skill-creator is the one to install first because every custom skill started there; docx and pdf cover editable versus fixed deliverables; deep-research compresses 30-45 minutes of reading into ten of review, opened before one article in three; youtube-transcript turned a 700-episode podcast backlog into a content asset; brainstorming gets opened when the topic is known but the angle isn't. The elimination criterion is the honest part \u2014 what got cut solved problems other skills already handled. A 42-of-50 uninstall rate is the number skill-marketplace enthusiasm keeps omitting.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:claude-code",
+    "tag:curated-lists"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:four-skills-four-gaps",
+   "label": "Four skills aimed at four specific Claude Code gaps",
+   "theme": "theme:coding-agents",
+   "url": "https://divadsanders.medium.com/i-tested-claude-code-skills-until-i-struck-gold-4-best-claude-skills-bc199475e2b8",
+   "raindrop_ids": [
+    "1837764488"
+   ],
+   "summary": "A tighter list built around named failure modes. Ponytail attacks overbuilding by forcing a short interrogation before writing \u2014 does this need to exist, did I build it elsewhere, does the browser handle it free, can this be one line instead of fifty \u2014 saving tokens twice, on the code not written and the confusion it would have caused; its cost is named honestly, it compresses chat replies too. Claude Video gives actual visual context from YouTube, Loom, TikTok, X and Instagram rather than transcript alone. Last30Days replaces indexed-article research with reads of Reddit, X, YouTube and Threads including the comments, cross-checking complaints across platforms so one angry comment is ignored and three independent ones get flagged. Humanizer runs text through 33 patterns derived from Wikipedia's documented AI-writing tells, and is explicitly a cleanup tool, not a writing tool. One line deserves wider circulation: before installing anything from GitHub, be aware of prompt injections hidden in the repo, and have the agent analyze it first.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:claude-code",
+    "tag:token-cost-optimization",
+    "tag:security-privacy"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:role-based-skill-stack",
+   "label": "The role-based skill stack \u2014 thirty-five repos, and a thread that won't buy it",
+   "theme": "theme:ai-education",
+   "url": "https://x.com/roundtablespace/status/2092609257338200469",
+   "raindrop_ids": [
+    "1836936515"
+   ],
+   "summary": "Agent skills laid out by job function: Senior Engineer (Superpowers, Addy Osmani's agent-skills, Karpathy Skills, GStack), Product Designer, QA, Docs, Marketer, Social Manager, Motion Designer, Researcher, Ops Manager, and a whole-agency tier. Two readers independently call it an org chart replaced by repos. The dissent is unusually specific and is why the entry is here: on Superpowers, 'agents fight themselves and produce 10 documents before writing 10 lines of code,' and separately that it's a token consumer best used to start a project then turned off; a blunter reply dismisses Karpathy Skills and calls GStack bloated. The observation that generalizes: people still need to learn how to prioritize and contextualize these skills rather than collecting them like trophies. Two accuracy notes on the list itself \u2014 the Marketer section links MarkItDown where a marketing-skills repo was evidently intended, and one entry goes through an lnkd.in shortener whose destination isn't verifiable from the capture.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:curated-lists",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:awesome-agent-skills-1497",
+   "label": "awesome-agent-skills \u2014 1,497 skills, and the best line of the week",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/VoltAgent/awesome-agent-skills",
+   "raindrop_ids": [
+    "1834884523"
+   ],
+   "summary": "A collection of official agent skills from engineering teams at Anthropic, Google Labs, Vercel and Stripe. The post is one line and a link; the reply is the entry: at 1,497 the scarce thing stops being the skill and becomes knowing which one applies, which is a retrieval problem \u2014 the same problem skills were introduced to solve one level down \u2014 and it's worth watching whether the index ends up mattering more than the entries. It names the recursion the whole week circles: skills were a retrieval mechanism for capability, and at catalog scale they become the thing that needs a retrieval mechanism.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:curated-lists"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:ten-repos-for-agents",
+   "label": "Ten repos for building with agents",
+   "theme": "theme:ai-education",
+   "url": "https://x.com/divyansht91162/status/2091879586045018406",
+   "raindrop_ids": [
+    "1834006438"
+   ],
+   "summary": "A roundup useful mainly for what it groups: OpenViking (Volcengine's context database unifying memory, knowledge and skills), AgentMemory (persistent memory across coding-agent tasks), anthropics/skills, diagram-design, scientific-agent-skills (160+ research skills and databases), awesome-harness-engineering (patterns for memory, skills, security, evals and orchestration), Anthropic-Cybersecurity-Skills, ai-job-search, OpenHands and browser-use. One reply makes the point the list implies: unifying memory and knowledge in one context store beats bolting memory onto an agent after the fact. Harness engineering now has an awesome-list of its own, which is usually the moment a practice stops being individual craft and becomes a field.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists",
+    "tag:agent-memory",
+    "tag:agent-skills",
+    "tag:harness-engineering"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:ai-kills-implementation-debt",
+   "label": "AI kills implementation debt and inflates understanding debt",
+   "theme": "theme:ai-education",
+   "url": "https://levelup.gitconnected.com/ai-will-kill-technical-debt-as-we-know-it-d2c73ffdfb46",
+   "raindrop_ids": [
+    "1837772773"
+   ],
+   "summary": "The strongest conceptual piece of the week, and it never mentions an agent framework. Ward Cunningham's 1992 debt was never messy code \u2014 it was the gap that opens as you learn more about a problem while the code stays behind, repaid by refactoring to match new understanding (Uncle Bob's 'intentionally suboptimal structure' is a third definition again; the field never agreed). The meaning drifted because code was visible and expensive while the understanding gap was invisible. Now writing code is cheap and refactoring nearly free, so the thing called tech debt for twenty years is the cheap part to pay down, and 'we had to cut corners to ship' stops working when an agent rewrites in seconds. Evidence: a CodeRabbit study of 470 real pull requests found AI-coauthored PRs carry ~1.7x more issues, with the largest jump \u2014 75% \u2014 in logic and correctness rather than style. That is not AI writing uglier code, it is AI letting teams skip the thinking. Names the split as implementation debt (becoming cheap) versus understanding debt (set to explode), and follows it into hiring, seniority and planning. Effectively the NOOA finding restated for humans.",
+   "quick_hit": false,
+   "tags": [
+    "tag:future-of-engineering",
+    "tag:spec-driven-dev",
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:networking-security-repos",
+   "label": "Seven repos for learning networking and security",
+   "theme": "theme:ai-education",
+   "url": "https://x.com/maxdeg0/status/2091885032117846020",
+   "raindrop_ids": [
+    "1834010610"
+   ],
+   "summary": "Off the AI beat but a solid list: Containerlab (real network topologies in containers, test routing without hardware), Scapy (the Python packet-manipulation library most security courses teach on), Sniffnet (real-time traffic monitoring, visualized), System Design 101, two differently curated Awesome Networking collections, and Multiplayer Networking Resources for game netcode \u2014 latency, jitter, packet loss, rollback. The most useful reader note: Containerlab plus Scapy makes the jump from diagrams to packet-level debugging much less intimidating. Relevant because agent infrastructure is increasingly a networking and isolation problem \u2014 see the NOOA sandboxing caveat the same week.",
+   "quick_hit": false,
+   "tags": [
+    "tag:curated-lists",
+    "tag:learning-resources",
+    "tag:security-privacy"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:five-slide-mistakes",
+   "label": "Five slide mistakes that tell executives you don't understand how they think",
+   "theme": "theme:ai-education",
+   "url": "https://medium.com/@marybeth.hazeldine/five-slide-mistakes-that-tell-executives-you-dont-understand-how-they-think-caf376d8f466",
+   "raindrop_ids": [
+    "1837772392"
+   ],
+   "summary": "Not an AI piece but a clean one on structural communication. The five: building the deck bottom-up so the recommendation lands on slide 14 instead of slide 1; titling slides with topics ('Q3 Performance') instead of conclusions ('Q3 Revenue Below Target Due to UK Market Softening'); designing for zero interruptions when senior audiences interrupt as a way of signalling what matters; using slides as speaker notes, which loses fast readers and slow readers for opposite reasons; and adding slides to cover uncertainty, where volume signals indecision rather than depth. One root cause for all five: the deck was built for the presenter's logic rather than the executive's decision. The same conclusion-first discipline is what a good agent brief needs, which the week's technical-debt argument says is now the expensive artifact.",
+   "quick_hit": false,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:ai-fatally-wrong-geometry",
+   "label": "Everything You Have Been Told About AI Is Fatally Wrong \u2014 preview only",
+   "theme": "theme:ai-education",
+   "url": "https://ai.gopubby.com/everything-you-were-told-about-ai-is-fatally-wrong-28078540ad7e",
+   "raindrop_ids": [
+    "1837764278"
+   ],
+   "summary": "A member-only story arguing AI's problems are mathematical rather than scale-related, pointing at geometry and symmetry, equivariance, topology and curved/hyperbolic representations as the foundation for a structurally sounder architecture. Only the setup was recoverable: the capture is a free preview that stops at the first section heading, and the publication host could not be reached in the browser this run, so the arguments and animations the piece is built around are not summarized.",
+   "quick_hit": true,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:effective-html-artifacts",
+   "label": "effective-html \u2014 six skills for artifacts that survive leaving the chat",
+   "theme": "theme:visual-artifacts",
+   "url": "https://github.com/plannotator/effective-html",
+   "raindrop_ids": [
+    "1834008526",
+    "1834009115"
+   ],
+   "summary": "Agent skills for self-contained HTML artifacts from low-fidelity wireframes to working prototypes: a broad html skill that routes the work, design-artifact for creative direction without imposing a house style, html-wireframe (deliberately unfinished so reviewers look at structure), html-prototype (one credible flow with real states and keyboard support), html-plan (roadmaps preserving source commitments), and html-diagram. Usable as a reference without installing anything. The capture that surfaced it \u2014 a Chinese-language demo on a real project \u2014 adds what the README doesn't: clickable nodes, a detail panel, and a self-animating call flow, making it a way to read an unfamiliar codebase. Two replies do the necessary work: asked directly whether the diagram stays in sync as architecture shifts, the author answers 'manual update'; and another reader posts a near-identical project, archify, saying the two look the same. The sync question decides whether generated architecture diagrams are documentation or decoration.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming",
+    "tag:agent-skills",
+    "tag:codebase-docs"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:archify-verified-system-maps",
+   "label": "archify \u2014 the same idea, with verification receipts",
+   "theme": "theme:visual-artifacts",
+   "url": "https://github.com/tt-a1i/archify",
+   "raindrop_ids": [
+    "1834010784"
+   ],
+   "summary": "Named by a reader as a near-duplicate of effective-html; fair on output, not on approach. Turns a codebase or system description into an interactive system map \u2014 five diagram types, four presets, dark/light themes, PNG/SVG/WebM and 1200x630 share-card exports \u2014 for Cursor, Claude Code, Codex CLI, OpenCode and Raven. What differentiates it is a verification posture: a typed JSON intermediate representation with deterministic checks, revision-verified source links, and a claim that interactions stay grounded so you can trace upstream/downstream reach and exact routes without inventing topology. It also does before/after review \u2014 comparing two validated snapshots as Before/Delta/After with explicit added, removed, changed, moved and rerouted facts \u2014 aimed at reviewing architecture changes before a merge, with a published Proof Lab of eleven checked-in scenarios and their validation receipts. Carries disclosed commercial sponsors. Two projects, one week, same output format, and the interesting difference is that one treats 'did the diagram lie about the code?' as a checkable property.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming",
+    "tag:codebase-docs",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:diagram-design-39-types",
+   "label": "diagram-design \u2014 39 types, and the argument for self-contained HTML",
+   "theme": "theme:visual-artifacts",
+   "url": "https://github.com/cathrynlavery/diagram-design",
+   "raindrop_ids": [
+    "1835967673"
+   ],
+   "summary": "An agent skill for Claude Code, Codex, Factory Droid and Pi: ask for a diagram, get one self-contained HTML file that opens offline. 39 diagram types implemented as designed templates the agent fills in, semantic patterns so a queue or trust boundary can reuse the nearest type, redrawing of existing draw.io and Mermaid files, and SVG export for Figma. The best reply in the week's diagram cluster explains why the file format is the point: a Mermaid block only renders where the renderer is, so the diagram stops travelling the moment it leaves the repo, while one file that opens in any browser survives review, tickets and email. The same reader identifies why a fixed type list matters \u2014 the agent picks a diagram instead of inventing a layout, and inventing the layout is where these usually fall apart. A third keeps the humans in it: the agent gets you to a strong draft, a person still makes the final visual call.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming",
+    "tag:agent-skills",
+    "tag:design-to-code"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:obsidian-peaked",
+   "label": "Obsidian peaked \u2014 a careful argument, not a hit piece",
+   "theme": "theme:memory-knowledge",
+   "url": "https://talking-tech-with-j.medium.com/obsidian-peaked-heres-what-i-m-watching-instead-1867694064f2",
+   "raindrop_ids": [
+    "1837762612"
+   ],
+   "summary": "The claim is narrow and repeatedly protected: the product is still excellent and its markdown-first, local-first stance is still the most principled in the category, but the adoption trajectory has three problems, two of them not product problems. The second-brain cultural wave that drove growth is receding. Plugin fatigue flipped from strength to friction \u2014 community energy moved from 'look what I discovered' to 'here's my 47-plugin setup,' widening the gap between installing and having a working system, with a first-hand account of a technical colleague bouncing off after a weekend replicating a YouTube vault tour. And the power-user identity became the ceiling: Notion's community makes templates that produce a working system in ten minutes, Obsidian's makes showcases that are aspirational but not reproducible. Product critiques are lighter but pointed \u2014 Canvas reads as built because other tools have whiteboards, Bases as a philosophical hedge from the tool that once said you need links, not databases. Alternatives framed as different ideas rather than replacements: Tana (supertags), Heptabase (spatial recall on infinite whiteboards, $8.99/mo annual, no free tier), Capacities, SiYuan. The counter-argument gets its own section and is conceded: every alternative fails the data-ownership test to some degree.",
+   "quick_hit": false,
+   "tags": [
+    "tag:obsidian",
+    "tag:second-brain",
+    "tag:knowledge-graphs"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:openkb-vectorless-retrieval",
+   "label": "OpenKB \u2014 vectorless retrieval, and four readers asking the same question",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/VectifyAI/OpenKB",
+   "raindrop_ids": [
+    "1836702789"
+   ],
+   "summary": "An open-source system compiling raw documents into a structured, wiki-style knowledge base, using PageIndex for what it calls vectorless, reasoning-based retrieval. The post is a single line; the thread is a small peer review converging from four directions on one gap. How does PageIndex guarantee accurate recall without embeddings? Vectorless retrieval 'sounds clean until update propagation hits edge cases.' And the most constructive reply proposes the property that would make the design worth it: attach every generated claim to the exact document span it came from, so the knowledge base stays auditable statement by statement. None are answered in the thread. Dropping embeddings trades a similarity search for a reasoning pass over structure \u2014 the recall and update-propagation questions are the right ones to take to the repo.",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:rag",
+    "tag:vector-search",
+    "tag:document-ingestion"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:opendataloader-pdf",
+   "label": "OpenDataLoader PDF \u2014 parsing as the easy half of the problem",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/opendataloader-project/opendataloader-pdf",
+   "raindrop_ids": [
+    "1834010943"
+   ],
+   "summary": "An open-source PDF parser converting PDFs into AI-ready Markdown, JSON and HTML, with OCR for scans and handling for tables, formulas and charts. Two replies are worth more than the post. The first relocates the difficulty: clean Markdown is the ingestion step, and the hard part for RAG is keeping table relationships and page provenance intact once the document is chunked \u2014 how is that structure exposed to downstream retrieval? The second is a common objection worth flagging as a partial misread: 'why not parse programmatically with code, it's cheaper and doesn't hallucinate' \u2014 the repo documents a deterministic local mode as its default, with the AI-assisted path an optional hybrid mode for complex pages. The chunking-provenance question is the recurring unsolved edge of document RAG, and it's the same auditability point the OpenKB thread raised independently the same week. URL de-obfuscated from the author's follow-up reply, which wrote it as github(DOT)com.",
+   "quick_hit": false,
+   "tags": [
+    "tag:document-ingestion",
+    "tag:rag"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:ragflow-document-answers",
+   "label": "RAGFlow \u2014 answers out of messy contracts and reports",
+   "theme": "theme:memory-knowledge",
+   "url": "https://osp.fyi/ragflow",
+   "raindrop_ids": [
+    "1836700550"
+   ],
+   "summary": "Reads complex files like contracts and reports and extracts answers from unstructured data; open source and self-hostable. The only reply asks the right question and gets no answer: how does it handle scanned PDFs versus native text ones? Link goes through the osp.fyi second-hop shortener; final destination not verified.",
+   "quick_hit": true,
+   "tags": [
+    "tag:rag",
+    "tag:document-ingestion",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:openworker-andrew-ng",
+   "label": "openworker \u2014 Andrew Ng's outcome-shaped coworker, with the honest section attached",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/andrewyng/openworker",
+   "raindrop_ids": [
+    "1836934502"
+   ],
+   "summary": "An open-source desktop agent framed around delivering finished work rather than chat: state the outcome, watch it decompose the task across desktop, files and apps, with writes, sends and shell commands approval-gated. Connects 25+ tools \u2014 GitHub, Slack, Jira, Notion, Gmail, Calendar \u2014 plus anything over MCP, runs on your own key across OpenAI, Anthropic, Gemini, DeepSeek, Kimi and Grok, or fully local with Ollama. The poster appends their own caveats, which is rarer than it should be: open beta, macOS signed, Windows builds unsigned, models outside the curated tool-calling list at-your-own-risk. The best reply sharpens the remaining gap \u2014 the planning demos well, and the hard part starts when it touches a real calendar or a real card: scoped credentials, and a log of what it actually did. 'Still mostly homework.' The approval gate and bring-your-own-key stance are what make it evaluable at all; the missing audit log is why it isn't finished.",
+   "quick_hit": false,
+   "tags": [
+    "tag:oss-agent-platforms",
+    "tag:agent-orchestration",
+    "tag:self-hosting",
+    "tag:mcp"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:anduinos-windows-like-ubuntu",
+   "label": "AnduinOS \u2014 Ubuntu that looks like Windows 11, from a former Microsoft engineer",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://medium.com/@michaelswengel/this-linux-distro-looks-a-lot-like-windows-11-475c42e1cbb4",
+   "raindrop_ids": [
+    "1837763629"
+   ],
+   "summary": "Not a Windows skin over Ubuntu but a trimmed derivative with intent: GNOME 50, Ubuntu 26.04 packages, kernel 7.0, support promised to April 2031, Flatpak configured out of the box, and Canonical's Snap format deliberately absent (joining Zorin, Mint and Pop!_OS). The concrete pitch is size \u2014 a 2.53GB ISO against Ubuntu's ~5.9GB, and 4GB RAM / 20GB storage minimums against 6GB / 25GB. Users choose an '11' style with centered taskbar or a 'Classic' left-aligned layout, and can move the menu bar to any screen edge, which Windows itself only began working on in 2026. The review's own reservation is the durable one: one-man distributions concentrate update vetting and security patching on a single person, and that risk comes with the polish. Not a Microsoft product \u2014 and the author says that fact makes them more willing to try it.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-hosting",
+    "tag:digital-sovereignty",
+    "tag:security-privacy"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:gridex-native-db-ide",
+   "label": "gridex \u2014 native database IDE with a built-in MCP server",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/gridex/gridex",
+   "raindrop_ids": [
+    "1838166054"
+   ],
+   "summary": "A native database IDE across macOS, Windows and Linux with no web views, covering PostgreSQL, MySQL, SQLite, Redis, MongoDB, SQL Server and ClickHouse, with a built-in MCP server for AI integration. One reply notes the AI integration is that MCP server and nothing more; another asks how it compares to tabularis, advertised the day before. Neither is answered.",
+   "quick_hit": true,
+   "tags": [
+    "tag:mcp",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:xyops-scheduling-monitoring",
+   "label": "xyOps \u2014 scheduling, workflow automation and server monitoring in one",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/pixlcore/xyops",
+   "raindrop_ids": [
+    "1834008398"
+   ],
+   "summary": "Job scheduling, workflow automation and server monitoring combined into a single open-source platform. Replies ask how it differs from Airflow and how alerting and retries hold up under cron-heavy load; both unanswered.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:livecharts2",
+   "label": "LiveCharts2 \u2014 one chart design across phone, desktop and web",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/livecharts2",
+   "raindrop_ids": [
+    "1832676019"
+   ],
+   "summary": "Charts and graphs from one design across phones, desktops and web browsers, addressing limitations of its earlier version. Link goes through the osp.fyi second-hop shortener; final destination not verified.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:nemotron-lightning-switchyard",
+   "label": "Nemotron Lightning and NeMo Switchyard \u2014 why a chip company gives models away",
+   "theme": "theme:model-economics",
+   "url": "https://github.com/NVIDIA-NeMo/Switchyard",
+   "raindrop_ids": [
+    "1837765546"
+   ],
+   "summary": "Framed by Jensen Huang's first X post in 33 years, arguing that restricting open-source AI in the US wouldn't stop Chinese labs training on it, only leave a closed American ecosystem competing against an open Chinese one. Three weeks later: Nemotron 3.5 Lightning, a free MoE model under OpenMDW-1.1 with 30B total and ~3B active parameters, speculative decoding via two purpose-built draft models (DSpark for low concurrency, DFlash using block diffusion for throughput), running on a single H100, consumer RTX cards, DGX Spark and Jetson. The engineering argument is the durable part: long-running agents spend ~80% of their time on execution work \u2014 tool calls, return-value checks, delegation, format validation \u2014 and 20% on planning and judgment, yet most teams route all of it through one frontier model. Lightning targets the execution layer and NeMo Switchyard is the open-sourced router deciding what goes where on configurable quality, latency and cost criteria, across open and proprietary models, without rewriting the application above it. Reported production figures (Ramp 58% cost and 33% runtime reduction, Cognition 28%, Classmethod 27%, Boomi 100% routing accuracy) are vendor-relayed customer reports, not independent measurements. Kong ships it through its AI Gateway, LiteLLM as a proxy plugin, Nous Research inside Hermes.",
+   "quick_hit": false,
+   "tags": [
+    "tag:model-routing",
+    "tag:open-weights",
+    "tag:mixture-of-experts",
+    "tag:ai-market-dynamics"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:claude-text-watermarking",
+   "label": "Claude is watermarking generated text \u2014 the mechanism and its stated limits",
+   "theme": "theme:ai-governance",
+   "url": "https://medium.com/realworld-ai-use-cases/claude-is-watermarking-ai-text-everything-you-need-to-know-1c3a7924bb62",
+   "raindrop_ids": [
+    "1837762999"
+   ],
+   "summary": "Anthropic announced machine-readable marks across Claude, the API, Claude Code, Cowork, and Claude via AWS, Google Cloud and Microsoft Foundry, driven by Article 50 of the EU AI Act, which from 2 August 2026 requires synthetic text, images, audio and video to be machine-readable and detectable \u2014 with an exemption for content under substantive human review and editorial responsibility. The mechanism explanation is flagged as the standard scheme rather than Claude's undisclosed one: plausible next tokens are secretly partitioned into favoured 'green' and unfavoured groups, green ones get a small boost, and detection is a statistical hypothesis test on accumulated imbalance, like spotting a weighted coin over thousands of tosses. Consequence: longer text is far easier to classify, and Anthropic warns short passages may carry too little evidence. What weakens a mark: heavy paraphrasing (DIPPER evaded multiple detectors, though a competing study found fragments survive, needing ~800 tokens after strong human paraphrase at a low false-positive setting), outside translation (but Claude translating can place a fresh mark), dilution of a short marked passage in a long human document (counterable by overlapping-window scanning), recursive paraphrasing, and simply using an unwatermarked model. The theoretical ceiling comes from 'Watermarks in the Sand': meaning is stable, wording is replaceable. The interpretation warnings matter most \u2014 a positive result means Claude processed the text (proofreading, translation, summarisation all mark it), not that Claude authored the ideas; a negative proves nothing about human authorship; and a 0.1% false-positive rate wrongly flags ~100 essays in 100,000, which is why a watermark result alone should not punish a student or accuse an author.",
+   "quick_hit": false,
+   "tags": [
+    "tag:ai-regulation",
+    "tag:security-privacy",
+    "tag:claude-code"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:openbot-per-bot-browsers",
+   "label": "openbot \u2014 an open-source Grok Bot where every bot gets its own browser",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/CopilotKit/openbot",
+   "raindrop_ids": [
+    "1834008141"
+   ],
+   "summary": "A fully open-source alternative in which each bot runs with its own browser, its own logins and its own files. The isolation model is the whole pitch and the reason it's worth watching: per-bot browser profiles are the boundary deciding whether a fleet of agents can hold credentials for different accounts without cross-contamination. The capture is thin \u2014 a one-line post, a video, and replies that are mostly enthusiasm plus one asking whether it's legal (the poster says yes, no elaboration) \u2014 so treat the isolation claim as documented-by-README, not verified. The same sandboxing question NOOA raises for code execution, one layer up at the session and credential level.",
+   "quick_hit": false,
+   "tags": [
+    "tag:oss-agent-platforms",
+    "tag:agent-browsers",
+    "tag:agent-sandboxing"
+   ],
+   "week": "2026.08.23"
+  },
+  {
+   "id": "entry:watercrawl-llm-ready-crawling",
+   "label": "WaterCrawl \u2014 crawls sites into LLM-ready data structures",
+   "theme": "theme:web-agents",
+   "url": "https://github.com/watercrawl/WaterCrawl",
+   "raindrop_ids": [
+    "1835968109"
+   ],
+   "summary": "Crawls websites and transforms extracted web content into LLM-ready data structures. One-line post, no replies, no further detail captured.",
+   "quick_hit": true,
+   "tags": [
+    "tag:web-scraping",
+    "tag:document-ingestion"
+   ],
+   "week": "2026.08.23"
   }
  ],
  "tags": [
@@ -6452,6 +7053,15 @@
     "competitive landscape",
     "pricing wars",
     "compute deals"
+   ]
+  },
+  {
+   "id": "tag:mixture-of-experts",
+   "label": "Mixture of Experts",
+   "aliases": [
+    "MoE",
+    "sparse experts",
+    "expert routing"
    ]
   }
  ]

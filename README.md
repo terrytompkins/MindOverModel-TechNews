@@ -6,7 +6,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## Latest digest
 
-**[Week of 2026.08.16](./digest-2026.08.16.md)** — the harness stops being plumbing and becomes the product (TrueForge ties Claude Managed Agents on a third of the tokens; Microsoft open-sources its whole agent runtime), MCP takes its first serious public beating after Perplexity drops it over a 72% context tax, Meta returns to open weights with an Apache-2.0 30B while a chat-template edit reportedly buys Opus-class results on unchanged Qwen weights, and governance arrives in the feed — EU AI Act watermarks, a 13-platform privacy ranking, and China moving government desktops to domestic Linux.
+**[Week of 2026.08.23](./digest-2026.08.23.md)** — curation replaces discovery as the bottleneck (1,497 official skills, 1,600 community ones, and every piece with real usage behind it is an act of subtraction), NVIDIA’s NOOA shows the same model scoring higher on half the tokens purely from harness design while Nemotron Lightning plus the Switchyard router makes the same argument from the cost side, Qwen3.8–27B gets measured three different ways in one week instead of just announced, and agents start shipping self-contained HTML artifacts — diagrams and system maps — that survive leaving the chat.
 
 ## The knowledge graph
 
@@ -18,6 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
+| 2026.08.23 | [digest-2026.08.23.md](./digest-2026.08.23.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.23) |
 | 2026.08.16 | [digest-2026.08.16.md](./digest-2026.08.16.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.16) |
 | 2026.08.09 | [digest-2026.08.09.md](./digest-2026.08.09.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.09) |
 | 2026.08.02 | [digest-2026.08.02.md](./digest-2026.08.02.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.02) |
