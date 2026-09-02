@@ -23,6 +23,19 @@ Every behavior below was verified against Terry's live account. Rely on these; r
 - Worst case: a link as plain path text with no anchor (e.g. `Repo: /karpathy/...`). Recovery: prepend `https://github.com` as an inferred candidate; fall back to Terry's note or web search; always label inferred URLs.
 - Domains in resource links (huggingface.co etc.) need NOT be allowlisted — the allowlist constrains fetching, not citing.
 
+## Paywalls and friend links (verified 2026.08.31, week 2026.08.16)
+- Raindrop's crawler is **server-side and unauthenticated**. Logging into Medium in your own browser does not change what the snapshot contains — member-only stories are always captured as the free preview. Do not expect a login to fix the capture; it can only fix the *recovery* step.
+- Paywall markers in the snapshot: `member-only story`, `become a member to access`, `upgrade to access the best of medium`. `fetch_week.py` sets `paywalled` from these. It is independent of `sane`.
+- **Authors routinely publish friend links in the article itself** ("Read the article for free here", "Not a Medium member? use this link"). They appear as `...?sk=<hex>` and Raindrop *does* capture them in the snapshot anchors. In week 2026.08.16, 4 of 15 paywalled captures carried one and all 4 redeemed successfully to the full article.
+- A friend link **must be redeemed in a real browser session**. Verified: `WebFetch` on a `?sk=` URL still returns the paywalled preview; the same URL in the built-in browser returns the full article and shows "You're reading via <author>'s Friend Link". No login or membership needed.
+- Medium serves publications from many hosts (`medium.com`, `<user>.medium.com`, and custom domains like `pub.towardsai.net`, `towardsdeeplearning.com`, `ai.plainenglish.io`). Browser site approvals are per-host, so expect several the first time. `medium.com/<user>/<id>?sk=` often 302s to the publication's own domain, which needs its own approval.
+- Cite the canonical article URL in the digest, never the `?sk=` token.
+
+## Extraction
+- Raw `soup.get_text()` on a news site (ZDNET especially) is ~90% nav menu; a 3,000-char cap lands entirely inside the boilerplate. This produced several "capture recovered only site navigation" entries in weeks up to 2026.08.09 that were actually fully recoverable.
+- `readability-lxml` fixes it: the same ZDNET captures yield 4.6k–11k chars of real article body. It is a required dependency.
+- Keep both bodies. readability is right for articles; raw text is right for X captures, where reply threads carry the corrections and readability sometimes trims them.
+
 ## Environment
 - The container network allowlist governs ALL outbound traffic. Currently needed: api.raindrop.io, s3.eu-central-1.wasabisys.com, t.co (+ pypi for beautifulsoup4).
 - Allowlist changes only apply to NEW chats.
