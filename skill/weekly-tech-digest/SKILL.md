@@ -105,6 +105,8 @@ python3 scripts/build_graph.py --week-entries run/week-entries.json \
     --data graph-data.json --template assets/graph_template.html --out graph.html
 ```
 
+Entry ids must be **unique across the whole archive**, not just within the week — the viewer builds one node set from every week, so a repeated id breaks the graph at load time. Before minting an entry id, check `graph-data.json` for it; when a subject genuinely re-appears in a later week (a tool captured again, a project with fresh news), that is a separate entry and gets the week as a suffix — `entry:some-tool-2026-08-23`. The build script fails hard on a collision.
+
 The merge is idempotent per week (safe to re-run) and appends the week to the viewer's week rail. The script fails hard on unknown theme or tag ids — that's the drift guard, not an inconvenience; fix the typo or mint the tag properly, never work around it. Never edit `graph.html` directly; change the template or the data.
 
 ### 6. Deliver
