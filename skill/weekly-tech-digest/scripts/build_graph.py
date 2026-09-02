@@ -17,6 +17,9 @@ Rules enforced here:
 - Existing graph-data.json themes and tags are authoritative: matching ids are
   reused and only genuinely new ones are appended. (Claude must read existing
   themes AND the tag vocabulary BEFORE clustering — this script only merges.)
+- Entry ids must be unique across the WHOLE archive, not just within a week:
+  the viewer builds one vis.js DataSet from every week, so a repeated id
+  breaks the graph at load time. Suffix the week for genuine re-appearances.
 - Entry tag ids must exist in the merged vocabulary — a typo'd tag id fails
   hard rather than silently minting a near-duplicate.
 - Max 4 tags per entry; a missing "tags" key is treated as [].
@@ -65,7 +68,20 @@ def main():
 
     W = wk['week']
     data['entries'] = [e for e in data['entries'] if e['week'] != W]  # idempotent re-run
+    taken = {e['id']: e['week'] for e in data['entries']}  # ids held by other weeks
     for e in wk['entries']:
+        if e['id'] in taken:
+            hint = (f"this week's own week-entries.json lists it twice -- give one of "
+                    f"them a distinct id"
+                    if taken[e['id']] == W else
+                    f"it belongs to week {taken[e['id']]}. If this is a genuine "
+                    f"re-appearance of the same subject in a later week, that is a "
+                    f"separate entry -- suffix the week: {e['id']}-{W.replace('.', '-')}")
+            sys.exit(f"entry id {e['id']} is already taken: {hint}. Entry ids must be "
+                     f"unique across the whole archive, because the viewer builds one "
+                     f"node set from every week and a repeat id breaks the graph at "
+                     f"load time.")
+        taken[e['id']] = W
         if e['theme'] not in known:
             sys.exit(f"entry {e['id']} references unknown theme {e['theme']}")
         e.setdefault('tags', [])

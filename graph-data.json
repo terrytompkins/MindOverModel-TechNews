@@ -6243,7 +6243,7 @@
    "week": "2026.08.23"
   },
   {
-   "id": "entry:microsoft-skill-recorder",
+   "id": "entry:microsoft-skill-recorder-2026-08-23",
    "label": "Microsoft skill-recorder \u2014 record once, and the caveats live in the replies",
    "theme": "theme:harness-loops",
    "url": "https://github.com/microsoft/skill-recorder",
@@ -6580,7 +6580,7 @@
    "week": "2026.08.23"
   },
   {
-   "id": "entry:openworker-andrew-ng",
+   "id": "entry:openworker-andrew-ng-2026-08-23",
    "label": "openworker \u2014 Andrew Ng's outcome-shaped coworker, with the honest section attached",
    "theme": "theme:oss-vs-saas",
    "url": "https://github.com/andrewyng/openworker",
