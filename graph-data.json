@@ -11,7 +11,8 @@
   "2026.08.02",
   "2026.08.09",
   "2026.08.16",
-  "2026.08.23"
+  "2026.08.23",
+  "2026.08.30"
  ],
  "themes": [
   {
@@ -57,6 +58,10 @@
   {
    "id": "theme:visual-artifacts",
    "label": "Diagrams & Visual Artifacts"
+  },
+  {
+   "id": "theme:ai-compute",
+   "label": "AI Compute, Chips & Energy"
   }
  ],
  "entries": [
@@ -6727,6 +6732,697 @@
     "tag:document-ingestion"
    ],
    "week": "2026.08.23"
+  },
+  {
+   "id": "entry:pi-seven-hour-runs",
+   "label": "pi for seven-hour runs \u2014 a minimal harness driven from outside",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/hxiao/status/2094519020531994639",
+   "raindrop_ids": [
+    "1840454020"
+   ],
+   "summary": "Han Xiao's field notes on driving pi headless for 6h+ tasks: minimal toolset plus open-weight models for air-gapped work, pi-vcc to fix slowing compaction, don't build a second harness on top, and declare new models' attributes in models.json. A 7-hour run with 52 nudges and 7 compactions showed no goal drift.",
+   "quick_hit": false,
+   "tags": [
+    "tag:long-running-agents",
+    "tag:harness-engineering",
+    "tag:open-weights",
+    "tag:agent-sandboxing"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:night-shift-folder",
+   "label": "The night-shift folder \u2014 autonomy as an evidence queue",
+   "theme": "theme:harness-loops",
+   "url": "https://x.com/polydao/status/2093756336664109316",
+   "raindrop_ids": [
+    "1839462986"
+   ],
+   "summary": "A folder layout for unattended Claude work: committed CONTRACT.md, spend caps and schedule under .claude/loops, rubric graders, 5,382 dated receipts, trace log, checkpoint, kill.sh and a scoped .mcp.json. Replies ask who does the grading and suggest measuring false-green runs.",
+   "quick_hit": false,
+   "tags": [
+    "tag:long-running-agents",
+    "tag:harness-engineering",
+    "tag:claude-code",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:prime-agent-persistent",
+   "label": "Prime Agent \u2014 open-source, persistent, self-refining",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/PrimeIntellect-ai/prime-agent",
+   "raindrop_ids": [
+    "1838627896"
+   ],
+   "summary": "MIT-licensed agent that splits long-running goals into tasks, spawns sub-agents, keeps a persistent REPL, survives terminal disconnects, and saves improvements via /refine. Best reply: fresh heartbeats don't mean progress, so check for newly saved artifacts.",
+   "quick_hit": false,
+   "tags": [
+    "tag:long-running-agents",
+    "tag:self-improving-agents",
+    "tag:agent-orchestration",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:grokbot-md-contract",
+   "label": "GROKBOT.md \u2014 a contract you paste once, install as the test",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1843930244"
+   ],
+   "summary": "Ask the bot to restate its five gates and name the ones it can't enforce. Sample rules: state on disk in four files, partial and labelled beats complete and invented, two retries then stop, and never test on production data. The author adds that rewriting todo.md moves the goal to the end of the context. No link to the contract file captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:long-running-agents",
+    "tag:context-engineering",
+    "tag:harness-engineering"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:deepseek-harness-everything-plugin",
+   "label": "DeepSeek Harness \u2014 everything is a plugin, including the loop",
+   "theme": "theme:harness-loops",
+   "url": "https://ai-engineering-trend.medium.com/skills-are-obsolete-8c64c2028c89",
+   "raindrop_ids": [
+    "1846547761",
+    "1846547726"
+   ],
+   "summary": "Two captures: DSH v0.1 (MIT, Cordis meta-framework) makes models, tools, skills, sandboxes and the agent loop itself swappable plugins. That covers safe self-modification and rollback but not the evaluator. A hands-on test built a Node/React app with V4 Pro for 30 cents.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-improving-agents",
+    "tag:harness-engineering",
+    "tag:chinese-models",
+    "tag:oss-agent-platforms"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:gepa-omni-optimizer-relay",
+   "label": "GEPA, AutoResearch, Meta-Harness \u2014 relaying between optimizers wins",
+   "theme": "theme:harness-loops",
+   "url": "https://github.com/gepa-ai/gepa",
+   "raindrop_ids": [
+    "1841938231",
+    "1841937975"
+   ],
+   "summary": "On Frontier-CS no single optimizer wins everywhere (GEPA 3, AutoResearch 3, Meta-Harness 4 of 10 tasks). Passing a stalled candidate to a different optimizer breaks the plateau, and the open-source omni relay scores 7.8 points above the best single optimizer at equal budget. The GEPA repo was also captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-improving-agents",
+    "tag:evals-benchmarks",
+    "tag:karpathy",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:spotify-claude-code-block-not-rule",
+   "label": "Spotify's Claude Code setup \u2014 cheap workers and a block instead of a rule",
+   "theme": "theme:harness-loops",
+   "url": "https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90",
+   "raindrop_ids": [
+    "1843920675"
+   ],
+   "summary": "Two cheap sub-assistants handle file reads and boilerplate, and files over 350 lines are hard-blocked from the expensive model, for a claimed 90% token cut. Written rules were ignored and only enforcement held: 'written rules are a suggestion; a block is not.' The cheap worker missed a bug the big model caught.",
+   "quick_hit": false,
+   "tags": [
+    "tag:claude-code",
+    "tag:model-routing",
+    "tag:token-cost-optimization",
+    "tag:harness-engineering"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:headroom-tool-output-compression",
+   "label": "Headroom \u2014 compress tool output before the model pays for it",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1843937897"
+   ],
+   "summary": "Compresses tool outputs, logs, files, RAG results and history before they reach the model, claiming 60\u201395% fewer tokens. Replies single out 10,144\u21921,260 tokens with the same error found, and offer a counter-approach of keeping the verbatim thread on disk. No link captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:token-cost-optimization",
+    "tag:context-engineering"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:google-sdlc-agent-equals-harness",
+   "label": "Google's SDLC guide \u2014 agent = model + harness, verification is the dividing line",
+   "theme": "theme:harness-loops",
+   "url": "https://medium.com/data-science-collective/googles-new-sdlc-guide-draws-a-hard-line-between-vibe-coding-and-agentic-engineering-29ee5514c48c",
+   "raindrop_ids": [
+    "1846550905"
+   ],
+   "summary": "Breakdown of the 50-page Osmani/Saboo/Kartakis whitepaper: without deterministic tests and trajectory evals you are vibe coding; harness-only changes moved an agent from outside the top 30 to the top 5; covers six static/dynamic context types, the 80% problem, and conductor vs orchestrator.",
+   "quick_hit": false,
+   "tags": [
+    "tag:harness-engineering",
+    "tag:context-engineering",
+    "tag:spec-driven-dev",
+    "tag:future-of-engineering"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:zg-zvec-grep",
+   "label": "zg \u2014 semantic and BM25 search in front of ripgrep",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://github.com/zvec-ai/zvec-grep",
+   "raindrop_ids": [
+    "1841938711"
+   ],
+   "summary": "Qwen's local-first CLI and MCP search that fuses semantic, BM25 and rg results with structure-aware indexing and auto-configures Claude Code, Codex, Cursor and OpenCode. On small benchmark samples it cut tool calls by more than half and input tokens by 37\u201350%. Apache 2.0.",
+   "quick_hit": false,
+   "tags": [
+    "tag:code-search",
+    "tag:vector-search",
+    "tag:mcp",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:okf-self-updating-codebase-bundle",
+   "label": "Self-updating OKF codebase bundle \u2014 the spec is one page, the pipeline is the work",
+   "theme": "theme:codebase-comprehension",
+   "url": "https://medium.com/data-science-collective/stop-wasting-llm-tokens-building-a-self-updating-codebase-knowledge-graph-with-okf-20284060c1b1",
+   "raindrop_ids": [
+    "1846549496"
+   ],
+   "summary": "Maps Google's two-pass OKF enrichment agent onto code via a git hook (diff-scoped scan \u2192 draft \u2192 relink \u2192 okf lint \u2192 publish), with honest limits: no search, no type registry, untyped links, and an anecdotal 95% token figure. Build it only if multiple agents already use the repo.",
+   "quick_hit": false,
+   "tags": [
+    "tag:codebase-docs",
+    "tag:knowledge-graphs",
+    "tag:karpathy",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:utopia-temporal-knowledge-graph",
+   "label": "Utopia \u2014 a self-hosted knowledge graph built around when",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/deeplethe/utopia",
+   "raindrop_ids": [
+    "1841937088"
+   ],
+   "summary": "Every fact has start and end dates and a source sentence, corrections close old versions, and a timeline replays what was true on any date. One binary plus Postgres, runs offline. Replies: a dated fact can still be false, and a receipt proves ingestion, not truth.",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:agent-memory",
+    "tag:self-hosting",
+    "tag:rag"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:graphify-messy-folders-2026-08-30",
+   "label": "Graphify, again \u2014 messy folders into one queryable graph",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/Graphify-Labs/graphify",
+   "raindrop_ids": [
+    "1843922829"
+   ],
+   "summary": "Repeat capture pitching code, docs, PDFs and images in one graph with browser visualization, Obsidian output and MCP access. No new numbers. The open reply question: are edges semantic similarity or explicit references?",
+   "quick_hit": false,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:obsidian",
+    "tag:mcp",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:khoj-vs-five-subscriptions",
+   "label": "Khoj vs five subscriptions \u2014 a returning second brain",
+   "theme": "theme:memory-knowledge",
+   "url": "http://github.com/khoj-ai/khoj",
+   "raindrop_ids": [
+    "1839467468"
+   ],
+   "summary": "Framed as replacing Grok, ChatGPT Plus, Perplexity, Claude Pro and Notion AI: AGPL self-hosted semantic search with citations over PDFs, Notion, Markdown and org-mode, across Obsidian, Emacs and WhatsApp. A reply notes the $0 math depends on context length and quantization. Repo link from the 2026.08.02 capture.",
+   "quick_hit": false,
+   "tags": [
+    "tag:second-brain",
+    "tag:self-hosting",
+    "tag:rag",
+    "tag:obsidian"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:book-to-skill-2026-08-30",
+   "label": "book-to-skill, again \u2014 a book as chapters loaded on demand",
+   "theme": "theme:memory-knowledge",
+   "url": "https://github.com/virgiliojr94/book-to-skill",
+   "raindrop_ids": [
+    "1843924672"
+   ],
+   "summary": "Repeat capture detailing the output: SKILL.md with index, one file per chapter, glossary, techniques doc and decision tables. Chapters load on demand, so twenty installed books cost only the active chapter's tokens.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-skills",
+    "tag:context-engineering",
+    "tag:token-cost-optimization"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:read-it-later-split",
+   "label": "Read-it-later apps split in two \u2014 Instapaper reader vs Readwise repository",
+   "theme": "theme:memory-knowledge",
+   "url": "https://kurtis-redux.medium.com/read-it-later-apps-are-splitting-in-two-971d73025493",
+   "raindrop_ids": [
+    "1846543232"
+   ],
+   "summary": "Instapaper 10 doubles down on a quiet reader. Readwise 2.0 turns Reader into an agent-operable knowledge repository with library-wide Ghostreader, Skills and an MCP server. The Raindrop-using author prefers local-first and faults Instapaper for having no MCP or API.",
+   "quick_hit": false,
+   "tags": [
+    "tag:second-brain",
+    "tag:mcp"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:open-coding-llms-by-vram",
+   "label": "Nine open-source coding models, sorted by what they need to run",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/@trends24/9-open-source-coding-llms-actually-worth-running-in-2026-not-just-worth-reading-about-60bac2a7d403",
+   "raindrop_ids": [
+    "1846571272"
+   ],
+   "summary": "Hands-on list pairing quality with hardware: Qwen3.6-27B (17 GB Q4) as the single-GPU pick, Qwen3-Coder tiers from 8B to 480B, and Kimi K2.6/GLM-5.2/DeepSeek V4 via API. Notes the free Qwen OAuth tier was cut, and that two of the list's Qwen entries look like the same 80B-A3B model.",
+   "quick_hit": false,
+   "tags": [
+    "tag:open-weights",
+    "tag:chinese-models",
+    "tag:local-inference",
+    "tag:quantization"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:nine-models-base-mac-mini",
+   "label": "Nine local models on a base 16 GB M4 Mac mini",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/macoclock/i-tried-100-llms-on-m4-mac-mini-these-9-are-insane-772306e6eca3",
+   "raindrop_ids": [
+    "1846547860"
+   ],
+   "summary": "Measured on the real base M4, not an M4 Pro: Qwen3.5-9B chat at 18 tok/s, qwen2.5-coder-7B, local RAG, Gemma 4 12B translation, FLUX.2 klein images, Qwen3-VL-4B OCR, Parakeet at 16.9x real time, Kokoro TTS. Agentic coding models and video don't fit in 16 GB.",
+   "quick_hit": false,
+   "tags": [
+    "tag:local-inference",
+    "tag:local-ai-hardware",
+    "tag:voice-ai",
+    "tag:rag"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:nvidia-personal-ai-router",
+   "label": "NVIDIA's Personal AI Router \u2014 one local endpoint for every machine",
+   "theme": "theme:local-llms",
+   "url": null,
+   "raindrop_ids": [
+    "1843925587"
+   ],
+   "summary": "PAIR auto-discovers DGX Spark, RTX PCs and M4+ Macs on the LAN and routes agent requests to idle Ollama/LM Studio instances behind one endpoint. It doesn't pool VRAM. Replies ask whether it's just LiteLLM plus auto-discovery. No link captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:model-routing",
+    "tag:local-ai-hardware",
+    "tag:local-inference",
+    "tag:self-hosting"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:moss-transcribe-diarize",
+   "label": "MOSS-Transcribe-Diarize \u2014 transcription and speaker labels in one 0.9B model",
+   "theme": "theme:local-llms",
+   "url": "https://medium.com/@bytefer/forget-whisper-diarization-pipelines-0-9b-parameters-90-minute-audio-50-languages-one-model-b1f6965165ab",
+   "raindrop_ids": [
+    "1846543546"
+   ],
+   "summary": "OpenMOSS's single model handles 50+ languages, up to 90 minutes of continuous audio, timestamps, speaker IDs, acoustic events and hotwords with no Pyannote step. Run locally on macOS via mlx-audio.",
+   "quick_hit": false,
+   "tags": [
+    "tag:voice-ai",
+    "tag:local-inference"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:openai-jalapeno-inference-chip",
+   "label": "OpenAI's Jalape\u00f1o \u2014 the first inference curve not led by NVIDIA",
+   "theme": "theme:ai-compute",
+   "url": "https://medium.com/@ignacio.de.gregorio.noblejas/openai-drops-a-spicy-bomb-on-nvidia-b2ceafa4031e",
+   "raindrop_ids": [
+    "1846571205"
+   ],
+   "summary": "OpenAI/Broadcom chip at about 500k vs Rubin's 300k tokens/s/MW at 200 tok/s/user on DeepSeek R1. The lead comes from HBM slices tied to cores plus AI-written kernels, which weakens CUDA as a moat. Caveats: OpenAI-supplied, SemiAnalysis-witnessed numbers, single-turn tests, TSMC supply.",
+   "quick_hit": false,
+   "tags": [
+    "tag:ai-chips",
+    "tag:inference-optimization",
+    "tag:ai-market-dynamics"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:mos2-post-silicon",
+   "label": "Three atoms thick \u2014 MoS2 and the end of silicon in the transistor",
+   "theme": "theme:ai-compute",
+   "url": "https://medium.com/the-geopolitical-economist/silicon-ruled-chips-for-60-years-its-successor-is-three-atoms-thick-d2bcf72f0f32",
+   "raindrop_ids": [
+    "1846546140"
+   ],
+   "summary": "IMEC's roadmap has silicon leaving the channel around 2041. MoS2 promises big energy cuts as data-center power heads toward 945 TWh. Chinese labs have working 2D processors and an 8-inch pilot line targeting 5nm-equivalent without EUV, and MIT's CDimension grows MoS2 on silicon at 200\u00b0C.",
+   "quick_hit": false,
+   "tags": [
+    "tag:ai-chips",
+    "tag:digital-sovereignty"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:spacex-cursor-data-flywheel",
+   "label": "SpaceX paid $60B for Cursor \u2014 for the data, not the editor",
+   "theme": "theme:model-economics",
+   "url": "https://medium.com/predict/spacex-spent-60-billion-on-a-code-editor-the-ai-flywheel-behind-it-makes-the-price-look-cheap-acc7275b55db",
+   "raindrop_ids": [
+    "1846546436"
+   ],
+   "summary": "Idle Colossus GPUs plus Cursor's coding data produced Grok 4.6 (AA index 61, $6/$18 per million tokens) and Grok Bot, while Anthropic pays SpaceX $1.25B a month for Colossus compute. The frame: three labs, three code-driven data flywheels.",
+   "quick_hit": false,
+   "tags": [
+    "tag:ai-market-dynamics",
+    "tag:evals-benchmarks"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:openai-swarm-attack-warning",
+   "label": "OpenAI warns AI swarm attacks are months away \u2014 after its own tests showed how",
+   "theme": "theme:ai-governance",
+   "url": "https://www.zdnet.com/article/openai-warns-malicious-agents-coming-recommended-action/",
+   "raindrop_ids": [
+    "1846573955"
+   ],
+   "summary": "ZDNet reads OpenAI's collective-cyber-defense letter against the Hugging Face incident (1,200+ agents spawned by OpenAI's models) and Anthropic's similar disclosures. Hugging Face fought back with AI but wasn't fast enough, and the column argues the labs' advice is out of reach for small businesses.",
+   "quick_hit": false,
+   "tags": [
+    "tag:security-privacy",
+    "tag:agent-orchestration"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:six-ways-agents-reach-websites",
+   "label": "Six ways agents reach websites \u2014 and why WebMCP keeps all three",
+   "theme": "theme:web-agents",
+   "url": "https://x.com/akshay_pachaar/status/2093749877272715636",
+   "raindrop_ids": [
+    "1838627427"
+   ],
+   "summary": "Raw API, backend MCP, computer use, DOM automation, WebMCP and the site's own assistant, compared on whose agent, what setup and what the agent receives. Replies add the accessibility-tree layer and flag timing, trust in declared actions, cookie scoping, and adoption as open problems.",
+   "quick_hit": false,
+   "tags": [
+    "tag:agent-browsers",
+    "tag:mcp"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:anti-slop-38-rules",
+   "label": "anti-slop \u2014 38 rules that block generic UI",
+   "theme": "theme:web-agents",
+   "url": "http://github.com/miqdadbadjuber/anti-slop",
+   "raindrop_ids": [
+    "1843922662"
+   ],
+   "summary": "npx antislop-ai installs 38 rules against generic layouts, copy and comments for Claude Code, Cursor and Codex, with taste still supplied in DESIGN.md. Replies doubt static rules survive model updates and ask whether they're prompt injection or a post-generation lint.",
+   "quick_hit": false,
+   "tags": [
+    "tag:ai-design-taste",
+    "tag:agent-skills",
+    "tag:claude-code"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:scrollcraft-sameness-check",
+   "label": "scrollcraft \u2014 a skill that treats sameness as a failed check",
+   "theme": "theme:web-agents",
+   "url": null,
+   "raindrop_ids": [
+    "1838627768"
+   ],
+   "summary": "Claude Code skill for scroll-driven sites: eight page grammars, a fingerprint gate against your past builds, one bespoke interaction per site, headless dead-scroll and contrast checks, a refuse list, and an engine never edited per project. No link captured.",
+   "quick_hit": false,
+   "tags": [
+    "tag:ai-design-taste",
+    "tag:design-to-code",
+    "tag:claude-code",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:archify-2026-08-30",
+   "label": "archify, third time \u2014 typed JSON in, validated diagrams out",
+   "theme": "theme:visual-artifacts",
+   "url": "https://github.com/tt-a1i/archify",
+   "raindrop_ids": [
+    "1843919505"
+   ],
+   "summary": "AI writes architecture intent as typed JSON, and archify validates and renders it deterministically: five diagram types, path tracing, PR before/after comparison, source-backed nodes, HTML/SVG/PNG/WebM export. A reply asks if the PR diff is structural or visual.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming",
+    "tag:codebase-docs",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:drawio-skill-from-code",
+   "label": "drawio-skill \u2014 editable diagrams from code, and a sharp critic",
+   "theme": "theme:visual-artifacts",
+   "url": "https://github.com/Agents365-ai/drawio-skill",
+   "raindrop_ids": [
+    "1838626020"
+   ],
+   "summary": "Generates draw.io files from natural language or Python/Go/Rust/Terraform/K8s/compose/SQL with 11 presets. Replies want layout edits preserved on regeneration, and one calls the output no better than asking the model for draw.io XML.",
+   "quick_hit": false,
+   "tags": [
+    "tag:diagramming",
+    "tag:codebase-docs",
+    "tag:agent-skills"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:nine-claude-code-plugins",
+   "label": "Nine Claude Code plugins that earned a place",
+   "theme": "theme:coding-agents",
+   "url": "https://medium.com/@hii_mohit/9-claude-code-plugins-every-developer-should-install-in-2026-9a35b8fe5a83",
+   "raindrop_ids": [
+    "1846546199"
+   ],
+   "summary": "security-guidance, code-review, Context7, Superpowers, Chrome DevTools MCP, the LSP pack, claude-mem, frontend-design and skill-creator. Start with the two safety plugins; the keepers add a new sense, not a new command.",
+   "quick_hit": false,
+   "tags": [
+    "tag:claude-code",
+    "tag:agent-skills",
+    "tag:mcp",
+    "tag:curated-lists"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:stanford-cs329a-self-improving-agents",
+   "label": "Stanford CS329A Self-Improving AI Agents free on YouTube",
+   "theme": "theme:ai-education",
+   "url": "https://cs329a.stanford.edu/",
+   "raindrop_ids": [
+    "1846541565"
+   ],
+   "summary": "Seventeen lectures (Chowdhery, Mirhoseini) on test-time compute, verifiers, RL, planning, memory and tools, and long-horizon evals, uploaded August 3, 2026. The advice: one lecture a week, then build something tiny from each. Framed around an $850K Anthropic job posting.",
+   "quick_hit": false,
+   "tags": [
+    "tag:self-improving-agents",
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:helium-browser",
+   "label": "Helium \u2014 Chromium without Google, uBlock by default",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/imputnet/helium",
+   "raindrop_ids": [
+    "1843926990"
+   ],
+   "summary": "Open-source minimalist Chromium fork with no Google or tracking and uBlock built in. Replies flag no Widevine DRM, no password manager or profile routing, Zen Browser preference, and anonymous-developer honeypot worries.",
+   "quick_hit": false,
+   "tags": [
+    "tag:security-privacy"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:system-design-primer-2026-08-30",
+   "label": "system-design-primer \u2014 the 360k-star interview repo",
+   "theme": "theme:ai-education",
+   "url": "https://github.com/donnemartin/system-design-primer",
+   "raindrop_ids": [
+    "1843929543"
+   ],
+   "summary": "Chinese-language praise for the system-design repo: interview questions broken into diagrams and cases, 300+ illustrations, Anki cards.",
+   "quick_hit": true,
+   "tags": [
+    "tag:learning-resources"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:grok-bot-mogul-playbook",
+   "label": "Mogul \u2014 the Grok Bot boring-internet playbook",
+   "theme": "theme:harness-loops",
+   "url": null,
+   "raindrop_ids": [
+    "1843938664"
+   ],
+   "summary": "Thread-bait about a bot that farms niche directory pages and affiliate deals under your name for '$217' by month three. Replies call it fiction and AI slop and point out silent quality decay. No link captured.",
+   "quick_hit": true,
+   "tags": [
+    "tag:long-running-agents",
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:300-agents-one-graph",
+   "label": "300 agents, one shared graph",
+   "theme": "theme:memory-knowledge",
+   "url": null,
+   "raindrop_ids": [
+    "1843924377"
+   ],
+   "summary": "Video post: collapsing 300 agents' sources, entities, overlapping claims and contradictions into one context graph used as memory. Reply: what if the graph itself contradicts? No link captured.",
+   "quick_hit": true,
+   "tags": [
+    "tag:knowledge-graphs",
+    "tag:agent-orchestration",
+    "tag:agent-memory"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:qwen38-27b-macbook-preview",
+   "label": "Qwen3.8-27B on an M4 Max MacBook (preview only)",
+   "theme": "theme:local-llms",
+   "url": "https://xhinker.medium.com/i-ran-qwen-3-8-27b-on-a-macbook-while-traveling-and-it-blew-my-mind-0089f4306c30",
+   "raindrop_ids": [
+    "1846542449"
+   ],
+   "summary": "Fourth Qwen3.8-27B capture in two weeks: run via llama.cpp on an M4 Max while traveling. Only the member-only preview was recoverable, so the comparisons with Opus 4.6, DeepSeek V4 Flash and GLM 5.2 are not summarized.",
+   "quick_hit": true,
+   "tags": [
+    "tag:chinese-models",
+    "tag:local-inference",
+    "tag:local-ai-hardware"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:ods-2026-08-30",
+   "label": "ODS, third capture",
+   "theme": "theme:local-llms",
+   "url": "https://github.com/Osmantic/ODS",
+   "raindrop_ids": [
+    "1841937269"
+   ],
+   "summary": "One-command Ollama, Open WebUI, n8n and ComfyUI stack. Replies note the maintenance cost and container sprawl.",
+   "quick_hit": true,
+   "tags": [
+    "tag:self-hosting",
+    "tag:local-inference"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:openwhispr-offline-dictation",
+   "label": "OpenWhispr offline voice-to-text",
+   "theme": "theme:local-llms",
+   "url": "https://osp.fyi/open-whispr",
+   "raindrop_ids": [
+    "1841936706"
+   ],
+   "summary": "Free, open-source dictation that runs fully offline. A reply suggests Handy. Second-hop shortener.",
+   "quick_hit": true,
+   "tags": [
+    "tag:voice-ai",
+    "tag:local-inference"
+   ],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:formengine-react-forms",
+   "label": "FormEngine JSON-first React form builder",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://github.com/optimajet/formengine",
+   "raindrop_ids": [
+    "1843937728"
+   ],
+   "summary": "Open-source drag-and-drop React form builder rendering from JSON, with MUI, shadcn/ui, React Suite and Mantine support. URL de-obfuscated from capture text.",
+   "quick_hit": true,
+   "tags": [],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:capacitor-web-to-mobile",
+   "label": "Capacitor one web app on iOS Android and web",
+   "theme": "theme:oss-vs-saas",
+   "url": "https://osp.fyi/capacitor",
+   "raindrop_ids": [
+    "1838625857"
+   ],
+   "summary": "Build one web app for phones and browsers, with native features via plugins. Second-hop shortener.",
+   "quick_hit": true,
+   "tags": [],
+   "week": "2026.08.30"
+  },
+  {
+   "id": "entry:yoinks-video-downloader",
+   "label": "yoinks terminal video downloader",
+   "theme": "theme:oss-vs-saas",
+   "url": null,
+   "raindrop_ids": [
+    "1843919299"
+   ],
+   "summary": "Downloads video from 1,800+ sites. Nearly every reply calls it a yt-dlp wrapper. No link captured.",
+   "quick_hit": true,
+   "tags": [
+    "tag:hype-debunked"
+   ],
+   "week": "2026.08.30"
   }
  ],
  "tags": [
@@ -7062,6 +7758,36 @@
     "MoE",
     "sparse experts",
     "expert routing"
+   ]
+  },
+  {
+   "id": "tag:long-running-agents",
+   "label": "Long-running agents",
+   "aliases": [
+    "long-horizon",
+    "background agents",
+    "overnight agents",
+    "autonomous loops"
+   ]
+  },
+  {
+   "id": "tag:ai-design-taste",
+   "label": "Design taste & anti-slop",
+   "aliases": [
+    "anti-slop",
+    "AI slop",
+    "generic UI",
+    "DESIGN.md"
+   ]
+  },
+  {
+   "id": "tag:ai-chips",
+   "label": "AI chips & semiconductors",
+   "aliases": [
+    "inference chips",
+    "semiconductors",
+    "HBM",
+    "TPU"
    ]
   }
  ]

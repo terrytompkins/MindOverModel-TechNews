@@ -6,7 +6,7 @@ Alongside the weekly posts, a single **cumulative knowledge graph** grows week o
 
 ## Latest digest
 
-**[Week of 2026.08.23](./digest-2026.08.23.md)** — curation replaces discovery as the bottleneck (1,497 official skills, 1,600 community ones, and every piece with real usage behind it is an act of subtraction), NVIDIA’s NOOA shows the same model scoring higher on half the tokens purely from harness design while Nemotron Lightning plus the Switchyard router makes the same argument from the cost side, Qwen3.8–27B gets measured three different ways in one week instead of just announced, and agents start shipping self-contained HTML artifacts — diagrams and system maps — that survive leaving the chat.
+**[Week of 2026.08.30](./digest-2026.08.30.md)** — agents built to keep going after you close the laptop (a seven-hour pi run with no goal drift, a night-shift folder of 5,382 graded receipts, and the reply that says "running" isn’t progressing), the context bill as the real engineering problem (Spotify’s "written rules are a suggestion; a block is not"), self-improvement moving below the skill layer into the loop itself with DeepSeek Harness and GEPA’s optimizer relay, and frontier labs going vertical: OpenAI’s Jalapeño chip, SpaceX’s $60B Cursor data play, and OpenAI’s cyber-defense warning after its own test agents hit Hugging Face.
 
 ## The knowledge graph
 
@@ -18,6 +18,7 @@ Filter by theme, filter by week on the rail along the bottom, search entries, an
 
 | Week | Digest | Graph slice |
 |---|---|---|
+| 2026.08.30 | [digest-2026.08.30.md](./digest-2026.08.30.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.30) |
 | 2026.08.23 | [digest-2026.08.23.md](./digest-2026.08.23.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.23) |
 | 2026.08.16 | [digest-2026.08.16.md](./digest-2026.08.16.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.16) |
 | 2026.08.09 | [digest-2026.08.09.md](./digest-2026.08.09.md) | [view](https://terrytompkins.github.io/MindOverModel-TechNews/graph.html#2026.08.09) |
